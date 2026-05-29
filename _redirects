@@ -1,0 +1,29 @@
+# ============================================================
+# Encore Performing Arts — 301 redirect map (Netlify)
+# Format:   from-path   to-path   status
+#
+# IMPORTANT: This is a STARTER map. Before launch, complete it from the
+# Google Search Console "all known pages" export so NO old Squarespace
+# URL 404s. Every URL that changes during migration needs a 301 here.
+# ============================================================
+
+# --- Resolved duplicates / renames ---
+/showchoir-24                       /aspire-performing-co              301!
+
+# --- Fix known broken links found in the crawl ---
+/encore-scholarship-application-1   /encore-scholarship-application    301
+/lionkingjr                         /summer-of-lion-king-2026          301
+
+# --- Host + HTTPS ---
+# Set www.encorepa.org as the PRIMARY domain in the Netlify dashboard.
+# Netlify auto-redirects the apex (encorepa.org) to it and forces HTTPS.
+
+# --- TODO: add the rest from the GSC export, one per line, e.g.: ---
+# /old-squarespace-slug             /new-slug                          301
+#
+# Placeholder registration links currently used on show pages (create the
+# real per-show forms, or temporarily point them at the generic form):
+# /summer-of-lion-king-8-13-registration   /audition-registration       301
+# /summer-of-lion-king-14-18-registration  /audition-registration       301
+# /back-to-the-future-registration         /page-to-stage-registration  301
+# /aspire-auditions-registration           /audition-registration       301

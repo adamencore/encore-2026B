@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     TICKETS — /tickets
+     Show cards are data-driven from the TICKETS array (in production,
+     generate from the offerings catalog / show data). Buy buttons point
+     to the ThunderTix purchase link per show. Ticket-change form posts to
+     the same Apps Script endpoint as the other forms (form_type below).
+     ============================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy Tickets | Encore Performing Arts — Shows at the Electric Theater</title>
+<meta name="description" content="Buy tickets to Encore Performing Arts productions at the historic Electric Theater in St. George, Utah. Special pricing for students, veterans, seniors, and groups. Sensory-friendly performances available.">
+<link rel="canonical" href="https://www.encorepa.org/tickets">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Encore Performing Arts">
+<meta name="theme-color" content="#2b2b2e">
+
+<meta name="geo.region" content="US-UT">
+<meta name="geo.placename" content="St. George, Utah">
+<meta name="geo.position" content="37.107700;-113.583240">
+<meta name="ICBM" content="37.107700, -113.583240">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Encore Performing Arts">
+<meta property="og:url" content="https://www.encorepa.org/tickets">
+<meta property="og:title" content="Buy Tickets | Encore Performing Arts — Shows at the Electric Theater">
+<meta property="og:description" content="Buy tickets to Encore productions at the historic Electric Theater in St. George, Utah. Special pricing for students, veterans, seniors, and groups.">
+<meta property="og:image" content="https://www.encorepa.org/tickets-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Encore Performing Arts production on stage at the Electric Theater">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Buy Tickets | Encore Performing Arts">
+<meta name="twitter:description" content="Tickets to Encore productions at the Electric Theater in St. George, Utah.">
+<meta name="twitter:image" content="https://www.encorepa.org/tickets-og.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.encorepa.org/tickets#webpage",
+      "url": "https://www.encorepa.org/tickets",
+      "name": "Buy Tickets — Encore Performing Arts",
+      "about": { "@id": "https://www.encorepa.org/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": ["NGO", "PerformingGroup"],
+      "@id": "https://www.encorepa.org/#organization",
+      "name": "Encore Performing Arts",
+      "url": "https://www.encorepa.org",
+      "telephone": "+1-435-414-0049",
+      "sameAs": [
+        "https://www.instagram.com/encorestg",
+        "https://www.facebook.com/encorestg",
+        "https://www.youtube.com/channel/UCBqCS2LKe-5UHp7osQFA-fg"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.encorepa.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Tickets", "item": "https://www.encorepa.org/tickets" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --charcoal:#2b2b2e;--charcoal-2:#3a3a3f;--charcoal-soft:#55555c;
+    --cream:#efe9dd;--cream-lite:#f7f3ea;--paper:#fffdf8;--accent:#6c6c74;
+    --line:rgba(43,43,46,.14);--muted:#7a7a80;--field:#f0ebe0;--err:#b4453a;
+    --radius:26px;--radius-lg:34px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Familjen Grotesk',sans-serif;background:var(--cream-lite);color:var(--charcoal);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  ::selection{background:var(--charcoal);color:var(--cream);}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* NAV */
+  nav.site{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .logo{display:flex;align-items:center;gap:11px;color:var(--charcoal);}
+  .brandmark{height:30px;width:auto;display:block;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500;}
+  .nav-links a{color:var(--charcoal);opacity:.82;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{display:flex;gap:11px;align-items:center;}
+  .btn{border:none;cursor:pointer;font-family:inherit;font-weight:600;border-radius:100px;padding:13px 24px;font-size:14.5px;transition:transform .2s,background .2s,color .2s;display:inline-flex;align-items:center;justify-content:center;gap:9px;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-dark{background:var(--charcoal);color:var(--cream);}
+  .btn-dark:hover{background:var(--charcoal-2);}
+  .btn-ghost{background:transparent;border:1.5px solid var(--charcoal);color:var(--charcoal);}
+  .btn-ghost:hover{background:var(--charcoal);color:var(--cream);}
+  .btn-light{background:var(--cream);color:var(--charcoal);}
+
+  /* BREADCRUMB */
+  .crumbs{padding:18px 0 0;}
+  .crumbs ol{list-style:none;display:flex;gap:8px;font-size:13px;color:var(--muted);align-items:center;flex-wrap:wrap;}
+  .crumbs li{display:inline-flex;align-items:center;gap:8px;}
+  .crumbs li+li::before{content:'›';color:var(--muted);opacity:.6;}
+  .crumbs a:hover{color:var(--charcoal);}
+  .crumbs [aria-current="page"]{color:var(--charcoal);font-weight:600;}
+
+  /* HERO */
+  .hero{padding:14px 0 0;}
+  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:380px;background:linear-gradient(160deg,#3a3a3f,#2b2b2e 60%,#1f1f22);padding:44px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 40px 80px -40px rgba(31,31,34,.5);}
+  .hero-card::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
+  .hero-inner{position:relative;z-index:2;}
+  .hero-eyebrow{display:inline-block;color:rgba(239,233,221,.75);font-weight:600;letter-spacing:.04em;font-size:14px;margin-bottom:14px;}
+  .hero h1{font-family:'Fraunces',serif;color:var(--cream);font-weight:500;font-size:clamp(38px,5.6vw,68px);line-height:1.03;letter-spacing:-.02em;}
+  .hero h1 em{font-style:italic;color:#cfc6b4;}
+  .hero p{color:rgba(239,233,221,.82);max-width:540px;margin:20px 0 26px;font-size:16.5px;line-height:1.6;}
+  .hero-actions{display:flex;gap:13px;flex-wrap:wrap;}
+
+  /* SECTION SCAFFOLD */
+  section{padding:80px 0;}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);color:var(--charcoal);padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:.04em;}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--charcoal);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px;flex-wrap:wrap;}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.02em;color:var(--charcoal);max-width:600px;}
+  .sec-head h2 em{font-style:italic;}
+  .sec-head .lead{max-width:380px;color:var(--muted);font-size:15.5px;line-height:1.6;}
+
+  /* SHOW CARDS */
+  .tk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .tk-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;}
+  .tk-card:hover{transform:translateY(-5px);box-shadow:0 30px 50px -34px rgba(31,31,34,.45);}
+  .tk-cover{position:relative;aspect-ratio:16/10;background:linear-gradient(150deg,#45454c,#26262a);overflow:hidden;}
+  .tk-cover.c2{background:linear-gradient(150deg,#52525a,#2e2e33);}
+  .tk-cover.c3{background:linear-gradient(150deg,#3c3c42,#1f1f22);}
+  .tk-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .tk-cover .tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(247,243,234,.94);color:var(--charcoal);padding:6px 13px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+  .tk-cover .tag.soon{background:var(--charcoal);color:var(--cream);}
+  .tk-body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .tk-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.12;color:var(--charcoal);}
+  .tk-meta{margin:14px 0 20px;display:flex;flex-direction:column;gap:9px;}
+  .tk-meta div{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--charcoal-soft);line-height:1.45;}
+  .tk-meta .ic{flex:none;width:24px;height:24px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:12px;color:var(--charcoal);}
+  .tk-cta{margin-top:auto;}
+  .tk-cta .btn{width:100%;}
+  .tk-soon{margin-top:auto;text-align:center;font-size:13.5px;color:var(--muted);font-weight:600;background:var(--cream);border-radius:100px;padding:14px;}
+  .tk-note{margin-top:26px;font-size:13px;color:var(--muted);line-height:1.6;max-width:680px;}
+
+  /* PRICING BAND */
+  .band{background:var(--charcoal);border-radius:var(--radius-lg);padding:48px;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap;}
+  .band h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-.02em;max-width:560px;}
+  .band h2 em{font-style:italic;color:#cfc6b4;}
+  .band p{color:rgba(239,233,221,.8);margin-top:12px;font-size:15.5px;line-height:1.6;max-width:540px;}
+  .band .phone{display:inline-flex;align-items:center;gap:11px;background:var(--cream);color:var(--charcoal);border-radius:100px;padding:14px 24px;font-weight:600;font-size:16px;white-space:nowrap;}
+  .band .phone .ic{width:30px;height:30px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:13px;}
+
+  /* SENSORY CALLOUT */
+  .sensory{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+  .sensory .l{display:flex;align-items:center;gap:18px;}
+  .sensory .star{flex:none;width:52px;height:52px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:22px;}
+  .sensory h3{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--charcoal);line-height:1.15;}
+  .sensory p{color:var(--muted);font-size:14.5px;margin-top:4px;}
+
+  /* FORM */
+  .form-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:44px;max-width:760px;}
+  .field{margin-bottom:22px;}
+  .field label{display:block;font-weight:600;font-size:14.5px;margin-bottom:8px;}
+  .field label .req{color:var(--err);margin-left:2px;}
+  .field .help{font-size:13px;color:var(--muted);line-height:1.5;margin:-2px 0 10px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  input,select,textarea{width:100%;font-family:inherit;font-size:15.5px;color:var(--charcoal);background:var(--field);border:1px solid transparent;border-radius:14px;padding:15px 18px;transition:border .18s,background .18s;}
+  textarea{min-height:120px;resize:vertical;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--charcoal);background:var(--paper);}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%237a7a80' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px;}
+  input.invalid,select.invalid,textarea.invalid{border-color:var(--err);}
+  .errmsg{color:var(--err);font-size:13px;margin-top:6px;display:none;}
+  .field.show-err .errmsg{display:block;}
+  .actions{margin-top:28px;}
+  .actions .btn{background:var(--charcoal);color:var(--cream);padding:16px 30px;font-size:15.5px;}
+  .actions .btn:hover{background:var(--charcoal-2);}
+  .actions .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none;}
+  .formnote{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.55;}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+  .status{display:none;border-radius:var(--radius);padding:34px;margin-top:10px;max-width:760px;}
+  .status.ok{display:block;background:var(--charcoal);color:var(--cream);}
+  .status.bad{display:block;background:#f6e4e1;border:1px solid #e3b7b0;color:#7a3b34;}
+  .status h2{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin-bottom:10px;}
+  .status p{font-size:15px;line-height:1.6;opacity:.92;}
+  .status.ok a{color:#cfc6b4;font-weight:600;}
+
+  /* INCLUSIVITY */
+  .incl-intro{max-width:720px;color:var(--charcoal-soft);font-size:15.5px;line-height:1.7;margin-bottom:34px;}
+  .incl-intro a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
+  .incl-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .incl-group{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px;}
+  .incl-group h3{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:16px;display:flex;align-items:center;gap:11px;}
+  .incl-group h3 .gi{flex:none;width:34px;height:34px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:15px;}
+  .incl-item{padding:14px 0;border-top:1px solid var(--line);}
+  .incl-item:first-of-type{border-top:0;padding-top:2px;}
+  .incl-item .t{font-weight:600;font-size:14.5px;color:var(--charcoal);margin-bottom:4px;}
+  .incl-item .d{font-size:14px;color:var(--charcoal-soft);line-height:1.6;}
+  .incl-item .d a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
+
+  /* ELECTRIC THEATER (tenant) */
+  .et{background:var(--charcoal);border-radius:var(--radius-lg);padding:56px 48px;color:var(--cream);}
+  .et .pill{background:rgba(239,233,221,.1);border-color:rgba(239,233,221,.2);color:var(--cream);}
+  .et h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);color:var(--cream);letter-spacing:-.02em;margin:18px 0 16px;}
+  .et h2 em{font-style:italic;color:#cfc6b4;}
+  .et > p{color:rgba(239,233,221,.82);font-size:15.5px;line-height:1.7;max-width:680px;}
+  .et-points{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0;}
+  .et-point{background:rgba(239,233,221,.06);border:1px solid rgba(239,233,221,.14);border-radius:20px;padding:24px;}
+  .et-point .t{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:8px;}
+  .et-point p{color:rgba(239,233,221,.78);font-size:14px;line-height:1.6;}
+  .et-point a{color:#cfc6b4;font-weight:600;}
+  .et-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:var(--charcoal);color:var(--cream);padding:74px 0 36px;margin-top:60px;}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(239,233,221,.14);}
+  .foot-brand .logo{color:var(--cream);}
+  .foot-tag{font-family:'Fraunces',serif;font-size:23px;line-height:1.3;margin:22px 0 16px;max-width:340px;font-weight:400;}
+  .foot-tag .hl{font-style:italic;color:#cfc6b4;}
+  .foot-loc{color:rgba(239,233,221,.6);font-size:14px;line-height:1.65;}
+  .foot-loc strong{color:var(--cream);font-weight:600;display:block;margin-bottom:4px;}
+  .foot-col h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,233,221,.5);margin-bottom:16px;}
+  .foot-col a{display:block;color:rgba(239,233,221,.85);font-size:14.5px;margin-bottom:10px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;gap:20px;flex-wrap:wrap;}
+  .foot-bottom p{color:rgba(239,233,221,.5);font-size:13.5px;}
+  .foot-social{display:flex;gap:11px;}
+  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(239,233,221,.2);display:grid;place-items:center;font-size:12.5px;color:var(--cream);}
+  .foot-social a:hover{background:var(--cream);color:var(--charcoal);}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:980px){
+    .nav-links{display:none;}
+    .tk-grid{grid-template-columns:1fr 1fr;}
+    .band{padding:34px 26px;}
+    .sensory{padding:26px;}
+    .form-wrap{padding:30px 24px;}
+    .incl-groups{grid-template-columns:1fr;}
+    .et{padding:38px 24px;}
+    .et-points{grid-template-columns:1fr;}
+    .foot-top{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px;}
+    .tk-grid{grid-template-columns:1fr;}
+    .grid2{grid-template-columns:1fr;}
+    .foot-top{grid-template-columns:1fr;}
+    .hero-card{padding:28px;min-height:340px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav class="site" aria-label="Primary">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="95 678 1330 285" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 1408.65625 916.960938 C 1408.65625 935.914062 1399.183594 945.378906 1380.238281 945.378906 C 1360.121094 945.378906 1350.0625 935.910156 1350.0625 916.960938 C 1350.0625 898.011719 1360.121094 888.535156 1380.238281 888.535156 C 1399.1875 888.535156 1408.65625 898.011719 1408.65625 916.960938 Z M 1369.589844 867.828125 C 1364.964844 837.054688 1361.101562 812.800781 1358.023438 795.074219 C 1354.933594 777.347656 1352.429688 763.5625 1350.507812 753.714844 C 1348.574219 743.867188 1347.230469 736.480469 1346.457031 731.554688 C 1345.6875 726.632812 1345.304688 721.582031 1345.304688 716.414062 C 1345.304688 698.445312 1357.054688 689.453125 1380.574219 689.453125 C 1404.09375 689.453125 1415.84375 698.445312 1415.84375 716.414062 C 1415.84375 721.582031 1415.457031 726.632812 1414.691406 731.554688 C 1413.910156 736.480469 1412.464844 743.867188 1410.347656 753.714844 C 1408.230469 763.5625 1405.234375 777.347656 1401.386719 795.074219 C 1397.527344 812.800781 1392.714844 837.054688 1386.933594 867.828125 L 1369.585938 867.828125 Z M 1369.589844 867.828125 "/><path fill="currentColor" d="M 193.3125 878.203125 C 203.65625 908.855469 244.644531 945.414062 306.316406 890.390625 C 310.007812 887.070312 315.550781 891.496094 313.335938 895.558594 C 301.519531 918.085938 274.5625 951.691406 219.535156 951.691406 C 162.660156 951.695312 115.765625 909.226562 115.765625 856.785156 C 115.765625 803.976562 161.925781 761.507812 219.167969 761.878906 L 220.277344 761.878906 C 266.433594 761.507812 305.582031 789.945312 318.503906 828.71875 C 319.980469 833.519531 317.398438 838.6875 312.59375 840.167969 Z M 245.015625 845.339844 C 247.96875 844.230469 249.816406 840.910156 249.078125 837.949219 C 242.796875 808.40625 228.394531 776.28125 206.976562 779.976562 C 206.609375 779.976562 205.867188 780.34375 205.5 780.34375 C 179.28125 786.992188 181.5 838.320312 188.140625 863.0625 L 245.011719 845.339844 Z M 245.015625 845.339844 "/><path fill="currentColor" d="M 561.691406 949.847656 C 534.363281 959.449219 469.367188 962.773438 469.367188 891.128906 L 469.367188 827.609375 C 469.367188 816.164062 464.566406 794.742188 440.929688 792.53125 C 422.09375 791.054688 405.109375 810.625 405.109375 827.242188 L 405.109375 914.394531 C 405.109375 916.605469 404.003906 937.660156 426.898438 939.875 C 428.746094 940.242188 430.960938 942.089844 430.960938 944.671875 C 430.960938 947.257812 429.113281 949.472656 426.527344 949.472656 L 312.785156 949.472656 C 310.203125 949.472656 307.988281 947.257812 307.988281 944.671875 C 307.988281 942.089844 309.832031 940.242188 312.414062 939.875 C 325.339844 938.398438 333.835938 929.164062 334.207031 915.132812 L 334.207031 808.773438 C 334.207031 808.773438 334.574219 789.203125 313.890625 789.941406 C 310.570312 789.941406 307.984375 787.726562 307.984375 784.398438 C 307.984375 781.816406 309.828125 779.601562 312.414062 779.234375 L 405.109375 764.832031 L 405.109375 788.097656 C 405.109375 788.097656 422.09375 764.464844 463.082031 764.832031 C 501.121094 765.570312 540.265625 789.203125 540.265625 828.351562 L 539.898438 904.789062 C 539.898438 945.042969 561.683594 949.84375 561.683594 949.84375 Z M 561.691406 949.847656 "/><path fill="currentColor" d="M 755.722656 884.503906 C 743.902344 907.035156 709.230469 951.695312 654.210938 951.695312 C 597.339844 951.695312 550.4375 909.226562 550.4375 856.785156 C 550.4375 803.976562 596.59375 761.507812 653.839844 761.878906 L 654.945312 761.878906 C 680.796875 761.507812 704.800781 770.742188 722.894531 785.140625 C 750.226562 807.671875 736.1875 829.457031 708.863281 834.628906 L 707.753906 834.628906 C 694.832031 836.472656 682.277344 828.71875 677.84375 816.535156 C 670.085938 794.742188 657.898438 777.386719 641.652344 779.976562 C 641.28125 779.976562 640.546875 779.976562 640.175781 780.34375 C 608.785156 789.945312 618.390625 855.308594 627.992188 878.203125 C 642.390625 912.917969 693.3125 930.671875 748.707031 879.339844 C 752.402344 876.015625 757.941406 880.445312 755.722656 884.503906 Z M 755.722656 884.503906 "/><path fill="currentColor" d="M 953.707031 857.15625 C 953.707031 911.074219 906.808594 954.648438 849.933594 954.648438 C 793.0625 954.648438 746.160156 911.074219 746.160156 857.15625 C 746.160156 803.238281 792.324219 759.664062 849.566406 759.664062 L 850.671875 759.664062 C 907.539062 759.664062 953.707031 803.238281 953.707031 857.15625 Z M 882.800781 857.15625 C 882.800781 833.152344 878.367188 777.386719 850.671875 777.386719 L 849.195312 777.386719 C 821.5 777.386719 817.066406 833.148438 817.066406 857.15625 C 817.066406 881.164062 821.5 936.925781 849.195312 936.925781 L 850.671875 936.925781 C 878.367188 936.925781 882.800781 881.160156 882.800781 857.15625 Z M 882.800781 857.15625 "/><path fill="currentColor" d="M 1107.984375 830.199219 C 1106.878906 830.570312 1105.402344 830.570312 1103.925781 830.570312 C 1089.160156 830.570312 1077.335938 818.753906 1077.335938 803.980469 C 1077.335938 797.332031 1079.550781 791.425781 1083.617188 786.621094 C 1066.253906 785.882812 1040.40625 812.472656 1040.40625 835 L 1040.40625 914.398438 C 1040.40625 916.609375 1039.300781 937.664062 1062.195312 940.246094 C 1064.777344 940.246094 1066.253906 942.460938 1066.253906 944.675781 L 1066.253906 945.042969 C 1066.253906 947.628906 1064.410156 949.476562 1061.828125 949.476562 L 948.082031 949.476562 C 945.496094 949.476562 943.285156 947.628906 943.285156 944.675781 C 943.285156 942.460938 945.128906 940.246094 947.714844 940.246094 C 969.871094 937.664062 969.503906 916.980469 969.503906 915.503906 L 969.503906 808.777344 C 969.503906 808.777344 969.871094 789.945312 949.191406 789.945312 C 946.238281 789.945312 943.648438 788.101562 943.28125 785.144531 C 942.914062 782.191406 945.125 779.605469 947.710938 779.238281 L 1040.402344 764.835938 L 1040.402344 788.46875 C 1040.402344 788.46875 1061.085938 760.402344 1098.378906 765.207031 C 1140.109375 770.371094 1139.003906 827.984375 1107.980469 830.199219 Z M 1107.984375 830.199219 "/><path fill="currentColor" d="M 1205.851562 878.203125 C 1216.191406 908.855469 1257.183594 945.414062 1318.851562 890.390625 C 1322.546875 887.070312 1328.089844 891.496094 1325.875 895.558594 C 1314.058594 918.085938 1287.097656 951.691406 1232.074219 951.691406 C 1175.203125 951.691406 1128.300781 909.222656 1128.300781 856.78125 C 1128.300781 803.972656 1174.460938 761.503906 1231.707031 761.875 L 1232.8125 761.875 C 1278.972656 761.503906 1318.117188 789.941406 1331.042969 828.714844 C 1332.515625 833.515625 1329.933594 838.683594 1325.132812 840.164062 L 1205.851562 878.199219 Z M 1257.550781 845.339844 C 1260.503906 844.230469 1262.355469 840.910156 1261.613281 837.949219 C 1255.335938 808.40625 1240.929688 776.28125 1219.515625 779.976562 C 1219.144531 779.976562 1218.40625 780.34375 1218.039062 780.34375 C 1191.820312 786.992188 1194.035156 838.320312 1200.675781 863.0625 L 1257.546875 845.339844 Z M 1257.550781 845.339844 "/></svg></a>
+    <div class="nav-links">
+      <a href="/#events">What's On</a>
+      <a href="/#age">Programs by Age</a>
+      <a href="/#access">Accessibility</a>
+      <a href="/electric-theater">Our Home</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/donate" class="btn btn-ghost">Donate</a>
+      <a href="/tickets" class="btn btn-dark">Get Tickets →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== BREADCRUMB ========== -->
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Tickets</li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card reveal">
+        <div class="hero-inner">
+          <span class="hero-eyebrow">Tickets</span>
+          <h1>Get tickets to an <em>Encore show</em></h1>
+          <p>Browse what's on stage at the historic Electric Theater in downtown St. George, and grab your seats.</p>
+          <div class="hero-actions">
+            <a href="#shows" class="btn btn-light">See what's on sale ↓</a>
+            <a href="/electric-theater" class="btn btn-ghost" style="border-color:rgba(239,233,221,.4);color:var(--cream);">Visit the venue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== SHOWS ========== -->
+  <section id="shows" aria-labelledby="shows-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>On Stage</span>
+          <h2 id="shows-h">Upcoming <em>performances</em></h2>
+        </div>
+        <p class="lead">Tickets for Encore productions at the Electric Theater. Choose a show to pick your seats.</p>
+      </div>
+      <div class="tk-grid reveal" id="tkgrid"></div>
+      <p class="tk-note">Tickets for Encore productions are sold through our ticketing partner and open closer to each show.</p>
+    </div>
+  </section>
+
+  <!-- ========== SPECIAL PRICING ========== -->
+  <section style="padding-top:0;" aria-labelledby="pricing-h">
+    <div class="wrap">
+      <div class="band reveal">
+        <div>
+          <h2 id="pricing-h">Special pricing for <em>students, military, veterans, seniors &amp; groups</em></h2>
+          <p>We're proud to offer special pricing across most productions. Reach out to our box office manager for details and group rates.</p>
+        </div>
+        <a class="phone" href="tel:+14354140049,103"><span class="ic" aria-hidden="true">☎</span>(435) 414-0049 ext. 103</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SENSORY-FRIENDLY ========== -->
+  <section style="padding-top:0;" aria-labelledby="sensory-h">
+    <div class="wrap">
+      <div class="sensory reveal">
+        <div class="l">
+          <div class="star" aria-hidden="true">★</div>
+          <div>
+            <h3 id="sensory-h">Interested in a Sensory-Friendly Performance?</h3>
+            <p>Modified, welcoming performances designed for every audience.</p>
+          </div>
+        </div>
+        <a href="/sensory-friendly-performances" class="btn btn-dark">Learn more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TICKET CHANGE FORM ========== -->
+  <section style="padding-top:0;" aria-labelledby="change-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>Need a Change?</span>
+          <h2 id="change-h">Switch dates or <em>adjust your tickets</em></h2>
+        </div>
+        <p class="lead">Need to switch dates or change your tickets? Fill this out and we'll be in touch shortly.</p>
+      </div>
+
+      <form class="form-wrap reveal" id="ticketForm" novalidate>
+        <input type="hidden" name="form_type" value="Ticket Change Request">
+        <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="name">Your name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+            <div class="errmsg">Please enter your name.</div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel">
+            <div class="errmsg">Please enter a phone number.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <div class="errmsg">Please enter a valid email.</div>
+        </div>
+
+        <div class="field">
+          <label for="performance">Which performance? <span class="req">*</span></label>
+          <div class="help">Show name and the date you currently have tickets for, if you know it.</div>
+          <input id="performance" name="performance" type="text" required placeholder="e.g. The Lion King — Fri, Jul 31">
+          <div class="errmsg">Please tell us which performance.</div>
+        </div>
+
+        <div class="field">
+          <label for="request_type">What do you need? <span class="req">*</span></label>
+          <select id="request_type" name="request_type" required>
+            <option value="" selected disabled>Select one…</option>
+            <option>Switch performance dates</option>
+            <option>Change number of tickets</option>
+            <option>Refund or exchange question</option>
+            <option>Accessibility / seating request</option>
+            <option>Something else</option>
+          </select>
+          <div class="errmsg">Please choose an option.</div>
+        </div>
+
+        <div class="field">
+          <label for="details">Details</label>
+          <textarea id="details" name="details" placeholder="Tell us what you'd like to change."></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn" id="submitBtn">Send request →</button>
+          <p class="formnote">We'll reply by email or phone. For anything urgent, call <a href="tel:+14354140049" style="color:var(--charcoal);font-weight:600;">(435) 414-0049</a>.</p>
+        </div>
+      </form>
+
+      <div class="status" id="okPanel" role="status">
+        <h2>Request received</h2>
+        <p>Thanks — we've got your request and our box office will be in touch shortly. For anything urgent, call <a href="tel:+14354140049">(435) 414-0049</a>.</p>
+      </div>
+      <div class="status bad" id="badPanel" role="alert" style="display:none;">
+        <h2>That didn't go through</h2>
+        <p>Something went wrong sending your request. Please try again, or call us at (435) 414-0049 and we'll help right away.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INCLUSIVITY & ACCESSIBILITY ========== -->
+  <section style="padding-top:0;" aria-labelledby="incl-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>Accessibility</span>
+          <h2 id="incl-h">Inclusivity &amp; accessibility <em>resources</em></h2>
+        </div>
+        <p class="lead">Accommodations and policies that make our performances welcoming for everyone.</p>
+      </div>
+      <p class="incl-intro reveal">Encore Performing Arts is committed to making our performances accessible and inclusive for everyone. We offer a variety of resources and accommodations to ensure a welcoming environment for all attendees. If you have any questions, call <a href="tel:+14354140049">(435) 414-0049</a> or email <a href="mailto:hello@encorepa.org">hello@encorepa.org</a>.</p>
+      <div class="incl-groups reveal">
+
+        <div class="incl-group">
+          <h3><span class="gi" aria-hidden="true">✓</span>Policies</h3>
+          <div class="incl-item"><div class="t">Service animals</div><div class="d">We adhere to ADA and state laws regarding service animals. Service animals are always welcome at our events. Emotional support animals and pets are not permitted.</div></div>
+          <div class="incl-item"><div class="t">Therapists &amp; caregivers</div><div class="d">A therapist or caregiver accompanying a paying attendee who requires assistance receives complimentary admission. Please contact us beforehand to reserve the ticket. This does not extend to nannies or babysitters.</div></div>
+          <div class="incl-item"><div class="t">Food &amp; drink</div><div class="d">Outside food and drinks are not allowed, except water. Guests are encouraged to enjoy food and drinks before the event. If an exception is needed, please let a staff member know.</div></div>
+          <div class="incl-item"><div class="t">Strollers</div><div class="d">Strollers are permitted, but we encourage minimizing their use inside the venue due to space limitations.</div></div>
+        </div>
+
+        <div class="incl-group">
+          <h3><span class="gi" aria-hidden="true">★</span>Resources</h3>
+          <div class="incl-item"><div class="t">Sensory-friendly performances</div><div class="d">We host sensory-modified performances for families with sensory processing differences. Admission is free with an RSVP. <a href="/sensory-friendly-performances">Learn more about Sensory-Friendly Performances →</a></div></div>
+          <div class="incl-item"><div class="t">Discounts</div><div class="d">Senior, student, military, and veteran discounts are available on most productions. Ask our box office at <a href="tel:+14354140049,103">(435) 414-0049 ext. 103</a>.</div></div>
+        </div>
+
+        <div class="incl-group">
+          <h3><span class="gi" aria-hidden="true">◈</span>Transportation</h3>
+          <div class="incl-item"><div class="t">Accessible parking</div><div class="d">Accessible parking spaces are located near the Electric Theater. Refer to venue-specific parking information for details.</div></div>
+          <div class="incl-item"><div class="t">Public transit</div><div class="d">The Electric Theater is reachable via local public transit. Check with the local transit authority for schedules and routes.</div></div>
+        </div>
+
+        <div class="incl-group">
+          <h3><span class="gi" aria-hidden="true">♿</span>Facility</h3>
+          <div class="incl-item"><div class="t">Accessible entrance</div><div class="d">The Electric Theater has accessible entrances for guests needing elevator access. Please notify us on arrival for assistance.</div></div>
+          <div class="incl-item"><div class="t">Elevator</div><div class="d">An elevator reaches the classrooms and gallery. Note: there is no elevator access to the theater itself — only the classrooms and gallery.</div></div>
+          <div class="incl-item"><div class="t">Restrooms</div><div class="d">Wheelchair-accessible restrooms are on the main floor, with baby changing stations in both restrooms. A gender-neutral bathroom is at the far end of the gallery, next to the stairs.</div></div>
+          <div class="incl-item"><div class="t">Nursing</div><div class="d">A private space for nursing is available upon request.</div></div>
+          <div class="incl-item"><div class="t">Water fountain</div><div class="d">Accessible drinking fountains are available. If assistance is needed, please ask our staff.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HISTORIC ELECTRIC THEATER (tenant) ========== -->
+  <section style="padding-top:0;" aria-labelledby="et-h">
+    <div class="wrap">
+      <div class="et reveal">
+        <span class="pill"><span class="dot"></span>Our Home</span>
+        <h2 id="et-h">The historic <em>Electric Theater</em></h2>
+        <p>Encore Performing Arts performs regularly at the Electric Theater, an iconic venue that greatly enhances our productions. We're proud to be a frequent performer there — but we don't own the Electric Theater, and we don't handle booking or ticket sales for events other than our own.</p>
+        <div class="et-points">
+          <div class="et-point"><div class="t">Tenant status</div><p>Encore is a tenant at the Electric Theater. We rent the space for our performances and events, but we don't own or manage the theater itself.</p></div>
+          <div class="et-point"><div class="t">Event inquiries</div><p>For other events at the Electric Theater — including booking and ticket sales — please contact the theater directly. It's owned and operated by St. George City.</p></div>
+          <div class="et-point"><div class="t">Contact</div><p>Reach the Electric Theater (City of St. George) at <a href="tel:+14356274515">(435) 627-4515</a>.</p></div>
+        </div>
+        <div class="et-actions">
+          <a href="/electric-theater" class="btn btn-light">Visit our venue page →</a>
+          <a href="https://www.encorepa.org/blog/the-historic-electric-theater-in-st-george-utah" class="btn btn-ghost" style="border-color:rgba(239,233,221,.4);color:var(--cream);">Read the building's history →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="95 678 1330 285" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 1408.65625 916.960938 C 1408.65625 935.914062 1399.183594 945.378906 1380.238281 945.378906 C 1360.121094 945.378906 1350.0625 935.910156 1350.0625 916.960938 C 1350.0625 898.011719 1360.121094 888.535156 1380.238281 888.535156 C 1399.1875 888.535156 1408.65625 898.011719 1408.65625 916.960938 Z M 1369.589844 867.828125 C 1364.964844 837.054688 1361.101562 812.800781 1358.023438 795.074219 C 1354.933594 777.347656 1352.429688 763.5625 1350.507812 753.714844 C 1348.574219 743.867188 1347.230469 736.480469 1346.457031 731.554688 C 1345.6875 726.632812 1345.304688 721.582031 1345.304688 716.414062 C 1345.304688 698.445312 1357.054688 689.453125 1380.574219 689.453125 C 1404.09375 689.453125 1415.84375 698.445312 1415.84375 716.414062 C 1415.84375 721.582031 1415.457031 726.632812 1414.691406 731.554688 C 1413.910156 736.480469 1412.464844 743.867188 1410.347656 753.714844 C 1408.230469 763.5625 1405.234375 777.347656 1401.386719 795.074219 C 1397.527344 812.800781 1392.714844 837.054688 1386.933594 867.828125 L 1369.585938 867.828125 Z M 1369.589844 867.828125 "/><path fill="currentColor" d="M 193.3125 878.203125 C 203.65625 908.855469 244.644531 945.414062 306.316406 890.390625 C 310.007812 887.070312 315.550781 891.496094 313.335938 895.558594 C 301.519531 918.085938 274.5625 951.691406 219.535156 951.691406 C 162.660156 951.695312 115.765625 909.226562 115.765625 856.785156 C 115.765625 803.976562 161.925781 761.507812 219.167969 761.878906 L 220.277344 761.878906 C 266.433594 761.507812 305.582031 789.945312 318.503906 828.71875 C 319.980469 833.519531 317.398438 838.6875 312.59375 840.167969 Z M 245.015625 845.339844 C 247.96875 844.230469 249.816406 840.910156 249.078125 837.949219 C 242.796875 808.40625 228.394531 776.28125 206.976562 779.976562 C 206.609375 779.976562 205.867188 780.34375 205.5 780.34375 C 179.28125 786.992188 181.5 838.320312 188.140625 863.0625 L 245.011719 845.339844 Z M 245.015625 845.339844 "/><path fill="currentColor" d="M 561.691406 949.847656 C 534.363281 959.449219 469.367188 962.773438 469.367188 891.128906 L 469.367188 827.609375 C 469.367188 816.164062 464.566406 794.742188 440.929688 792.53125 C 422.09375 791.054688 405.109375 810.625 405.109375 827.242188 L 405.109375 914.394531 C 405.109375 916.605469 404.003906 937.660156 426.898438 939.875 C 428.746094 940.242188 430.960938 942.089844 430.960938 944.671875 C 430.960938 947.257812 429.113281 949.472656 426.527344 949.472656 L 312.785156 949.472656 C 310.203125 949.472656 307.988281 947.257812 307.988281 944.671875 C 307.988281 942.089844 309.832031 940.242188 312.414062 939.875 C 325.339844 938.398438 333.835938 929.164062 334.207031 915.132812 L 334.207031 808.773438 C 334.207031 808.773438 334.574219 789.203125 313.890625 789.941406 C 310.570312 789.941406 307.984375 787.726562 307.984375 784.398438 C 307.984375 781.816406 309.828125 779.601562 312.414062 779.234375 L 405.109375 764.832031 L 405.109375 788.097656 C 405.109375 788.097656 422.09375 764.464844 463.082031 764.832031 C 501.121094 765.570312 540.265625 789.203125 540.265625 828.351562 L 539.898438 904.789062 C 539.898438 945.042969 561.683594 949.84375 561.683594 949.84375 Z M 561.691406 949.847656 "/><path fill="currentColor" d="M 755.722656 884.503906 C 743.902344 907.035156 709.230469 951.695312 654.210938 951.695312 C 597.339844 951.695312 550.4375 909.226562 550.4375 856.785156 C 550.4375 803.976562 596.59375 761.507812 653.839844 761.878906 L 654.945312 761.878906 C 680.796875 761.507812 704.800781 770.742188 722.894531 785.140625 C 750.226562 807.671875 736.1875 829.457031 708.863281 834.628906 L 707.753906 834.628906 C 694.832031 836.472656 682.277344 828.71875 677.84375 816.535156 C 670.085938 794.742188 657.898438 777.386719 641.652344 779.976562 C 641.28125 779.976562 640.546875 779.976562 640.175781 780.34375 C 608.785156 789.945312 618.390625 855.308594 627.992188 878.203125 C 642.390625 912.917969 693.3125 930.671875 748.707031 879.339844 C 752.402344 876.015625 757.941406 880.445312 755.722656 884.503906 Z M 755.722656 884.503906 "/><path fill="currentColor" d="M 953.707031 857.15625 C 953.707031 911.074219 906.808594 954.648438 849.933594 954.648438 C 793.0625 954.648438 746.160156 911.074219 746.160156 857.15625 C 746.160156 803.238281 792.324219 759.664062 849.566406 759.664062 L 850.671875 759.664062 C 907.539062 759.664062 953.707031 803.238281 953.707031 857.15625 Z M 882.800781 857.15625 C 882.800781 833.152344 878.367188 777.386719 850.671875 777.386719 L 849.195312 777.386719 C 821.5 777.386719 817.066406 833.148438 817.066406 857.15625 C 817.066406 881.164062 821.5 936.925781 849.195312 936.925781 L 850.671875 936.925781 C 878.367188 936.925781 882.800781 881.160156 882.800781 857.15625 Z M 882.800781 857.15625 "/><path fill="currentColor" d="M 1107.984375 830.199219 C 1106.878906 830.570312 1105.402344 830.570312 1103.925781 830.570312 C 1089.160156 830.570312 1077.335938 818.753906 1077.335938 803.980469 C 1077.335938 797.332031 1079.550781 791.425781 1083.617188 786.621094 C 1066.253906 785.882812 1040.40625 812.472656 1040.40625 835 L 1040.40625 914.398438 C 1040.40625 916.609375 1039.300781 937.664062 1062.195312 940.246094 C 1064.777344 940.246094 1066.253906 942.460938 1066.253906 944.675781 L 1066.253906 945.042969 C 1066.253906 947.628906 1064.410156 949.476562 1061.828125 949.476562 L 948.082031 949.476562 C 945.496094 949.476562 943.285156 947.628906 943.285156 944.675781 C 943.285156 942.460938 945.128906 940.246094 947.714844 940.246094 C 969.871094 937.664062 969.503906 916.980469 969.503906 915.503906 L 969.503906 808.777344 C 969.503906 808.777344 969.871094 789.945312 949.191406 789.945312 C 946.238281 789.945312 943.648438 788.101562 943.28125 785.144531 C 942.914062 782.191406 945.125 779.605469 947.710938 779.238281 L 1040.402344 764.835938 L 1040.402344 788.46875 C 1040.402344 788.46875 1061.085938 760.402344 1098.378906 765.207031 C 1140.109375 770.371094 1139.003906 827.984375 1107.980469 830.199219 Z M 1107.984375 830.199219 "/><path fill="currentColor" d="M 1205.851562 878.203125 C 1216.191406 908.855469 1257.183594 945.414062 1318.851562 890.390625 C 1322.546875 887.070312 1328.089844 891.496094 1325.875 895.558594 C 1314.058594 918.085938 1287.097656 951.691406 1232.074219 951.691406 C 1175.203125 951.691406 1128.300781 909.222656 1128.300781 856.78125 C 1128.300781 803.972656 1174.460938 761.503906 1231.707031 761.875 L 1232.8125 761.875 C 1278.972656 761.503906 1318.117188 789.941406 1331.042969 828.714844 C 1332.515625 833.515625 1329.933594 838.683594 1325.132812 840.164062 L 1205.851562 878.199219 Z M 1257.550781 845.339844 C 1260.503906 844.230469 1262.355469 840.910156 1261.613281 837.949219 C 1255.335938 808.40625 1240.929688 776.28125 1219.515625 779.976562 C 1219.144531 779.976562 1218.40625 780.34375 1218.039062 780.34375 C 1191.820312 786.992188 1194.035156 838.320312 1200.675781 863.0625 L 1257.546875 845.339844 Z M 1257.550781 845.339844 "/></svg></a>
+        <div class="foot-tag">Inspiring discovery &amp; <span class="hl">imagination</span> through exploration and play.</div>
+        <div class="foot-loc">
+          <strong>Visit us</strong>
+          The Historic Electric Theater<br>
+          <address style="font-style:normal;display:inline;">68 E Tabernacle St · St. George, UT</address><br>
+          <a href="tel:+14354140049" style="color:#cfc6b4;">(435) 414-0049</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="/#events">What's On</a>
+        <a href="/#age">Programs by Age</a>
+        <a href="/#access">Accessibility</a>
+        <a href="/electric-theater">Our Home</a>
+        <a href="/aspire-performing-co">Aspire</a>
+      </div>
+      <div class="foot-col">
+        <h5>Support</h5>
+        <a href="/donate">Donate</a>
+        <a href="/core-community">Join The Core</a>
+        <a href="/encore-scholarship-application">Scholarships</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+      <div class="foot-col">
+        <h5>Tickets</h5>
+        <a href="#shows">Buy Tickets</a>
+        <a href="/sensory-friendly-performances">Sensory-Friendly</a>
+        <a href="#change-h">Change Your Tickets</a>
+        <a href="/about">About Encore</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Encore Performing Arts · A 501(c)(3) nonprofit · <a href="/terms-and-conditions" style="color:rgba(239,233,221,.5);">Terms</a> · <a href="/privacy-policy" style="color:rgba(239,233,221,.5);">Privacy</a></p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/encorestg" rel="noopener" title="Instagram">IG</a>
+        <a href="https://www.facebook.com/encorestg" rel="noopener" title="Facebook">FB</a>
+        <a href="https://www.youtube.com/channel/UCBqCS2LKe-5UHp7osQFA-fg" rel="noopener" title="YouTube">YT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     SHOW CARDS — data-driven. In production, generate from the
+     offerings catalog / show data. ticketUrl is the ThunderTix link.
+     status: "On sale" shows a Buy button; anything else shows
+     "Tickets coming soon".
+     ============================================================ */
+  const TICKETS = [
+    {title:"Disney's The Lion King", dateRange:"Late July 2026", location:"The Electric Theater · St. George, UT", status:"On sale", ticketUrl:"[[ ThunderTix link ]]", cover:"lion-king-bg.webp"},
+    {title:"Villains Night", dateRange:"October 2026", location:"The Electric Theater · St. George, UT", status:"Coming soon", ticketUrl:"", cover:"villains-bg.webp"},
+    {title:"A Christmas Carol", dateRange:"December 2026", location:"The Electric Theater · St. George, UT", status:"Coming soon", ticketUrl:"", cover:"christmas-carol-bg.webp"}
+  ];
+  const grid=document.getElementById('tkgrid');
+  TICKETS.forEach((s,i)=>{
+    const cls = i===1?'c2':(i===2?'c3':'');
+    const tag = s.status==='On sale' ? '<span class="tag">On sale</span>' : '<span class="tag soon">Coming soon</span>';
+    const cover = s.cover ? '<img src="/img/shows/'+s.cover+'" alt="'+s.title+'" loading="lazy" onerror="this.remove()">' : '';
+    const cta = s.status==='On sale'
+      ? '<div class="tk-cta"><a class="btn btn-dark" href="'+s.ticketUrl+'" target="_blank" rel="noopener">Buy Tickets →</a></div>'
+      : '<div class="tk-soon">Tickets coming soon</div>';
+    grid.insertAdjacentHTML('beforeend',
+      '<article class="tk-card">'
+      +'<div class="tk-cover '+cls+'">'+cover+tag+'</div>'
+      +'<div class="tk-body">'
+      +'<h3 class="tk-title">'+s.title+'</h3>'
+      +'<div class="tk-meta">'
+      +'<div><span class="ic" aria-hidden="true">◷</span><span>'+s.dateRange+'</span></div>'
+      +'<div><span class="ic" aria-hidden="true">◎</span><span>'+s.location+'</span></div>'
+      +'</div>'+cta+'</div></article>');
+  });
+
+  /* ============================================================
+     TICKET CHANGE FORM — posts to the same Apps Script endpoint as
+     the registration forms (routes by form_type "Ticket Change Request").
+     GO LIVE: paste your deployed Web App URL into ENDPOINT.
+     ============================================================ */
+  const ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+  const form=document.getElementById('ticketForm');
+  const submitBtn=document.getElementById('submitBtn');
+
+  function validate(){
+    let ok=true,firstBad=null;
+    form.querySelectorAll('[required]').forEach(el=>{
+      const field=el.closest('.field'); let bad;
+      if(el.type==='email') bad=!el.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value);
+      else bad=!el.value||!el.value.trim();
+      field.classList.toggle('show-err',bad); el.classList.toggle('invalid',bad);
+      if(bad){ok=false;firstBad=firstBad||field;}
+    });
+    if(firstBad) firstBad.scrollIntoView({behavior:'smooth',block:'center'});
+    return ok;
+  }
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!validate()) return;
+    submitBtn.disabled=true; submitBtn.textContent='Sending…';
+    try{
+      const data={};
+      new FormData(form).forEach((v,k)=>{ data[k]=v; });
+      if(ENDPOINT.startsWith('PASTE')) throw new Error('Endpoint not configured yet.');
+      await fetch(ENDPOINT,{method:'POST',mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify(data)});
+      form.style.display='none';
+      document.getElementById('okPanel').classList.add('ok');
+      document.getElementById('okPanel').scrollIntoView({behavior:'smooth'});
+    }catch(err){
+      submitBtn.disabled=false; submitBtn.textContent='Send request →';
+      const bad=document.getElementById('badPanel'); bad.style.display='block';
+      bad.scrollIntoView({behavior:'smooth'});
+    }
+  });
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*0.07+'s';io.observe(el);});
+</script>
+</body>
+</html>

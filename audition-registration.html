@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+  ============================================================
+  AUDITION REGISTRATION FORM  (reusable template)
+  ------------------------------------------------------------
+  Custom, brand-matched replacement for the ElfSight embed.
+  Submits to a Google Apps Script web app that appends a row to a
+  Google Sheet, saves the headshot/resume to Drive, and (optionally)
+  emails the parent a payment link + notifies staff.
+
+  TO REUSE FOR ANOTHER SHOW: change the <title>, the page heading, and
+  the hidden "production" field value. Everything else stays identical,
+  so all auditions land in the same Sheet, tagged by production.
+  For EVENT registrations (e.g. Page to Stage), use this same form with
+  the headshot/resume/t-shirt fields removed.
+
+  GO LIVE: deploy the companion Code.gs as a Web App and paste its URL
+  into ENDPOINT below. Until then, submit will show a friendly error.
+  This page is set to noindex (utility/conversion page, not for ranking).
+  ============================================================
+-->
+
+<title>Audition Registration — Summer of The Lion King 2026 | Encore</title>
+<meta name="description" content="Register to audition for Encore Performing Arts' Summer of The Lion King 2026 in St. George, Utah.">
+<link rel="canonical" href="https://www.encorepa.org/summer-of-lion-king-registration">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#2b2b2e">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --charcoal:#2b2b2e;--charcoal-2:#3a3a3f;--charcoal-soft:#55555c;
+    --cream:#efe9dd;--cream-lite:#f7f3ea;--paper:#fffdf8;--accent:#6c6c74;
+    --line:rgba(43,43,46,.16);--muted:#7a7a80;--radius:26px;--radius-lg:34px;
+    --field:#f1ece0;--err:#b4524a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Familjen Grotesk',sans-serif;background:var(--cream-lite);color:var(--charcoal);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  ::selection{background:var(--charcoal);color:var(--cream);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+  /* NAV */
+  nav.site{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1240px;margin:0 auto;padding:0 28px;}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:600;font-size:24px;letter-spacing:-.02em;color:var(--charcoal);text-decoration:none;}
+  .logo .mark{width:36px;height:36px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:19px;font-style:italic;}
+  .nav-cta a{font-weight:600;font-size:14px;color:var(--charcoal);text-decoration:none;border:1.5px solid var(--charcoal);padding:10px 18px;border-radius:100px;}
+
+  /* HEADER */
+  .head{padding:40px 0 8px;}
+  .crumbs{font-size:13px;color:var(--muted);margin-bottom:18px;}
+  .crumbs a{color:var(--muted);text-decoration:none;}
+  .crumbs a:hover{color:var(--charcoal);}
+  .head .eyebrow{font-weight:600;letter-spacing:.04em;font-size:14px;color:var(--muted);}
+  .head h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(32px,5vw,48px);line-height:1.04;letter-spacing:-.02em;margin:8px 0 14px;}
+  .head h1 em{font-style:italic;}
+  .head p{color:var(--charcoal-soft);font-size:16px;line-height:1.6;max-width:560px;}
+
+  /* FORM */
+  form{padding:34px 0 80px;}
+  fieldset{border:none;margin-bottom:38px;}
+  legend{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--charcoal);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line);width:100%;}
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-weight:600;font-size:14.5px;margin-bottom:8px;}
+  .field label .req{color:var(--err);margin-left:2px;}
+  .field .help{font-size:13px;color:var(--muted);font-style:italic;line-height:1.5;margin-top:-2px;margin-bottom:10px;}
+  .field .help.b{font-style:normal;font-weight:600;color:var(--charcoal-soft);}
+  input,select,textarea{width:100%;font-family:inherit;font-size:15.5px;color:var(--charcoal);background:var(--field);border:1px solid transparent;border-radius:14px;padding:15px 18px;transition:border .18s,background .18s;}
+  input::placeholder{color:#9a958a;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--charcoal);background:var(--paper);}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%237a7a80' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  input.invalid,select.invalid,.drop.invalid{border-color:var(--err);}
+  .errmsg{color:var(--err);font-size:13px;margin-top:6px;display:none;}
+  .field.show-err .errmsg{display:block;}
+
+  /* FILE DROP */
+  .drop{background:var(--paper);border:1.5px dashed var(--line);border-radius:16px;padding:28px;text-align:center;cursor:pointer;transition:border .18s,background .18s;}
+  .drop:hover,.drop.drag{border-color:var(--charcoal);background:#fff;}
+  .drop .pick{color:#b89b3a;font-weight:600;}
+  .drop .fname{display:block;margin-top:8px;font-size:13.5px;color:var(--charcoal);font-weight:600;}
+  .drop input[type=file]{display:none;}
+
+  /* SUBMIT */
+  .actions{margin-top:30px;}
+  .btn{border:none;cursor:pointer;font-family:inherit;font-weight:600;border-radius:100px;padding:16px 30px;font-size:15.5px;background:var(--charcoal);color:var(--cream);display:inline-flex;align-items:center;gap:9px;transition:transform .2s,background .2s;}
+  .btn:hover{transform:translateY(-2px);background:var(--charcoal-2);}
+  .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none;}
+  .formnote{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.55;}
+
+  /* honeypot */
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
+  /* status panels */
+  .status{display:none;border-radius:var(--radius);padding:34px;margin-top:10px;}
+  .status.ok{display:block;background:var(--charcoal);color:var(--cream);}
+  .status.bad{display:block;background:#f6e4e1;border:1px solid #e3b7b0;color:#7a3b34;}
+  .status h2{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin-bottom:10px;}
+  .status p{font-size:15px;line-height:1.6;opacity:.92;}
+  .status.ok a{color:#cfc6b4;font-weight:600;}
+
+  footer{background:var(--charcoal);color:rgba(239,233,221,.6);padding:30px 0;text-align:center;font-size:13px;}
+  footer a{color:#cfc6b4;text-decoration:none;}
+  @media(max-width:560px){ .row2{grid-template-columns:1fr;} }
+  .brandmark{height:30px;width:auto;display:block}
+  .logo .mark{display:none}
+</style>
+</head>
+<body>
+
+<nav class="site" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="95 678 1330 285" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 1408.65625 916.960938 C 1408.65625 935.914062 1399.183594 945.378906 1380.238281 945.378906 C 1360.121094 945.378906 1350.0625 935.910156 1350.0625 916.960938 C 1350.0625 898.011719 1360.121094 888.535156 1380.238281 888.535156 C 1399.1875 888.535156 1408.65625 898.011719 1408.65625 916.960938 Z M 1369.589844 867.828125 C 1364.964844 837.054688 1361.101562 812.800781 1358.023438 795.074219 C 1354.933594 777.347656 1352.429688 763.5625 1350.507812 753.714844 C 1348.574219 743.867188 1347.230469 736.480469 1346.457031 731.554688 C 1345.6875 726.632812 1345.304688 721.582031 1345.304688 716.414062 C 1345.304688 698.445312 1357.054688 689.453125 1380.574219 689.453125 C 1404.09375 689.453125 1415.84375 698.445312 1415.84375 716.414062 C 1415.84375 721.582031 1415.457031 726.632812 1414.691406 731.554688 C 1413.910156 736.480469 1412.464844 743.867188 1410.347656 753.714844 C 1408.230469 763.5625 1405.234375 777.347656 1401.386719 795.074219 C 1397.527344 812.800781 1392.714844 837.054688 1386.933594 867.828125 L 1369.585938 867.828125 Z M 1369.589844 867.828125 "/><path fill="currentColor" d="M 193.3125 878.203125 C 203.65625 908.855469 244.644531 945.414062 306.316406 890.390625 C 310.007812 887.070312 315.550781 891.496094 313.335938 895.558594 C 301.519531 918.085938 274.5625 951.691406 219.535156 951.691406 C 162.660156 951.695312 115.765625 909.226562 115.765625 856.785156 C 115.765625 803.976562 161.925781 761.507812 219.167969 761.878906 L 220.277344 761.878906 C 266.433594 761.507812 305.582031 789.945312 318.503906 828.71875 C 319.980469 833.519531 317.398438 838.6875 312.59375 840.167969 Z M 245.015625 845.339844 C 247.96875 844.230469 249.816406 840.910156 249.078125 837.949219 C 242.796875 808.40625 228.394531 776.28125 206.976562 779.976562 C 206.609375 779.976562 205.867188 780.34375 205.5 780.34375 C 179.28125 786.992188 181.5 838.320312 188.140625 863.0625 L 245.011719 845.339844 Z M 245.015625 845.339844 "/><path fill="currentColor" d="M 561.691406 949.847656 C 534.363281 959.449219 469.367188 962.773438 469.367188 891.128906 L 469.367188 827.609375 C 469.367188 816.164062 464.566406 794.742188 440.929688 792.53125 C 422.09375 791.054688 405.109375 810.625 405.109375 827.242188 L 405.109375 914.394531 C 405.109375 916.605469 404.003906 937.660156 426.898438 939.875 C 428.746094 940.242188 430.960938 942.089844 430.960938 944.671875 C 430.960938 947.257812 429.113281 949.472656 426.527344 949.472656 L 312.785156 949.472656 C 310.203125 949.472656 307.988281 947.257812 307.988281 944.671875 C 307.988281 942.089844 309.832031 940.242188 312.414062 939.875 C 325.339844 938.398438 333.835938 929.164062 334.207031 915.132812 L 334.207031 808.773438 C 334.207031 808.773438 334.574219 789.203125 313.890625 789.941406 C 310.570312 789.941406 307.984375 787.726562 307.984375 784.398438 C 307.984375 781.816406 309.828125 779.601562 312.414062 779.234375 L 405.109375 764.832031 L 405.109375 788.097656 C 405.109375 788.097656 422.09375 764.464844 463.082031 764.832031 C 501.121094 765.570312 540.265625 789.203125 540.265625 828.351562 L 539.898438 904.789062 C 539.898438 945.042969 561.683594 949.84375 561.683594 949.84375 Z M 561.691406 949.847656 "/><path fill="currentColor" d="M 755.722656 884.503906 C 743.902344 907.035156 709.230469 951.695312 654.210938 951.695312 C 597.339844 951.695312 550.4375 909.226562 550.4375 856.785156 C 550.4375 803.976562 596.59375 761.507812 653.839844 761.878906 L 654.945312 761.878906 C 680.796875 761.507812 704.800781 770.742188 722.894531 785.140625 C 750.226562 807.671875 736.1875 829.457031 708.863281 834.628906 L 707.753906 834.628906 C 694.832031 836.472656 682.277344 828.71875 677.84375 816.535156 C 670.085938 794.742188 657.898438 777.386719 641.652344 779.976562 C 641.28125 779.976562 640.546875 779.976562 640.175781 780.34375 C 608.785156 789.945312 618.390625 855.308594 627.992188 878.203125 C 642.390625 912.917969 693.3125 930.671875 748.707031 879.339844 C 752.402344 876.015625 757.941406 880.445312 755.722656 884.503906 Z M 755.722656 884.503906 "/><path fill="currentColor" d="M 953.707031 857.15625 C 953.707031 911.074219 906.808594 954.648438 849.933594 954.648438 C 793.0625 954.648438 746.160156 911.074219 746.160156 857.15625 C 746.160156 803.238281 792.324219 759.664062 849.566406 759.664062 L 850.671875 759.664062 C 907.539062 759.664062 953.707031 803.238281 953.707031 857.15625 Z M 882.800781 857.15625 C 882.800781 833.152344 878.367188 777.386719 850.671875 777.386719 L 849.195312 777.386719 C 821.5 777.386719 817.066406 833.148438 817.066406 857.15625 C 817.066406 881.164062 821.5 936.925781 849.195312 936.925781 L 850.671875 936.925781 C 878.367188 936.925781 882.800781 881.160156 882.800781 857.15625 Z M 882.800781 857.15625 "/><path fill="currentColor" d="M 1107.984375 830.199219 C 1106.878906 830.570312 1105.402344 830.570312 1103.925781 830.570312 C 1089.160156 830.570312 1077.335938 818.753906 1077.335938 803.980469 C 1077.335938 797.332031 1079.550781 791.425781 1083.617188 786.621094 C 1066.253906 785.882812 1040.40625 812.472656 1040.40625 835 L 1040.40625 914.398438 C 1040.40625 916.609375 1039.300781 937.664062 1062.195312 940.246094 C 1064.777344 940.246094 1066.253906 942.460938 1066.253906 944.675781 L 1066.253906 945.042969 C 1066.253906 947.628906 1064.410156 949.476562 1061.828125 949.476562 L 948.082031 949.476562 C 945.496094 949.476562 943.285156 947.628906 943.285156 944.675781 C 943.285156 942.460938 945.128906 940.246094 947.714844 940.246094 C 969.871094 937.664062 969.503906 916.980469 969.503906 915.503906 L 969.503906 808.777344 C 969.503906 808.777344 969.871094 789.945312 949.191406 789.945312 C 946.238281 789.945312 943.648438 788.101562 943.28125 785.144531 C 942.914062 782.191406 945.125 779.605469 947.710938 779.238281 L 1040.402344 764.835938 L 1040.402344 788.46875 C 1040.402344 788.46875 1061.085938 760.402344 1098.378906 765.207031 C 1140.109375 770.371094 1139.003906 827.984375 1107.980469 830.199219 Z M 1107.984375 830.199219 "/><path fill="currentColor" d="M 1205.851562 878.203125 C 1216.191406 908.855469 1257.183594 945.414062 1318.851562 890.390625 C 1322.546875 887.070312 1328.089844 891.496094 1325.875 895.558594 C 1314.058594 918.085938 1287.097656 951.691406 1232.074219 951.691406 C 1175.203125 951.691406 1128.300781 909.222656 1128.300781 856.78125 C 1128.300781 803.972656 1174.460938 761.503906 1231.707031 761.875 L 1232.8125 761.875 C 1278.972656 761.503906 1318.117188 789.941406 1331.042969 828.714844 C 1332.515625 833.515625 1329.933594 838.683594 1325.132812 840.164062 L 1205.851562 878.199219 Z M 1257.550781 845.339844 C 1260.503906 844.230469 1262.355469 840.910156 1261.613281 837.949219 C 1255.335938 808.40625 1240.929688 776.28125 1219.515625 779.976562 C 1219.144531 779.976562 1218.40625 780.34375 1218.039062 780.34375 C 1191.820312 786.992188 1194.035156 838.320312 1200.675781 863.0625 L 1257.546875 845.339844 Z M 1257.550781 845.339844 "/></svg></a>
+    <div class="nav-cta"><a href="/summer-of-lion-king-2026">← Back to the show</a></div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a> › <a href="/summer-of-lion-king-2026">Summer of The Lion King 2026</a> › Register</div>
+    <div class="eyebrow">Audition Registration</div>
+    <h1>Register to audition for <em>The Lion King</em></h1>
+    <p>Fill out the form below to reserve an audition slot. After you submit, we'll be in touch with next steps — and a secure link to pay the participation fee.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <form id="auditionForm" novalidate>
+
+    <!-- Hidden routing fields: identify which production + form type in the Sheet -->
+    <input type="hidden" name="production" value="Summer of The Lion King 2026">
+    <input type="hidden" name="form_type" value="Audition Registration">
+    <!-- Honeypot: real people leave this empty; bots tend to fill it -->
+    <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+    <fieldset>
+      <legend>Auditioner Information</legend>
+
+      <div class="row2">
+        <div class="field">
+          <label for="first_name">First name <span class="req">*</span></label>
+          <input id="first_name" name="first_name" type="text" required autocomplete="given-name">
+          <div class="errmsg">Please enter a first name.</div>
+        </div>
+        <div class="field">
+          <label for="last_name">Last name <span class="req">*</span></label>
+          <input id="last_name" name="last_name" type="text" required autocomplete="family-name">
+          <div class="errmsg">Please enter a last name.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="birthday">Birthday</label>
+        <input id="birthday" name="birthday" type="date">
+        <div class="help">This information is kept private and will be used only to be able to wish our friends a happy birthday. This field is not required.</div>
+      </div>
+
+      <div class="field">
+        <label for="age">Auditioner age <span class="req">*</span></label>
+        <input id="age" name="age" type="number" min="1" max="120" inputmode="numeric" required>
+        <div class="errmsg">Please enter the auditioner's age.</div>
+      </div>
+
+      <div class="field">
+        <label for="gender">Auditioner gender</label>
+        <select id="gender" name="gender">
+          <option value="">Optional</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Non-binary</option>
+          <option>Prefer to self-describe</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="performer_email">Performer email <span style="font-weight:400;color:var(--muted);">(if applicable)</span></label>
+        <input id="performer_email" name="performer_email" type="email" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="performer_phone">Performer phone number <span style="font-weight:400;color:var(--muted);">(if applicable)</span></label>
+        <input id="performer_phone" name="performer_phone" type="tel" autocomplete="tel">
+      </div>
+
+      <div class="field" data-file="headshot">
+        <label>Upload headshot <span class="req">*</span></label>
+        <div class="help b">Please bring a physical copy as well to auditions.</div>
+        <div class="drop" data-for="headshot_file">
+          <span><span class="pick">Choose file</span> or drop here</span>
+          <span class="fname"></span>
+          <input id="headshot_file" name="headshot" type="file" accept="image/*,.pdf">
+        </div>
+        <div class="errmsg">Please upload a headshot.</div>
+      </div>
+
+      <div class="field" data-file="resume">
+        <label>Upload resume <span class="req">*</span></label>
+        <div class="help b">Please bring a physical copy as well to auditions.</div>
+        <div class="drop" data-for="resume_file">
+          <span><span class="pick">Choose file</span> or drop here</span>
+          <span class="fname"></span>
+          <input id="resume_file" name="resume" type="file" accept=".pdf,.doc,.docx,image/*">
+        </div>
+        <div class="errmsg">Please upload a resume.</div>
+      </div>
+
+      <div class="field">
+        <label for="tshirt">Auditioner t-shirt size <span class="req">*</span></label>
+        <select id="tshirt" name="tshirt" required>
+          <option value="">Select a size</option>
+          <option>Youth S</option><option>Youth M</option><option>Youth L</option>
+          <option>Adult XS</option><option>Adult S</option><option>Adult M</option>
+          <option>Adult L</option><option>Adult XL</option><option>Adult XXL</option>
+        </select>
+        <div class="errmsg">Please choose a t-shirt size.</div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Parent / Primary Contact Information</legend>
+      <div class="row2">
+        <div class="field">
+          <label for="parent_first">Parent first name <span class="req">*</span></label>
+          <input id="parent_first" name="parent_first" type="text" required>
+          <div class="errmsg">Please enter the parent's first name.</div>
+        </div>
+        <div class="field">
+          <label for="parent_last">Parent last name <span class="req">*</span></label>
+          <input id="parent_last" name="parent_last" type="text" required>
+          <div class="errmsg">Please enter the parent's last name.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="parent_phone">Parent phone number <span class="req">*</span></label>
+        <input id="parent_phone" name="parent_phone" type="tel" required autocomplete="tel">
+        <div class="errmsg">Please enter a phone number.</div>
+      </div>
+
+      <div class="field">
+        <label for="parent_email">Parent email address <span class="req">*</span></label>
+        <input id="parent_email" name="parent_email" type="email" required autocomplete="email">
+        <div class="help">We'll send confirmation and the secure payment link here.</div>
+        <div class="errmsg">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field">
+        <label for="parent_zip">Parent ZIP code <span class="req">*</span></label>
+        <input id="parent_zip" name="parent_zip" type="text" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" required style="max-width:220px;" autocomplete="postal-code">
+        <div class="errmsg">Please enter a valid ZIP code.</div>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button class="btn" type="submit" id="submitBtn">Submit registration →</button>
+      <p class="formnote">By submitting, you'll receive a confirmation email and a secure link to pay the participation fee. Your card details are never entered on this site.</p>
+    </div>
+  </form>
+
+  <div class="status ok" id="okPanel" role="status">
+    <h2>Registration received</h2>
+    <p>Thank you — we've got it. Check your email for confirmation and the secure payment link to reserve the audition slot. Questions? Call <a href="tel:+14354140049">(435) 414-0049</a>.</p>
+  </div>
+  <div class="status bad" id="badPanel" role="alert">
+    <h2>Something went wrong</h2>
+    <p>We couldn't submit the form just now. Please try again, or email <a href="mailto:hello@encorepa.org">hello@encorepa.org</a> and we'll help you register.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">© 2026 Encore Performing Arts · A 501(c)(3) nonprofit · <a href="tel:+14354140049">(435) 414-0049</a></div>
+</footer>
+
+<script>
+  /* ====== CONFIG: paste your deployed Apps Script Web App URL here ====== */
+  const ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  const form = document.getElementById('auditionForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // File-drop UX
+  document.querySelectorAll('.drop').forEach(drop=>{
+    const input = drop.querySelector('input[type=file]');
+    drop.addEventListener('click', ()=>input.click());
+    ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag');}));
+    ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag');}));
+    drop.addEventListener('drop', e=>{ if(e.dataTransfer.files.length){ input.files=e.dataTransfer.files; showName(input); }});
+    input.addEventListener('change', ()=>showName(input));
+  });
+  function showName(input){
+    const fn = input.closest('.drop').querySelector('.fname');
+    fn.textContent = input.files.length ? input.files[0].name : '';
+    input.closest('.field').classList.remove('show-err');
+    input.closest('.drop').classList.remove('invalid');
+  }
+  function fileToBase64(file){
+    return new Promise((res,rej)=>{
+      const r=new FileReader();
+      r.onload=()=>res({name:file.name,type:file.type,data:String(r.result).split(',')[1]});
+      r.onerror=rej; r.readAsDataURL(file);
+    });
+  }
+
+  function validate(){
+    let ok=true; let firstBad=null;
+    form.querySelectorAll('[required]').forEach(el=>{
+      const field=el.closest('.field'); let bad=false;
+      if(el.type==='email'){ bad = !el.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value); }
+      else { bad = !el.value || !el.value.trim(); }
+      field.classList.toggle('show-err', bad);
+      el.classList.toggle('invalid', bad);
+      if(bad){ ok=false; firstBad=firstBad||field; }
+    });
+    // required file inputs
+    form.querySelectorAll('[data-file]').forEach(field=>{
+      const input=field.querySelector('input[type=file]');
+      const bad=!input.files.length;
+      field.classList.toggle('show-err',bad);
+      field.querySelector('.drop').classList.toggle('invalid',bad);
+      if(bad){ ok=false; firstBad=firstBad||field; }
+    });
+    if(firstBad) firstBad.scrollIntoView({behavior:'smooth',block:'center'});
+    return ok;
+  }
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!validate()) return;
+    submitBtn.disabled=true; submitBtn.textContent='Submitting…';
+    try{
+      const data={};
+      new FormData(form).forEach((v,k)=>{ if(!(v instanceof File)) data[k]=v; });
+      const hs=document.getElementById('headshot_file').files[0];
+      const rs=document.getElementById('resume_file').files[0];
+      if(hs) data.headshot = await fileToBase64(hs);
+      if(rs) data.resume   = await fileToBase64(rs);
+
+      if(ENDPOINT.startsWith('PASTE')) throw new Error('Endpoint not configured yet.');
+
+      // text/plain avoids a CORS preflight that Apps Script can't answer.
+      await fetch(ENDPOINT, { method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify(data) });
+
+      form.style.display='none';
+      document.getElementById('okPanel').classList.add('ok');
+      document.getElementById('okPanel').scrollIntoView({behavior:'smooth'});
+    }catch(err){
+      submitBtn.disabled=false; submitBtn.textContent='Submit registration →';
+      const bad=document.getElementById('badPanel'); bad.style.display='block';
+      bad.scrollIntoView({behavior:'smooth'});
+    }
+  });
+</script>
+</body>
+</html>
