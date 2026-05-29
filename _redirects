@@ -21,9 +21,9 @@
 # --- TODO: add the rest from the GSC export, one per line, e.g.: ---
 # /old-squarespace-slug             /new-slug                          301
 #
-# Placeholder registration links currently used on show pages (create the
-# real per-show forms, or temporarily point them at the generic form):
-# /summer-of-lion-king-8-13-registration   /audition-registration       301
-# /summer-of-lion-king-14-18-registration  /audition-registration       301
-# /back-to-the-future-registration         /page-to-stage-registration  301
-# /aspire-auditions-registration           /audition-registration       301
+# Interim: route per-show registration links to the generic forms so no
+# button dead-ends. Replace with real per-show forms when built.
+/summer-of-lion-king-8-13-registration    /audition-registration         302
+/summer-of-lion-king-14-18-registration   /audition-registration         302
+/back-to-the-future-registration          /page-to-stage-registration    302
+/aspire-auditions-registration            /audition-registration         302
