@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://www.encorepa.org/electric-theater">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Encore Performing Arts">
-<meta name="theme-color" content="#2b2b2e">
+<meta name="theme-color" content="#348193">
 
 <!-- ========== LOCAL SEO (geo) ========== -->
 <meta name="geo.region" content="US-UT">
@@ -148,15 +148,18 @@
 
 <style>
   :root{
-    --charcoal:#2b2b2e;
-    --charcoal-2:#3a3a3f;
-    --charcoal-soft:#55555c;
-    --cream:#efe9dd;
-    --cream-lite:#f7f3ea;
-    --paper:#fffdf8;
-    --accent:#6c6c74;
-    --line:rgba(43,43,46,.14);
-    --muted:#7a7a80;
+    /* ENCORE BRAND PALETTE */
+    --teal:#348193;           /* primary brand teal */
+    --charcoal:#348193;       /* primary (brand teal) */
+    --charcoal-2:#3c8ea1;     /* lighter teal — hovers */
+    --charcoal-soft:#2f6675;  /* deep teal — secondary text */
+    --cream:#e9e4e0;          /* warm cream — surfaces */
+    --cream-lite:#f6f5f3;     /* lightest — page background */
+    --paper:#fdfcfa;          /* card paper */
+    --accent:#e07a5f;         /* coral accent (proposed — pending exact hex) */
+    --accent-2:#cf6a50;       /* coral hover */
+    --line:rgba(21,65,76,.16);
+    --muted:#6b7779;          /* muted teal-gray text */
     --radius:26px;
     --radius-lg:34px;
   }
@@ -169,7 +172,7 @@
   img{display:block;max-width:100%;}
 
   /* NAV */
-  nav.site{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  nav.site{position:sticky;top:0;z-index:100;background:rgba(246,245,243,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;}
   .logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:600;font-size:25px;letter-spacing:-.02em;color:var(--charcoal);}
   .logo .mark{width:38px;height:38px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:20px;font-style:italic;}
@@ -196,20 +199,20 @@
 
   /* HERO */
   .hero{padding:14px 0 0;}
-  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:560px;background:linear-gradient(160deg,#3a3a3f,#2b2b2e 60%,#1f1f22);padding:40px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -40px rgba(31,31,34,.5);}
+  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:560px;background:linear-gradient(160deg,#1d4f5a,#15414c 60%,#0d272d);padding:40px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -40px rgba(13,39,45,.5);}
   .hero-card::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   .hero-top,.hero-bottom{position:relative;z-index:2;}
   .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:11px;background:rgba(239,233,221,.1);border:1px solid rgba(239,233,221,.25);color:var(--cream);padding:9px 18px 9px 12px;border-radius:100px;font-size:13px;font-weight:500;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:11px;background:rgba(233,228,224,.1);border:1px solid rgba(233,228,224,.25);color:var(--cream);padding:9px 18px 9px 12px;border-radius:100px;font-size:13px;font-weight:500;}
   .hero-eyebrow .yr{font-family:'Fraunces',serif;background:var(--cream);color:var(--charcoal);padding:3px 11px;border-radius:100px;font-weight:600;}
   .hero-top .share{display:flex;gap:8px;}
-  .hero-top .share span{width:38px;height:38px;border-radius:50%;background:rgba(239,233,221,.12);border:1px solid rgba(239,233,221,.22);color:var(--cream);display:grid;place-items:center;font-size:13px;backdrop-filter:blur(6px);}
+  .hero-top .share span{width:38px;height:38px;border-radius:50%;background:rgba(233,228,224,.12);border:1px solid rgba(233,228,224,.22);color:var(--cream);display:grid;place-items:center;font-size:13px;backdrop-filter:blur(6px);}
   .hero h1{font-family:'Fraunces',serif;color:var(--cream);font-weight:500;font-size:clamp(40px,6.2vw,82px);line-height:1;letter-spacing:-.025em;}
   .hero h1 em{font-style:italic;color:#cfc6b4;}
-  .hero-bottom .sub{color:rgba(239,233,221,.78);max-width:560px;margin:22px 0 28px;font-size:17px;line-height:1.6;}
+  .hero-bottom .sub{color:rgba(233,228,224,.78);max-width:560px;margin:22px 0 28px;font-size:17px;line-height:1.6;}
   .hero-actions{display:flex;gap:13px;flex-wrap:wrap;}
-  .hero-addr{display:inline-flex;align-items:center;gap:11px;color:rgba(239,233,221,.85);font-size:14px;margin-top:20px;}
-  .hero-addr .ic{width:30px;height:30px;border-radius:50%;background:rgba(239,233,221,.14);display:grid;place-items:center;font-size:12px;}
+  .hero-addr{display:inline-flex;align-items:center;gap:11px;color:rgba(233,228,224,.85);font-size:14px;margin-top:20px;}
+  .hero-addr .ic{width:30px;height:30px;border-radius:50%;background:rgba(233,228,224,.14);display:grid;place-items:center;font-size:12px;}
   .hero-addr address{font-style:normal;}
 
   /* STATS BAR */
@@ -231,21 +234,21 @@
   /* WHAT'S PLAYING */
   .playing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
   .play-card{position:relative;border-radius:var(--radius);overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;}
-  .play-card .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,31,34,.08),rgba(31,31,34,.82));z-index:1;}
+  .play-card .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,39,45,.08),rgba(13,39,45,.82));z-index:1;}
   .play-card>*{position:relative;z-index:2;}
-  .play-card .tag{position:absolute;top:18px;left:18px;background:rgba(247,243,234,.94);color:var(--charcoal);padding:6px 13px;border-radius:100px;font-size:11.5px;font-weight:600;z-index:2;}
-  .play-card .arrow{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(247,243,234,.2);backdrop-filter:blur(4px);color:#fff;display:grid;place-items:center;z-index:2;}
+  .play-card .tag{position:absolute;top:18px;left:18px;background:rgba(246,245,243,.94);color:var(--charcoal);padding:6px 13px;border-radius:100px;font-size:11.5px;font-weight:600;z-index:2;}
+  .play-card .arrow{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(246,245,243,.2);backdrop-filter:blur(4px);color:#fff;display:grid;place-items:center;z-index:2;}
   .play-card .when{font-size:12px;opacity:.85;letter-spacing:.04em;text-transform:uppercase;margin-bottom:5px;}
   .play-card .ttl{font-family:'Fraunces',serif;font-size:22px;font-weight:600;line-height:1.15;}
-  .pc1{background:linear-gradient(150deg,#45454c,#26262a);}
-  .pc2{background:linear-gradient(150deg,#52525a,#2e2e33);}
-  .pc3{background:linear-gradient(150deg,#3c3c42,#1f1f22);}
+  .pc1{background:linear-gradient(150deg,#245f6c,#123139);}
+  .pc2{background:linear-gradient(150deg,#2c6e7d,#17424c);}
+  .pc3{background:linear-gradient(150deg,#1e525e,#0d272d);}
 
   /* VISIT (address + practical) */
   .visit-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:stretch;}
-  .visit-map{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:420px;background:linear-gradient(155deg,#54545d,#2c2c31);display:flex;align-items:flex-end;padding:28px;}
+  .visit-map{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:420px;background:linear-gradient(155deg,#2e7383,#163e47);display:flex;align-items:flex-end;padding:28px;}
   .visit-map::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
-  .visit-map .pin{position:relative;z-index:2;background:rgba(247,243,234,.96);color:var(--charcoal);border-radius:18px;padding:20px 22px;max-width:340px;}
+  .visit-map .pin{position:relative;z-index:2;background:rgba(246,245,243,.96);color:var(--charcoal);border-radius:18px;padding:20px 22px;max-width:340px;}
   .visit-map .pin .nm{font-family:'Fraunces',serif;font-size:21px;font-weight:600;}
   .visit-map .pin address{font-style:normal;color:var(--muted);font-size:14px;margin-top:4px;line-height:1.4;}
   .visit-map .pin .map-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:var(--charcoal);color:var(--cream);padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;}
@@ -260,21 +263,21 @@
   /* ACCESSIBILITY */
   .access{background:var(--charcoal);border-radius:var(--radius-lg);padding:56px 48px;color:var(--cream);}
   .access .sec-head h2{color:var(--cream);}
-  .access .sec-head .lead{color:rgba(239,233,221,.7);}
-  .access .pill{background:rgba(239,233,221,.1);border-color:rgba(239,233,221,.2);color:var(--cream);}
+  .access .sec-head .lead{color:rgba(233,228,224,.7);}
+  .access .pill{background:rgba(233,228,224,.1);border-color:rgba(233,228,224,.2);color:var(--cream);}
   .access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .access-item{background:rgba(239,233,221,.06);border:1px solid rgba(239,233,221,.14);border-radius:22px;padding:24px;}
+  .access-item{background:rgba(233,228,224,.06);border:1px solid rgba(233,228,224,.14);border-radius:22px;padding:24px;}
   .access-item .ic{width:42px;height:42px;border-radius:50%;background:var(--cream);color:var(--charcoal);display:grid;place-items:center;font-size:18px;margin-bottom:18px;}
   .access-item h3{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin-bottom:7px;line-height:1.2;}
-  .access-item p{color:rgba(239,233,221,.78);font-size:14px;line-height:1.55;}
-  .access-foot{margin-top:26px;font-size:14px;color:rgba(239,233,221,.7);}
-  .access-foot a{color:var(--cream);font-weight:600;border-bottom:1px solid rgba(239,233,221,.4);}
+  .access-item p{color:rgba(233,228,224,.78);font-size:14px;line-height:1.55;}
+  .access-foot{margin-top:26px;font-size:14px;color:rgba(233,228,224,.7);}
+  .access-foot a{color:var(--cream);font-weight:600;border-bottom:1px solid rgba(233,228,224,.4);}
 
   /* HISTORY */
   .history-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;}
-  .history-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:440px;background:linear-gradient(155deg,#45454c,#26262a);}
+  .history-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:440px;background:linear-gradient(155deg,#245f6c,#123139);}
   .history-photo::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");}
-  .history-photo figcaption{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(247,243,234,.94);color:var(--charcoal);padding:10px 14px;border-radius:12px;font-size:12.5px;line-height:1.4;}
+  .history-photo figcaption{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(246,245,243,.94);color:var(--charcoal);padding:10px 14px;border-radius:12px;font-size:12.5px;line-height:1.4;}
   .history-photo figcaption strong{display:block;font-family:'Fraunces',serif;font-size:14px;font-weight:600;}
   .history-text h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-.02em;color:var(--charcoal);}
   .history-text h2 em{font-style:italic;}
@@ -286,14 +289,14 @@
   /* GALLERY */
   .gallery{padding:80px 0;}
   .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px;}
-  .gal{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#52525a,#2e2e33);}
+  .gal{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#2c6e7d,#17424c);}
   .gal::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
-  .gal.big{grid-row:1 / span 2;background:linear-gradient(155deg,#3a3a3f,#1f1f22);}
-  .gal.g2{background:linear-gradient(150deg,#48484f,#262629);}
-  .gal.g3{background:linear-gradient(150deg,#3c3c42,#1f1f22);}
-  .gal.g4{background:linear-gradient(150deg,#54545d,#2c2c31);}
-  .gal.g5{background:linear-gradient(150deg,#45454c,#26262a);}
-  .gal figcaption{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(247,243,234,.94);color:var(--charcoal);padding:5px 12px;border-radius:100px;font-size:11.5px;font-weight:600;}
+  .gal.big{grid-row:1 / span 2;background:linear-gradient(155deg,#1d4f5a,#0d272d);}
+  .gal.g2{background:linear-gradient(150deg,#255f6d,#262629);}
+  .gal.g3{background:linear-gradient(150deg,#1e525e,#0d272d);}
+  .gal.g4{background:linear-gradient(150deg,#2e7383,#163e47);}
+  .gal.g5{background:linear-gradient(150deg,#245f6c,#123139);}
+  .gal figcaption{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(246,245,243,.94);color:var(--charcoal);padding:5px 12px;border-radius:100px;font-size:11.5px;font-weight:600;}
 
   /* FAQ */
   .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:50px;align-items:flex-start;}
@@ -310,36 +313,37 @@
   .faq .ans a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
 
   /* CTA BAND */
-  .cta{background:linear-gradient(150deg,#3a3a3f,#26262a);border-radius:var(--radius-lg);padding:54px 48px;color:var(--cream);position:relative;overflow:hidden;}
+  .cta{background:linear-gradient(150deg,#1d4f5a,#123139);border-radius:var(--radius-lg);padding:54px 48px;color:var(--cream);position:relative;overflow:hidden;}
   .cta::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
   .cta-inner{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
   .cta h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3.6vw,40px);line-height:1.06;letter-spacing:-.02em;max-width:480px;}
   .cta h2 em{font-style:italic;color:#cfc6b4;}
-  .cta p{color:rgba(239,233,221,.78);margin-top:12px;font-size:15.5px;max-width:440px;}
+  .cta p{color:rgba(233,228,224,.78);margin-top:12px;font-size:15.5px;max-width:440px;}
 
   /* FOOTER */
   footer{background:var(--charcoal);color:var(--cream);padding:74px 0 36px;margin-top:60px;}
-  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(239,233,221,.14);}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(233,228,224,.14);}
   .foot-brand .logo{color:var(--cream);}
   .foot-brand .logo .mark{background:var(--cream);color:var(--charcoal);}
   .foot-tag{font-family:'Fraunces',serif;font-size:23px;line-height:1.3;margin:22px 0 16px;max-width:340px;font-weight:400;}
   .foot-tag .hl{font-style:italic;color:#cfc6b4;}
-  .foot-loc{color:rgba(239,233,221,.6);font-size:14px;line-height:1.65;}
+  .foot-loc{color:rgba(233,228,224,.6);font-size:14px;line-height:1.65;}
   .foot-loc strong{color:var(--cream);font-weight:600;display:block;margin-bottom:4px;}
-  .foot-col h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,233,221,.5);margin-bottom:16px;}
-  .foot-col a{display:block;color:rgba(239,233,221,.85);font-size:14.5px;margin-bottom:10px;}
+  .foot-col h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(233,228,224,.5);margin-bottom:16px;}
+  .foot-col a{display:block;color:rgba(233,228,224,.85);font-size:14.5px;margin-bottom:10px;}
   .foot-col a:hover{color:#fff;}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;gap:20px;flex-wrap:wrap;}
-  .foot-bottom p{color:rgba(239,233,221,.5);font-size:13.5px;}
+  .foot-bottom p{color:rgba(233,228,224,.5);font-size:13.5px;}
   .foot-social{display:flex;gap:11px;}
-  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(239,233,221,.2);display:grid;place-items:center;font-size:12.5px;color:var(--cream);}
+  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(233,228,224,.2);display:grid;place-items:center;font-size:12.5px;color:var(--cream);}
   .foot-social a:hover{background:var(--cream);color:var(--charcoal);}
 
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
   .reveal.in{opacity:1;transform:none;}
 
   @media(max-width:980px){
-    .nav-links{display:none;}
+    .nav-links,.nav-cta{display:none;}
+    .nav-toggle{display:flex !important;}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .playing-grid{grid-template-columns:1fr;}
     .visit-grid{grid-template-columns:1fr;}
@@ -360,6 +364,26 @@
   }
   .brandmark{height:30px;width:auto;display:block}
   .logo .mark{display:none}
+
+  /* HAMBURGER + MOBILE MENU (site-wide) */
+  nav.site{color:var(--charcoal);}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;border:none;background:transparent;cursor:pointer;padding:0;color:inherit;z-index:2;}
+  .nav-toggle span{display:block;height:2px;width:26px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .2s;margin:0 auto;}
+  body.menu-open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  body.menu-open .nav-toggle span:nth-child(2){opacity:0;}
+  body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  body.menu-open{overflow:hidden;}
+  body.menu-open nav.site{background:transparent !important;border-color:transparent !important;box-shadow:none !important;color:var(--cream);}
+  .mobile-menu{position:fixed;inset:0;z-index:180;background:linear-gradient(165deg,#1d4f5a,#15414c 55%,#0d272d);color:var(--cream);padding:104px 32px 40px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .32s,transform .32s,visibility .32s;overflow-y:auto;}
+  .mobile-menu>nav{position:static;display:flex;flex-direction:column;}
+  body.menu-open .mobile-menu{opacity:1;visibility:visible;transform:none;}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:clamp(30px,7.5vw,46px);font-weight:500;letter-spacing:-.02em;color:var(--cream);padding:16px 0;border-bottom:1px solid rgba(233,228,224,.16);display:flex;justify-content:space-between;align-items:center;line-height:1;}
+  .mobile-menu a .ar{font-size:24px;opacity:.6;}
+  .mobile-menu .mm-cta{margin-top:30px;border:none;}
+  .mobile-menu .mm-cta a{font-family:'Familjen Grotesk',sans-serif;font-size:17px;font-weight:600;color:var(--teal);border:none;padding:16px 28px;justify-content:center;}
+  .mobile-menu .mm-foot{margin-top:30px;font-size:14px;color:rgba(233,228,224,.7);line-height:1.6;}
+  .mobile-menu .mm-foot a{font-family:'Familjen Grotesk',sans-serif;font-size:14px;border:none;padding:0;display:inline;color:#cfc6b4;}
+  .ic svg,.icon svg{display:block;}
 </style>
 </head>
 <body>
@@ -367,19 +391,27 @@
 <!-- ========== NAV ========== -->
 <nav class="site" aria-label="Primary">
   <div class="wrap nav-inner">
-    <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="95 678 1330 285" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 1408.65625 916.960938 C 1408.65625 935.914062 1399.183594 945.378906 1380.238281 945.378906 C 1360.121094 945.378906 1350.0625 935.910156 1350.0625 916.960938 C 1350.0625 898.011719 1360.121094 888.535156 1380.238281 888.535156 C 1399.1875 888.535156 1408.65625 898.011719 1408.65625 916.960938 Z M 1369.589844 867.828125 C 1364.964844 837.054688 1361.101562 812.800781 1358.023438 795.074219 C 1354.933594 777.347656 1352.429688 763.5625 1350.507812 753.714844 C 1348.574219 743.867188 1347.230469 736.480469 1346.457031 731.554688 C 1345.6875 726.632812 1345.304688 721.582031 1345.304688 716.414062 C 1345.304688 698.445312 1357.054688 689.453125 1380.574219 689.453125 C 1404.09375 689.453125 1415.84375 698.445312 1415.84375 716.414062 C 1415.84375 721.582031 1415.457031 726.632812 1414.691406 731.554688 C 1413.910156 736.480469 1412.464844 743.867188 1410.347656 753.714844 C 1408.230469 763.5625 1405.234375 777.347656 1401.386719 795.074219 C 1397.527344 812.800781 1392.714844 837.054688 1386.933594 867.828125 L 1369.585938 867.828125 Z M 1369.589844 867.828125 "/><path fill="currentColor" d="M 193.3125 878.203125 C 203.65625 908.855469 244.644531 945.414062 306.316406 890.390625 C 310.007812 887.070312 315.550781 891.496094 313.335938 895.558594 C 301.519531 918.085938 274.5625 951.691406 219.535156 951.691406 C 162.660156 951.695312 115.765625 909.226562 115.765625 856.785156 C 115.765625 803.976562 161.925781 761.507812 219.167969 761.878906 L 220.277344 761.878906 C 266.433594 761.507812 305.582031 789.945312 318.503906 828.71875 C 319.980469 833.519531 317.398438 838.6875 312.59375 840.167969 Z M 245.015625 845.339844 C 247.96875 844.230469 249.816406 840.910156 249.078125 837.949219 C 242.796875 808.40625 228.394531 776.28125 206.976562 779.976562 C 206.609375 779.976562 205.867188 780.34375 205.5 780.34375 C 179.28125 786.992188 181.5 838.320312 188.140625 863.0625 L 245.011719 845.339844 Z M 245.015625 845.339844 "/><path fill="currentColor" d="M 561.691406 949.847656 C 534.363281 959.449219 469.367188 962.773438 469.367188 891.128906 L 469.367188 827.609375 C 469.367188 816.164062 464.566406 794.742188 440.929688 792.53125 C 422.09375 791.054688 405.109375 810.625 405.109375 827.242188 L 405.109375 914.394531 C 405.109375 916.605469 404.003906 937.660156 426.898438 939.875 C 428.746094 940.242188 430.960938 942.089844 430.960938 944.671875 C 430.960938 947.257812 429.113281 949.472656 426.527344 949.472656 L 312.785156 949.472656 C 310.203125 949.472656 307.988281 947.257812 307.988281 944.671875 C 307.988281 942.089844 309.832031 940.242188 312.414062 939.875 C 325.339844 938.398438 333.835938 929.164062 334.207031 915.132812 L 334.207031 808.773438 C 334.207031 808.773438 334.574219 789.203125 313.890625 789.941406 C 310.570312 789.941406 307.984375 787.726562 307.984375 784.398438 C 307.984375 781.816406 309.828125 779.601562 312.414062 779.234375 L 405.109375 764.832031 L 405.109375 788.097656 C 405.109375 788.097656 422.09375 764.464844 463.082031 764.832031 C 501.121094 765.570312 540.265625 789.203125 540.265625 828.351562 L 539.898438 904.789062 C 539.898438 945.042969 561.683594 949.84375 561.683594 949.84375 Z M 561.691406 949.847656 "/><path fill="currentColor" d="M 755.722656 884.503906 C 743.902344 907.035156 709.230469 951.695312 654.210938 951.695312 C 597.339844 951.695312 550.4375 909.226562 550.4375 856.785156 C 550.4375 803.976562 596.59375 761.507812 653.839844 761.878906 L 654.945312 761.878906 C 680.796875 761.507812 704.800781 770.742188 722.894531 785.140625 C 750.226562 807.671875 736.1875 829.457031 708.863281 834.628906 L 707.753906 834.628906 C 694.832031 836.472656 682.277344 828.71875 677.84375 816.535156 C 670.085938 794.742188 657.898438 777.386719 641.652344 779.976562 C 641.28125 779.976562 640.546875 779.976562 640.175781 780.34375 C 608.785156 789.945312 618.390625 855.308594 627.992188 878.203125 C 642.390625 912.917969 693.3125 930.671875 748.707031 879.339844 C 752.402344 876.015625 757.941406 880.445312 755.722656 884.503906 Z M 755.722656 884.503906 "/><path fill="currentColor" d="M 953.707031 857.15625 C 953.707031 911.074219 906.808594 954.648438 849.933594 954.648438 C 793.0625 954.648438 746.160156 911.074219 746.160156 857.15625 C 746.160156 803.238281 792.324219 759.664062 849.566406 759.664062 L 850.671875 759.664062 C 907.539062 759.664062 953.707031 803.238281 953.707031 857.15625 Z M 882.800781 857.15625 C 882.800781 833.152344 878.367188 777.386719 850.671875 777.386719 L 849.195312 777.386719 C 821.5 777.386719 817.066406 833.148438 817.066406 857.15625 C 817.066406 881.164062 821.5 936.925781 849.195312 936.925781 L 850.671875 936.925781 C 878.367188 936.925781 882.800781 881.160156 882.800781 857.15625 Z M 882.800781 857.15625 "/><path fill="currentColor" d="M 1107.984375 830.199219 C 1106.878906 830.570312 1105.402344 830.570312 1103.925781 830.570312 C 1089.160156 830.570312 1077.335938 818.753906 1077.335938 803.980469 C 1077.335938 797.332031 1079.550781 791.425781 1083.617188 786.621094 C 1066.253906 785.882812 1040.40625 812.472656 1040.40625 835 L 1040.40625 914.398438 C 1040.40625 916.609375 1039.300781 937.664062 1062.195312 940.246094 C 1064.777344 940.246094 1066.253906 942.460938 1066.253906 944.675781 L 1066.253906 945.042969 C 1066.253906 947.628906 1064.410156 949.476562 1061.828125 949.476562 L 948.082031 949.476562 C 945.496094 949.476562 943.285156 947.628906 943.285156 944.675781 C 943.285156 942.460938 945.128906 940.246094 947.714844 940.246094 C 969.871094 937.664062 969.503906 916.980469 969.503906 915.503906 L 969.503906 808.777344 C 969.503906 808.777344 969.871094 789.945312 949.191406 789.945312 C 946.238281 789.945312 943.648438 788.101562 943.28125 785.144531 C 942.914062 782.191406 945.125 779.605469 947.710938 779.238281 L 1040.402344 764.835938 L 1040.402344 788.46875 C 1040.402344 788.46875 1061.085938 760.402344 1098.378906 765.207031 C 1140.109375 770.371094 1139.003906 827.984375 1107.980469 830.199219 Z M 1107.984375 830.199219 "/><path fill="currentColor" d="M 1205.851562 878.203125 C 1216.191406 908.855469 1257.183594 945.414062 1318.851562 890.390625 C 1322.546875 887.070312 1328.089844 891.496094 1325.875 895.558594 C 1314.058594 918.085938 1287.097656 951.691406 1232.074219 951.691406 C 1175.203125 951.691406 1128.300781 909.222656 1128.300781 856.78125 C 1128.300781 803.972656 1174.460938 761.503906 1231.707031 761.875 L 1232.8125 761.875 C 1278.972656 761.503906 1318.117188 789.941406 1331.042969 828.714844 C 1332.515625 833.515625 1329.933594 838.683594 1325.132812 840.164062 L 1205.851562 878.199219 Z M 1257.550781 845.339844 C 1260.503906 844.230469 1262.355469 840.910156 1261.613281 837.949219 C 1255.335938 808.40625 1240.929688 776.28125 1219.515625 779.976562 C 1219.144531 779.976562 1218.40625 780.34375 1218.039062 780.34375 C 1191.820312 786.992188 1194.035156 838.320312 1200.675781 863.0625 L 1257.546875 845.339844 Z M 1257.550781 845.339844 "/></svg></a>
+    <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364.601 74.455" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path d="M362.586,63.803c0,5.315-2.657,7.97-7.97,7.97-5.642,0-8.462-2.656-8.462-7.97s2.82-7.972,8.462-7.972c5.314,0,7.97,2.658,7.97,7.972Zm-10.956-13.779c-1.297-8.63-2.381-15.432-3.244-20.403-.866-4.972-1.569-8.838-2.108-11.6-.542-2.761-.919-4.833-1.136-6.214-.216-1.38-.323-2.797-.323-4.246,0-5.04,3.295-7.561,9.891-7.561s9.891,2.521,9.891,7.561c0,1.449-.108,2.866-.323,4.246-.219,1.381-.624,3.453-1.218,6.214-.594,2.762-1.434,6.628-2.513,11.6-1.082,4.971-2.432,11.773-4.053,20.403h-4.865Z"/><path d="M21.748,52.934c2.901,8.596,14.396,18.849,31.692,3.418,1.035-.932,2.589,.31,1.968,1.449-3.314,6.318-10.874,15.742-26.306,15.742C13.152,73.544,0,61.634,0,46.927c0-14.81,12.946-26.72,28.999-26.616h.311c12.945-.104,23.923,7.871,27.547,18.745,.415,1.346-.31,2.796-1.657,3.211l-33.452,10.667Zm14.5-9.217c.828-.311,1.346-1.242,1.139-2.072-1.761-8.285-5.8-17.295-11.807-16.259-.103,0-.311,.103-.414,.103-7.353,1.865-6.731,16.26-4.868,23.199l15.949-4.971Z"/><path d="M125.058,73.026c-7.664,2.693-25.892,3.625-25.892-16.467v-17.814c0-3.21-1.346-9.217-7.975-9.838-5.282-.414-10.045,5.075-10.045,9.735v24.441c0,.621-.311,6.525,6.11,7.146,.518,.103,1.139,.621,1.139,1.346s-.518,1.346-1.243,1.346h-31.898c-.725,0-1.346-.621-1.346-1.346s.517-1.243,1.242-1.346c3.625-.414,6.007-3.003,6.111-6.939v-29.827s.103-5.489-5.697-5.282c-.931,0-1.657-.621-1.657-1.554,0-.724,.517-1.346,1.242-1.449l25.996-4.039v6.525s4.764-6.628,16.259-6.525c10.668,.207,21.645,6.835,21.645,17.814l-.103,21.437c0,11.289,6.11,12.635,6.11,12.635Z"/><path d="M179.473,54.701c-3.314,6.318-13.038,18.843-28.468,18.843-15.949,0-29.103-11.91-29.103-26.617,0-14.81,12.945-26.72,28.999-26.616h.31c7.25-.104,13.982,2.486,19.056,6.524,7.665,6.318,3.728,12.428-3.935,13.879h-.311c-3.624,.517-7.145-1.658-8.388-5.075-2.176-6.111-5.594-10.979-10.15-10.253-.104,0-.31,0-.414,.103-8.803,2.693-6.11,21.024-3.417,27.445,4.038,9.735,18.319,14.714,33.854,.318,1.036-.932,2.59,.31,1.968,1.449Z"/><path d="M234.997,47.031c0,15.121-13.152,27.341-29.102,27.341s-29.103-12.22-29.103-27.341,12.946-27.341,29-27.341h.31c15.948,0,28.895,12.22,28.895,27.341Zm-19.885,0c0-6.732-1.243-22.371-9.01-22.371h-.414c-7.768,0-9.011,15.638-9.011,22.371s1.243,22.371,9.011,22.371h.414c7.767,0,9.01-15.639,9.01-22.371Z"/><path d="M278.264,39.471c-.31,.104-.724,.104-1.139,.104-4.141,0-7.457-3.314-7.457-7.457,0-1.864,.622-3.521,1.762-4.868-4.869-.207-12.118,7.25-12.118,13.568v22.266c0,.621-.31,6.525,6.11,7.249,.725,0,1.139,.622,1.139,1.243v.103c0,.725-.517,1.243-1.242,1.243h-31.899c-.725,0-1.345-.518-1.345-1.346,0-.621,.517-1.243,1.242-1.243,6.214-.724,6.11-6.524,6.11-6.938v-29.931s.104-5.282-5.696-5.282c-.828,0-1.554-.517-1.657-1.346-.104-.828,.517-1.554,1.242-1.657l25.995-4.039v6.628s5.8-7.871,16.259-6.524c11.703,1.449,11.393,17.606,2.693,18.227Z"/><path d="M305.71,52.934c2.9,8.596,14.396,18.849,31.691,3.418,1.036-.932,2.59,.31,1.969,1.449-3.314,6.318-10.875,15.742-26.306,15.742-15.949,0-29.103-11.91-29.103-26.617,0-14.81,12.946-26.72,29-26.616h.31c12.946-.104,23.924,7.871,27.548,18.745,.414,1.346-.311,2.796-1.657,3.211l-33.452,10.667Zm14.499-9.217c.828-.311,1.347-1.242,1.139-2.072-1.76-8.285-5.8-17.295-11.806-16.259-.104,0-.311,.103-.414,.103-7.353,1.865-6.732,16.26-4.869,23.199l15.949-4.971Z"/></svg></a>
     <div class="nav-links">
-      <a href="/#events">What's On</a>
-      <a href="/#age">Programs by Age</a>
-      <a href="/about">About</a>
-      <a href="/electric-theater" aria-current="page">Our Home</a>
+      <a href="/#events">Auditions</a>
+      <a href="https://www.encorepa.org/donate">Donate</a>
+      <a href="mailto:hello@encorepa.org">Contact Us</a>
     </div>
     <div class="nav-cta">
-      <a href="/donate" class="btn btn-ghost">Donate</a>
       <a href="/tickets" class="btn btn-dark">Get Tickets →</a>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <nav aria-label="Mobile">
+    <a href="/#events">Auditions<span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://www.encorepa.org/donate">Donate<span class="ar" aria-hidden="true">→</span></a>
+    <a href="mailto:hello@encorepa.org">Contact Us<span class="ar" aria-hidden="true">→</span></a>
+    <div class="mm-cta"><a href="/tickets" class="btn btn-light">Get Tickets →</a></div>
+    <div class="mm-foot">The Historic Electric Theater · St. George, UT<br><a href="tel:+14354140049">(435) 414-0049</a></div>
+  </nav>
+</div>
 
 <!-- ========== BREADCRUMB ========== -->
 <nav class="crumbs" aria-label="Breadcrumb">
@@ -402,7 +434,7 @@
           <div class="share" aria-label="Share this page">
             <span title="Share on Facebook">FB</span>
             <span title="Share on Twitter">TW</span>
-            <span title="Copy link">↗</span>
+            <span title="Copy link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
           </div>
         </div>
         <div class="hero-bottom">
@@ -410,10 +442,10 @@
           <p class="sub">A historic downtown St. George venue and the home of Encore Performing Arts since 2021 — where classes meet, rehearsals run, and the curtain rises on every production we put on.</p>
           <div class="hero-actions">
             <a href="#visit" class="btn btn-light">Visit details ↓</a>
-            <a href="#whats-playing" class="btn btn-ghost" style="border-color:rgba(239,233,221,.4);color:var(--cream);">See What's Playing</a>
+            <a href="#whats-playing" class="btn btn-ghost" style="border-color:rgba(233,228,224,.4);color:var(--cream);">See What's Playing</a>
           </div>
           <div class="hero-addr">
-            <span class="ic" aria-hidden="true">◎</span>
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <address>68 E Tabernacle Street · St. George, UT 84770</address>
           </div>
         </div>
@@ -447,21 +479,21 @@
         <article class="play-card pc1 reveal">
           <div class="ov" aria-hidden="true"></div>
           <span class="tag">Auditions Open</span>
-          <a class="arrow" href="/summer-of-lion-king-2026" aria-label="View Disney's Lion King">↗</a>
+          <a class="arrow" href="/summer-of-lion-king-2026" aria-label="View Disney's Lion King"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
           <div class="when"><time datetime="2026-05-14">May 14, 2026</time> · Electric Theater</div>
           <div class="ttl">Disney's Lion King</div>
         </article>
         <article class="play-card pc2 reveal">
           <div class="ov" aria-hidden="true"></div>
           <span class="tag">On Sale</span>
-          <a class="arrow" href="/page-to-stage" aria-label="View Back to the Future event">↗</a>
+          <a class="arrow" href="/page-to-stage" aria-label="View Back to the Future event"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
           <div class="when">Page to Stage Event</div>
           <div class="ttl">Back to the Future</div>
         </article>
         <article class="play-card pc3 reveal">
           <div class="ov" aria-hidden="true"></div>
           <span class="tag">Year-round</span>
-          <a class="arrow" href="/aspire-performing-co" aria-label="View Aspire Show Choir">↗</a>
+          <a class="arrow" href="/aspire-performing-co" aria-label="View Aspire Show Choir"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
           <div class="when">Rehearses weekly at the venue</div>
           <div class="ttl">Aspire Performing Co.</div>
         </article>
@@ -499,7 +531,7 @@
         </figure>
         <div class="visit-info">
           <div class="visit-row">
-            <div class="ic" aria-hidden="true">◔</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
             <div>
               <h3>Box office &amp; doors</h3>
               <p>Doors open 30 minutes before show time. For Encore productions, tickets are available at <a href="/tickets">encorepa.org/tickets</a>.</p>
@@ -513,14 +545,14 @@
             </div>
           </div>
           <div class="visit-row">
-            <div class="ic" aria-hidden="true">☎</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
             <div>
               <h3>Contact</h3>
               <p>Encore: <a href="tel:+14354140049">(435) 414-0049</a><br>Venue (City of St. George): <a href="tel:+14356274515">(435) 627-4515</a></p>
             </div>
           </div>
           <div class="visit-row">
-            <div class="ic" aria-hidden="true">★</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 18.6l-5.88 3.1 1.12-6.55L2.48 9.52l6.58-.96z"/></svg></div>
             <div>
               <h3>Discounts available</h3>
               <p>Senior, student, military, and veteran discounts are offered on most Encore productions.</p>
@@ -544,32 +576,32 @@
         </div>
         <div class="access-grid">
           <div class="access-item">
-            <div class="ic" aria-hidden="true">♿</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7v6"/><path d="M8.5 9.5 12 11l3.5-1.5"/><path d="m9 20 3-7 3 7"/></svg></div>
             <h3>Wheelchair access</h3>
             <p>The classrooms and gallery are accessible. The main theater itself is on the ground floor; there is no elevator to a balcony level. Wheelchair-accessible restrooms are on the main floor.</p>
           </div>
           <div class="access-item">
-            <div class="ic" aria-hidden="true">☉</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <h3>Restrooms &amp; nursing</h3>
             <p>Baby changing stations are in both restrooms. A gender-neutral bathroom is located at the far end of the gallery. A private nursing space is available upon request — just ask a volunteer.</p>
           </div>
           <div class="access-item">
-            <div class="ic" aria-hidden="true">★</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 18.6l-5.88 3.1 1.12-6.55L2.48 9.52l6.58-.96z"/></svg></div>
             <h3>Sensory-friendly shows</h3>
             <p>Encore offers modified sensory-friendly performances for individuals with sensory needs, on the autism spectrum, first-time theatergoers, and young children.</p>
           </div>
           <div class="access-item">
-            <div class="ic" aria-hidden="true">✋</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
             <h3>ASL-interpreted shows</h3>
             <p>Select Encore performances are interpreted in American Sign Language for Deaf and hard-of-hearing patrons. Dates are listed on each production page.</p>
           </div>
           <div class="access-item">
-            <div class="ic" aria-hidden="true">♪</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></svg></div>
             <h3>Assistive listening</h3>
             <p>Speak with venue staff on arrival about available assistive options during your performance.</p>
           </div>
           <div class="access-item">
-            <div class="ic" aria-hidden="true">✦</div>
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.94 14.5 8.5 20l-1.44-5.5L2 13l5.06-1.5L8.5 6l1.44 5.5L15 13z"/><path d="M18 4v4"/><path d="M16 6h4"/></svg></div>
             <h3>Have a specific need?</h3>
             <p>Call us at <a href="tel:+14354140049" style="color:var(--cream);font-weight:600;">(435) 414-0049</a> before your visit. We'll do everything we can to make your experience welcoming.</p>
           </div>
@@ -689,7 +721,7 @@
           </div>
           <div style="display:flex;gap:11px;flex-wrap:wrap;">
             <a href="/#events" class="btn btn-light">See What's On →</a>
-            <a href="/donate" class="btn btn-ghost" style="border-color:rgba(239,233,221,.4);color:var(--cream);">Support Encore</a>
+            <a href="/donate" class="btn btn-ghost" style="border-color:rgba(233,228,224,.4);color:var(--cream);">Support Encore</a>
           </div>
         </div>
       </div>
@@ -703,7 +735,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="95 678 1330 285" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 1408.65625 916.960938 C 1408.65625 935.914062 1399.183594 945.378906 1380.238281 945.378906 C 1360.121094 945.378906 1350.0625 935.910156 1350.0625 916.960938 C 1350.0625 898.011719 1360.121094 888.535156 1380.238281 888.535156 C 1399.1875 888.535156 1408.65625 898.011719 1408.65625 916.960938 Z M 1369.589844 867.828125 C 1364.964844 837.054688 1361.101562 812.800781 1358.023438 795.074219 C 1354.933594 777.347656 1352.429688 763.5625 1350.507812 753.714844 C 1348.574219 743.867188 1347.230469 736.480469 1346.457031 731.554688 C 1345.6875 726.632812 1345.304688 721.582031 1345.304688 716.414062 C 1345.304688 698.445312 1357.054688 689.453125 1380.574219 689.453125 C 1404.09375 689.453125 1415.84375 698.445312 1415.84375 716.414062 C 1415.84375 721.582031 1415.457031 726.632812 1414.691406 731.554688 C 1413.910156 736.480469 1412.464844 743.867188 1410.347656 753.714844 C 1408.230469 763.5625 1405.234375 777.347656 1401.386719 795.074219 C 1397.527344 812.800781 1392.714844 837.054688 1386.933594 867.828125 L 1369.585938 867.828125 Z M 1369.589844 867.828125 "/><path fill="currentColor" d="M 193.3125 878.203125 C 203.65625 908.855469 244.644531 945.414062 306.316406 890.390625 C 310.007812 887.070312 315.550781 891.496094 313.335938 895.558594 C 301.519531 918.085938 274.5625 951.691406 219.535156 951.691406 C 162.660156 951.695312 115.765625 909.226562 115.765625 856.785156 C 115.765625 803.976562 161.925781 761.507812 219.167969 761.878906 L 220.277344 761.878906 C 266.433594 761.507812 305.582031 789.945312 318.503906 828.71875 C 319.980469 833.519531 317.398438 838.6875 312.59375 840.167969 Z M 245.015625 845.339844 C 247.96875 844.230469 249.816406 840.910156 249.078125 837.949219 C 242.796875 808.40625 228.394531 776.28125 206.976562 779.976562 C 206.609375 779.976562 205.867188 780.34375 205.5 780.34375 C 179.28125 786.992188 181.5 838.320312 188.140625 863.0625 L 245.011719 845.339844 Z M 245.015625 845.339844 "/><path fill="currentColor" d="M 561.691406 949.847656 C 534.363281 959.449219 469.367188 962.773438 469.367188 891.128906 L 469.367188 827.609375 C 469.367188 816.164062 464.566406 794.742188 440.929688 792.53125 C 422.09375 791.054688 405.109375 810.625 405.109375 827.242188 L 405.109375 914.394531 C 405.109375 916.605469 404.003906 937.660156 426.898438 939.875 C 428.746094 940.242188 430.960938 942.089844 430.960938 944.671875 C 430.960938 947.257812 429.113281 949.472656 426.527344 949.472656 L 312.785156 949.472656 C 310.203125 949.472656 307.988281 947.257812 307.988281 944.671875 C 307.988281 942.089844 309.832031 940.242188 312.414062 939.875 C 325.339844 938.398438 333.835938 929.164062 334.207031 915.132812 L 334.207031 808.773438 C 334.207031 808.773438 334.574219 789.203125 313.890625 789.941406 C 310.570312 789.941406 307.984375 787.726562 307.984375 784.398438 C 307.984375 781.816406 309.828125 779.601562 312.414062 779.234375 L 405.109375 764.832031 L 405.109375 788.097656 C 405.109375 788.097656 422.09375 764.464844 463.082031 764.832031 C 501.121094 765.570312 540.265625 789.203125 540.265625 828.351562 L 539.898438 904.789062 C 539.898438 945.042969 561.683594 949.84375 561.683594 949.84375 Z M 561.691406 949.847656 "/><path fill="currentColor" d="M 755.722656 884.503906 C 743.902344 907.035156 709.230469 951.695312 654.210938 951.695312 C 597.339844 951.695312 550.4375 909.226562 550.4375 856.785156 C 550.4375 803.976562 596.59375 761.507812 653.839844 761.878906 L 654.945312 761.878906 C 680.796875 761.507812 704.800781 770.742188 722.894531 785.140625 C 750.226562 807.671875 736.1875 829.457031 708.863281 834.628906 L 707.753906 834.628906 C 694.832031 836.472656 682.277344 828.71875 677.84375 816.535156 C 670.085938 794.742188 657.898438 777.386719 641.652344 779.976562 C 641.28125 779.976562 640.546875 779.976562 640.175781 780.34375 C 608.785156 789.945312 618.390625 855.308594 627.992188 878.203125 C 642.390625 912.917969 693.3125 930.671875 748.707031 879.339844 C 752.402344 876.015625 757.941406 880.445312 755.722656 884.503906 Z M 755.722656 884.503906 "/><path fill="currentColor" d="M 953.707031 857.15625 C 953.707031 911.074219 906.808594 954.648438 849.933594 954.648438 C 793.0625 954.648438 746.160156 911.074219 746.160156 857.15625 C 746.160156 803.238281 792.324219 759.664062 849.566406 759.664062 L 850.671875 759.664062 C 907.539062 759.664062 953.707031 803.238281 953.707031 857.15625 Z M 882.800781 857.15625 C 882.800781 833.152344 878.367188 777.386719 850.671875 777.386719 L 849.195312 777.386719 C 821.5 777.386719 817.066406 833.148438 817.066406 857.15625 C 817.066406 881.164062 821.5 936.925781 849.195312 936.925781 L 850.671875 936.925781 C 878.367188 936.925781 882.800781 881.160156 882.800781 857.15625 Z M 882.800781 857.15625 "/><path fill="currentColor" d="M 1107.984375 830.199219 C 1106.878906 830.570312 1105.402344 830.570312 1103.925781 830.570312 C 1089.160156 830.570312 1077.335938 818.753906 1077.335938 803.980469 C 1077.335938 797.332031 1079.550781 791.425781 1083.617188 786.621094 C 1066.253906 785.882812 1040.40625 812.472656 1040.40625 835 L 1040.40625 914.398438 C 1040.40625 916.609375 1039.300781 937.664062 1062.195312 940.246094 C 1064.777344 940.246094 1066.253906 942.460938 1066.253906 944.675781 L 1066.253906 945.042969 C 1066.253906 947.628906 1064.410156 949.476562 1061.828125 949.476562 L 948.082031 949.476562 C 945.496094 949.476562 943.285156 947.628906 943.285156 944.675781 C 943.285156 942.460938 945.128906 940.246094 947.714844 940.246094 C 969.871094 937.664062 969.503906 916.980469 969.503906 915.503906 L 969.503906 808.777344 C 969.503906 808.777344 969.871094 789.945312 949.191406 789.945312 C 946.238281 789.945312 943.648438 788.101562 943.28125 785.144531 C 942.914062 782.191406 945.125 779.605469 947.710938 779.238281 L 1040.402344 764.835938 L 1040.402344 788.46875 C 1040.402344 788.46875 1061.085938 760.402344 1098.378906 765.207031 C 1140.109375 770.371094 1139.003906 827.984375 1107.980469 830.199219 Z M 1107.984375 830.199219 "/><path fill="currentColor" d="M 1205.851562 878.203125 C 1216.191406 908.855469 1257.183594 945.414062 1318.851562 890.390625 C 1322.546875 887.070312 1328.089844 891.496094 1325.875 895.558594 C 1314.058594 918.085938 1287.097656 951.691406 1232.074219 951.691406 C 1175.203125 951.691406 1128.300781 909.222656 1128.300781 856.78125 C 1128.300781 803.972656 1174.460938 761.503906 1231.707031 761.875 L 1232.8125 761.875 C 1278.972656 761.503906 1318.117188 789.941406 1331.042969 828.714844 C 1332.515625 833.515625 1329.933594 838.683594 1325.132812 840.164062 L 1205.851562 878.199219 Z M 1257.550781 845.339844 C 1260.503906 844.230469 1262.355469 840.910156 1261.613281 837.949219 C 1255.335938 808.40625 1240.929688 776.28125 1219.515625 779.976562 C 1219.144531 779.976562 1218.40625 780.34375 1218.039062 780.34375 C 1191.820312 786.992188 1194.035156 838.320312 1200.675781 863.0625 L 1257.546875 845.339844 Z M 1257.550781 845.339844 "/></svg></a>
+        <a href="/" class="logo" aria-label="Encore Performing Arts — Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364.601 74.455" fill="currentColor" class="brandmark" aria-hidden="true" focusable="false"><path d="M362.586,63.803c0,5.315-2.657,7.97-7.97,7.97-5.642,0-8.462-2.656-8.462-7.97s2.82-7.972,8.462-7.972c5.314,0,7.97,2.658,7.97,7.972Zm-10.956-13.779c-1.297-8.63-2.381-15.432-3.244-20.403-.866-4.972-1.569-8.838-2.108-11.6-.542-2.761-.919-4.833-1.136-6.214-.216-1.38-.323-2.797-.323-4.246,0-5.04,3.295-7.561,9.891-7.561s9.891,2.521,9.891,7.561c0,1.449-.108,2.866-.323,4.246-.219,1.381-.624,3.453-1.218,6.214-.594,2.762-1.434,6.628-2.513,11.6-1.082,4.971-2.432,11.773-4.053,20.403h-4.865Z"/><path d="M21.748,52.934c2.901,8.596,14.396,18.849,31.692,3.418,1.035-.932,2.589,.31,1.968,1.449-3.314,6.318-10.874,15.742-26.306,15.742C13.152,73.544,0,61.634,0,46.927c0-14.81,12.946-26.72,28.999-26.616h.311c12.945-.104,23.923,7.871,27.547,18.745,.415,1.346-.31,2.796-1.657,3.211l-33.452,10.667Zm14.5-9.217c.828-.311,1.346-1.242,1.139-2.072-1.761-8.285-5.8-17.295-11.807-16.259-.103,0-.311,.103-.414,.103-7.353,1.865-6.731,16.26-4.868,23.199l15.949-4.971Z"/><path d="M125.058,73.026c-7.664,2.693-25.892,3.625-25.892-16.467v-17.814c0-3.21-1.346-9.217-7.975-9.838-5.282-.414-10.045,5.075-10.045,9.735v24.441c0,.621-.311,6.525,6.11,7.146,.518,.103,1.139,.621,1.139,1.346s-.518,1.346-1.243,1.346h-31.898c-.725,0-1.346-.621-1.346-1.346s.517-1.243,1.242-1.346c3.625-.414,6.007-3.003,6.111-6.939v-29.827s.103-5.489-5.697-5.282c-.931,0-1.657-.621-1.657-1.554,0-.724,.517-1.346,1.242-1.449l25.996-4.039v6.525s4.764-6.628,16.259-6.525c10.668,.207,21.645,6.835,21.645,17.814l-.103,21.437c0,11.289,6.11,12.635,6.11,12.635Z"/><path d="M179.473,54.701c-3.314,6.318-13.038,18.843-28.468,18.843-15.949,0-29.103-11.91-29.103-26.617,0-14.81,12.945-26.72,28.999-26.616h.31c7.25-.104,13.982,2.486,19.056,6.524,7.665,6.318,3.728,12.428-3.935,13.879h-.311c-3.624,.517-7.145-1.658-8.388-5.075-2.176-6.111-5.594-10.979-10.15-10.253-.104,0-.31,0-.414,.103-8.803,2.693-6.11,21.024-3.417,27.445,4.038,9.735,18.319,14.714,33.854,.318,1.036-.932,2.59,.31,1.968,1.449Z"/><path d="M234.997,47.031c0,15.121-13.152,27.341-29.102,27.341s-29.103-12.22-29.103-27.341,12.946-27.341,29-27.341h.31c15.948,0,28.895,12.22,28.895,27.341Zm-19.885,0c0-6.732-1.243-22.371-9.01-22.371h-.414c-7.768,0-9.011,15.638-9.011,22.371s1.243,22.371,9.011,22.371h.414c7.767,0,9.01-15.639,9.01-22.371Z"/><path d="M278.264,39.471c-.31,.104-.724,.104-1.139,.104-4.141,0-7.457-3.314-7.457-7.457,0-1.864,.622-3.521,1.762-4.868-4.869-.207-12.118,7.25-12.118,13.568v22.266c0,.621-.31,6.525,6.11,7.249,.725,0,1.139,.622,1.139,1.243v.103c0,.725-.517,1.243-1.242,1.243h-31.899c-.725,0-1.345-.518-1.345-1.346,0-.621,.517-1.243,1.242-1.243,6.214-.724,6.11-6.524,6.11-6.938v-29.931s.104-5.282-5.696-5.282c-.828,0-1.554-.517-1.657-1.346-.104-.828,.517-1.554,1.242-1.657l25.995-4.039v6.628s5.8-7.871,16.259-6.524c11.703,1.449,11.393,17.606,2.693,18.227Z"/><path d="M305.71,52.934c2.9,8.596,14.396,18.849,31.691,3.418,1.036-.932,2.59,.31,1.969,1.449-3.314,6.318-10.875,15.742-26.306,15.742-15.949,0-29.103-11.91-29.103-26.617,0-14.81,12.946-26.72,29-26.616h.31c12.946-.104,23.924,7.871,27.548,18.745,.414,1.346-.311,2.796-1.657,3.211l-33.452,10.667Zm14.499-9.217c.828-.311,1.347-1.242,1.139-2.072-1.76-8.285-5.8-17.295-11.806-16.259-.104,0-.311,.103-.414,.103-7.353,1.865-6.732,16.26-4.869,23.199l15.949-4.971Z"/></svg></a>
         <div class="foot-tag">Inspiring discovery &amp; <span class="hl">imagination</span> through exploration and play.</div>
         <div class="foot-loc">
           <strong>Visit us</strong>
@@ -729,12 +761,12 @@
       </div>
       <div class="foot-col">
         <h5>Aspire Performing Co.</h5>
-        <p style="font-size:13px;color:rgba(239,233,221,.7);line-height:1.55;margin-bottom:12px;">Audition-based song &amp; dance for ages 8 through high school senior.</p>
+        <p style="font-size:13px;color:rgba(233,228,224,.7);line-height:1.55;margin-bottom:12px;">Audition-based song &amp; dance for ages 8 through high school senior.</p>
         <a href="/aspire-performing-co" style="background:var(--cream);color:var(--charcoal);padding:9px 16px;border-radius:100px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:7px;">Visit Aspire →</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Encore Performing Arts · A 501(c)(3) nonprofit · <a href="/terms-and-conditions" style="color:rgba(239,233,221,.5);">Terms</a> · <a href="/privacy-policy" style="color:rgba(239,233,221,.5);">Privacy</a></p>
+      <p>© 2026 Encore Performing Arts · A 501(c)(3) nonprofit · <a href="/terms-and-conditions" style="color:rgba(233,228,224,.5);">Terms</a> · <a href="/privacy-policy" style="color:rgba(233,228,224,.5);">Privacy</a></p>
       <div class="foot-social">
         <a href="https://www.instagram.com/encorestg" rel="noopener" title="Instagram">IG</a>
         <a href="https://www.facebook.com/encorestg" rel="noopener" title="Facebook">FB</a>
@@ -752,6 +784,16 @@
     el.style.transitionDelay=(i%3)*0.07+'s';
     io.observe(el);
   });
+</script>
+<script>
+(function(){
+  var t=document.getElementById('navToggle'),m=document.getElementById('mobileMenu');
+  if(!t||!m)return;
+  function s(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){s(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);});
+})();
 </script>
 </body>
 </html>
