@@ -35,7 +35,7 @@
 # /contact now served by contact.html (local page) — redirect removed on rebuild
 /core-community                  https://www.encorepa.org/core-community                  302
 /encore-scholarship-application  https://www.encorepa.org/encore-scholarship-application  302
-/sensory-friendly-performances   https://www.encorepa.org/sensory-friendly-performances   302
+# /sensory-friendly-performances now served locally — redirect removed on rebuild
 /terms-and-conditions            https://www.encorepa.org/terms-and-conditions            302
 /privacy-policy                  https://www.encorepa.org/privacy-policy                  302
 /blog                            https://www.encorepa.org/blog                            302
