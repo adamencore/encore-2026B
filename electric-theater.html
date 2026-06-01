@@ -249,7 +249,7 @@
   .visit-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:stretch;}
   .visit-map{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:420px;background:linear-gradient(155deg,#2e7383,#163e47);display:flex;align-items:flex-end;padding:28px;}
   .visit-map::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
-  .visit-map .pin{position:relative;z-index:2;background:rgba(246,245,243,.96);color:var(--charcoal);border-radius:18px;padding:20px 22px;max-width:340px;}
+  .visit-map-embed{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;filter:grayscale(1) contrast(1.05);}.visit-map .pin{position:relative;z-index:2;background:rgba(246,245,243,.96);color:var(--charcoal);border-radius:18px;padding:20px 22px;max-width:340px;}
   .visit-map .pin .nm{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:21px;font-weight:600;}
   .visit-map .pin address{font-style:normal;color:var(--muted);font-size:14px;margin-top:4px;line-height:1.4;}
   .visit-map .pin .map-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:var(--charcoal);color:var(--cream);padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;}
@@ -539,14 +539,14 @@
           <div class="when"><time datetime="2026-05-14">May 14, 2026</time> · Electric Theater</div>
           <div class="ttl">Disney's Lion King</div>
         </article>
-        <article class="play-card pc2 reveal">
+        <article class="play-card pc2 reveal"><img src="/img/shows/back-to-the-future.webp" alt="Back to the Future — a Page to Stage event presented by Encore" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
           <div class="ov" aria-hidden="true"></div>
           <span class="tag">On Sale</span>
           <a class="arrow" href="/page-to-stage" aria-label="View Back to the Future event"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
           <div class="when">Page to Stage Event</div>
           <div class="ttl">Back to the Future</div>
         </article>
-        <article class="play-card pc3 reveal">
+        <article class="play-card pc3 reveal"><img src="/img/shows/aspire.webp" alt="Aspire Performing Co. — Encore's youth show choir" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
           <div class="ov" aria-hidden="true"></div>
           <span class="tag">Year-round</span>
           <a class="arrow" href="/aspire-performing-co" aria-label="View Aspire Show Choir"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
@@ -568,7 +568,7 @@
         <p class="lead">Downtown St. George, in the heart of the city's arts district.</p>
       </div>
       <div class="visit-grid reveal">
-        <figure class="visit-map" aria-label="Map showing the Electric Theater in downtown St. George, Utah">
+        <figure class="visit-map" aria-label="Map showing the Electric Theater in downtown St. George, Utah"><iframe class="visit-map-embed" src="https://www.google.com/maps?q=The+Electric+Theater,+68+E+Tabernacle+St,+St.+George,+UT+84770&output=embed" title="Map of the Electric Theater, 68 E Tabernacle Street, St. George, Utah" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <!--
             PRODUCTION IMAGE PATTERN:
             <picture>
@@ -757,7 +757,7 @@
           </details>
           <details class="faq">
             <summary>Is there parking?</summary>
-            <div class="ans">Free public parking is available throughout downtown St. George, including street parking on Tabernacle Street and nearby city lots. We recommend arriving 15 minutes early on popular show nights.</div>
+            <div class="ans">Free public parking is available throughout downtown St. George, including street parking on Tabernacle Street and nearby city lots. The new parking garage directly behind the Electric Theater is a great option as well. We recommend arriving 15 minutes early on popular show nights.</div>
           </details>
         </div>
       </div>

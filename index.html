@@ -224,7 +224,7 @@
 
   /* CURRENT EVENTS strip under hero */
   .events{padding:60px 0 30px;}
-  .events-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+  .events-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}.event-card .card-kicker{position:absolute;left:16px;bottom:16px;z-index:2;background:rgba(43,43,46,.62);color:#fff;backdrop-filter:blur(4px);padding:6px 13px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.02em;}
   .event-card{position:relative;border-radius:var(--radius);overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;}
   .event-card .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,39,45,.08),rgba(13,39,45,.82));z-index:1;}
   .event-card>*{position:relative;z-index:2;}
@@ -368,7 +368,7 @@
   .venue-addr .ad span{color:var(--muted);}
   .venue-actions{display:flex;gap:11px;flex-wrap:wrap;}
   .venue-note{margin-top:16px;font-size:12px;color:var(--muted);opacity:.75;line-height:1.5;max-width:460px;font-style:italic;}
-  @media(max-width:980px){
+  @media(max-width:1100px){.events-grid{grid-template-columns:1fr 1fr;}}@media(max-width:980px){
     .venue-inner{grid-template-columns:1fr;}
     .venue-visual{min-height:280px;}
   }
@@ -499,30 +499,11 @@
     <div class="sec-head reveal">
       <div>
         <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>Happening Now</span>
-        <h2>Current auditions & <em>ticketed shows</em></h2>
+        <h2>What's <em>going on</em> at Encore</h2>
       </div>
-      <p class="lead">The latest from our stage — what you can audition for, and what you can come watch.</p>
+      <p class="lead">Whatever’s next at Encore lives here — current auditions, ticketed shows, Page to Stage events, and Aspire show choir.</p>
     </div>
-    <div class="events-grid">
-      <div class="event-card poster reveal">
-        <img class="card-img" src="img/shows/lion-king.webp" width="900" height="675" loading="lazy" alt="Summer of Disney's The Lion King — Encore Performing Arts summer production">
-        <span class="tag">Auditions Open</span>
-        <a class="arrow" href="/summer-of-lion-king-2026" aria-label="Audition info for Disney's Lion King"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-        <h3 class="sr-only">Disney's The Lion King</h3>
-      </div>
-      <div class="event-card poster reveal">
-        <img class="card-img" src="img/shows/back-to-the-future.webp" width="900" height="675" loading="lazy" alt="Page to Stage presents Back to the Future — an Encore theater event">
-        <span class="tag live">On Sale</span>
-        <a class="arrow" href="/page-to-stage" aria-label="Back to the Future — Page to Stage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-        <h3 class="sr-only">Back to the Future — Page to Stage</h3>
-      </div>
-      <div class="event-card poster reveal">
-        <img class="card-img" src="img/shows/aspire.webp" width="900" height="675" loading="lazy" alt="Aspire Performing Co. — Encore's audition-based youth show choir">
-        <span class="tag">Enrolling</span>
-        <a class="arrow" href="/aspire-performing-co" aria-label="Join Aspire Performing Co."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-        <h3 class="sr-only">Aspire Performing Co.</h3>
-      </div>
-    </div>
+    <div class="events-grid"><div class="event-card poster reveal"><img class="card-img" src="img/shows/lion-king.webp" width="900" height="675" loading="lazy" alt="Auditions for Disney's The Lion King — Encore's summer production"><span class="tag">Auditions Open</span><a class="arrow" href="/summer-of-lion-king-2026" aria-label="Auditions for Disney's The Lion King — Encore's summer production"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><span class="card-kicker">Current auditions</span><h3 class="sr-only">Disney's The Lion King</h3></div><div class="event-card poster reveal"><img class="card-img" src="img/shows/lion-king.webp" width="900" height="675" loading="lazy" alt="Tickets for Encore's current ticketed production"><span class="tag live">Get Tickets</span><a class="arrow" href="/tickets" aria-label="Tickets for Encore's current ticketed production"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><span class="card-kicker">Ticketed show</span><h3 class="sr-only">Ticketed show</h3></div><div class="event-card poster reveal"><img class="card-img" src="img/shows/back-to-the-future.webp" width="900" height="675" loading="lazy" alt="Page to Stage presents Back to the Future — an Encore theater event"><span class="tag">Page to Stage</span><a class="arrow" href="/page-to-stage" aria-label="Page to Stage presents Back to the Future — an Encore theater event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><span class="card-kicker">Page to Stage event</span><h3 class="sr-only">Back to the Future — Page to Stage</h3></div><div class="event-card poster reveal"><img class="card-img" src="img/shows/aspire.webp" width="900" height="675" loading="lazy" alt="Aspire Performing Co. — Encore's audition-based youth show choir"><span class="tag">Aspire</span><a class="arrow" href="/aspire-performing-co" aria-label="Aspire Performing Co. — Encore's audition-based youth show choir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><span class="card-kicker">Aspire show choir</span><h3 class="sr-only">Aspire Performing Co.</h3></div></div>
     <div class="events-foot reveal">
       <a href="/tickets" class="btn btn-dark">See All Upcoming Events & Programs →</a>
     </div>
