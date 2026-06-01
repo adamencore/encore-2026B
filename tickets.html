@@ -320,6 +320,34 @@
   .foot-social a svg{width:18px;height:18px;}
   @media(max-width:980px){.foot-top{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.foot-top{grid-template-columns:1fr;}}
+
+/* [PHOTOS] encore photo sections */
+.encph{padding:64px 0;}
+.encph .wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
+.encph-head{max-width:680px;margin:0 0 30px;}
+.encph-kicker{display:inline-block;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.encph-head h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 10px;color:var(--charcoal);}
+.encph-head p{margin:0;color:var(--charcoal-soft);font-size:1.02rem;line-height:1.6;max-width:560px;}
+.encph-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);}
+.encph-grid.c2{grid-template-columns:repeat(2,1fr);}
+.encph-fig{position:relative;margin:0;border-radius:var(--radius,26px);overflow:hidden;border:1px solid var(--line);background:var(--cream-lite);aspect-ratio:4/3;animation:encphIn .7s both;}
+.encph-fig img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.encph-fig.por img{object-position:center 20%;}
+.encph-fig:hover img{transform:scale(1.045);}
+.encph-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:.84rem;letter-spacing:.02em;color:#fff;background:linear-gradient(to top,rgba(18,26,28,.62),rgba(18,26,28,0));opacity:0;transition:opacity .4s;pointer-events:none;}
+.encph-fig:hover .encph-cap,.encph-fig:focus-within .encph-cap{opacity:1;}
+@keyframes encphIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.encph-band{position:relative;min-height:360px;display:flex;align-items:center;overflow:hidden;}
+.encph-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.encph-band::after{content:"";position:absolute;inset:0;background:linear-gradient(108deg,rgba(52,129,147,.93),rgba(47,102,117,.5));z-index:1;}
+.encph-bandinner{position:relative;z-index:2;color:#fff;padding:58px 0;max-width:1240px;margin:0 auto;width:100%;}
+.encph-bandinner .wrapx{padding:0 28px;}
+.encph-bandinner span{display:inline-block;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px;}
+.encph-bandinner h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,4vw,3rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 12px;color:#fff;max-width:20ch;}
+.encph-bandinner p{margin:0;max-width:50ch;font-size:1.06rem;line-height:1.6;color:rgba(255,255,255,.93);}
+@media(max-width:900px){.encph-grid,.encph-grid.c2{grid-template-columns:repeat(2,1fr);}.encph{padding:52px 0;}}
+@media(max-width:560px){.encph-grid,.encph-grid.c2{grid-template-columns:1fr 1fr;gap:10px;}.encph-cap{opacity:1;font-size:.72rem;padding:24px 11px 10px;}}
+
 </style>
 </head>
 <body>
@@ -568,6 +596,12 @@
 </main>
 
 <!-- ========== FOOTER ========== -->
+
+<!-- [PHOTOS] band -->
+<section class="encph-band" aria-label="See the next show"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young Encore performer singing in the spotlight"><div class="encph-bandinner"><div class="wrapx"><span>Tickets</span><h2>See the next show</h2><p>Live youth theater in the heart of downtown St. George.</p></div></div></section>
+
+<!-- [PHOTOS] gallery -->
+<section class="encph" aria-label="Catch a show"><div class="wrap"><div class="encph-head"><span class="encph-kicker">On our stage</span><h2>Catch a show</h2><p>A glimpse of the productions Encore brings to the Electric Theater stage.</p></div><div class="encph-grid c2"><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/ensemble-onstage-band.webp"><img src="/img/gallery/ensemble-onstage-band.jpg" alt="Encore's full company performing on stage with a live on-stage band" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Live on our stage</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/hadestown-finale.webp"><img src="/img/gallery/hadestown-finale.jpg" alt="The finale of Encore's production of Hadestown" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The finale</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/period-ensemble-letter.webp"><img src="/img/gallery/period-ensemble-letter.jpg" alt="Encore cast members in period costume gathered around a letter" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Telling the story</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/soloist-spotlight.webp"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young Encore performer singing in the spotlight" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">In the spotlight</figcaption></figure></div></div></section>
 <footer>
   <div class="wrap">
     <div class="foot-top">
