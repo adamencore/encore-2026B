@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     CONTACT — /contact  (replaces the Squarespace /contact page)
-     Form uses NETLIFY FORMS (native; no backend/build step).
-     On deploy, Netlify auto-detects the static form by its
-     data-netlify attribute + hidden form-name field. Submissions
-     appear in Netlify dashboard → Forms; configure email/Slack
-     notifications there. Map block uses a placeholder; production
-     swaps in a static map image at /img/contact-map.* (pattern
-     shown inline). Encore is a TENANT at the Electric Theater —
-     the venue/City phone is for non-Encore venue inquiries only.
+     ASL-INTERPRETED PERFORMANCES — /asl-interpreted-performances
+     Sibling of the sensory page (shared teal chrome + Netlify form).
+     Sections: 1 Hero (photo banner)  2 What it is (photo split)
+       3 Why we do this  4 Interest email list (asl-interest-list)
+       5 Interpreter recruitment (mailto hello@encorepa.org)
+       6 Photo gallery  7 FAQ  8 Contact CTA
+     >>> ADAM, drop in real photos where marked PHOTO / [GALLERY].
+     Email list uses NETLIFY FORMS (name="asl-interest-list").
      ============================================================ -->
 <html lang="en">
 <head>
@@ -16,9 +15,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ========== CORE META ========== -->
-<title>Contact Encore Performing Arts — St. George, Utah</title>
-<meta name="description" content="Get in touch with Encore Performing Arts in St. George, Utah. Call, email, or send us a note. Find our address at the historic Electric Theater, phone numbers, and a map.">
-<link rel="canonical" href="https://www.encorepa.org/contact">
+<title>ASL-Interpreted Performances | Encore Performing Arts, St. George UT</title>
+<meta name="description" content="Encore Performing Arts offers ASL-interpreted performances on select shows in St. George, Utah — live American Sign Language interpretation so Deaf and hard-of-hearing patrons can fully experience live theater.">
+<link rel="canonical" href="https://www.encorepa.org/asl-interpreted-performances">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Encore Performing Arts">
 <meta name="theme-color" content="#348193">
@@ -31,20 +30,20 @@
 <!-- ========== OPEN GRAPH ========== -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Encore Performing Arts">
-<meta property="og:url" content="https://www.encorepa.org/contact">
-<meta property="og:title" content="Contact Encore Performing Arts — St. George, Utah">
-<meta property="og:description" content="Call, email, or send us a note. Find Encore's address at the historic Electric Theater in downtown St. George, Utah, phone numbers, and a map.">
-<meta property="og:image" content="https://www.encorepa.org/contact-og.jpg">
+<meta property="og:url" content="https://www.encorepa.org/asl-interpreted-performances">
+<meta property="og:title" content="ASL-Interpreted Performances | Encore Performing Arts">
+<meta property="og:description" content="Live American Sign Language interpretation on select Encore productions at the historic Electric Theater in St. George, Utah — so every audience can share in the story.">
+<meta property="og:image" content="https://www.encorepa.org/asl-interpreted-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The historic Electric Theater in downtown St. George, Utah, home of Encore Performing Arts">
+<meta property="og:image:alt" content="An American Sign Language interpreter signing beside the stage during an Encore performance">
 <meta property="og:locale" content="en_US">
 
 <!-- ========== TWITTER ========== -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Encore Performing Arts — St. George, Utah">
-<meta name="twitter:description" content="Call, email, or send us a note. Address, phone, and map for Encore Performing Arts.">
-<meta name="twitter:image" content="https://www.encorepa.org/contact-og.jpg">
+<meta name="twitter:title" content="ASL-Interpreted Performances | Encore Performing Arts">
+<meta name="twitter:description" content="Live ASL interpretation on select Encore productions, so Deaf and hard-of-hearing patrons can fully experience live theater.">
+<meta name="twitter:image" content="https://www.encorepa.org/asl-interpreted-og.jpg">
 
 <!-- ========== STRUCTURED DATA ========== -->
 <script type="application/ld+json">
@@ -52,10 +51,11 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ContactPage",
-      "@id": "https://www.encorepa.org/contact#webpage",
-      "url": "https://www.encorepa.org/contact",
-      "name": "Contact Encore Performing Arts",
+      "@type": "WebPage",
+      "@id": "https://www.encorepa.org/asl-interpreted-performances#webpage",
+      "url": "https://www.encorepa.org/asl-interpreted-performances",
+      "name": "ASL-Interpreted Performances — Encore Performing Arts",
+      "description": "ASL-interpreted performances on select Encore productions, with live American Sign Language interpretation for Deaf and hard-of-hearing patrons.",
       "about": { "@id": "https://www.encorepa.org/#organization" },
       "isPartOf": { "@id": "https://www.encorepa.org/#website" },
       "inLanguage": "en-US"
@@ -77,16 +77,6 @@
         "postalCode": "84770",
         "addressCountry": "US"
       },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "telephone": "+1-435-414-0049",
-          "email": "hello@encorepa.org",
-          "areaServed": "US",
-          "availableLanguage": "English"
-        }
-      ],
       "sameAs": [
         "https://www.instagram.com/encorestg",
         "https://www.facebook.com/encorestg",
@@ -119,7 +109,52 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.encorepa.org/" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.encorepa.org/contact" }
+        { "@type": "ListItem", "position": 2, "name": "ASL-Interpreted Performances", "item": "https://www.encorepa.org/asl-interpreted-performances" }
+      ]
+    },
+        {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an ASL-interpreted performance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a regular Encore performance with qualified American Sign Language interpreters signing the show live, in view of the audience, so Deaf and hard-of-hearing patrons can follow the dialogue, lyrics, and story as it happens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is every show interpreted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not every show. We schedule ASL interpretation on select performances and announce those dates ahead of time. Join the email list and we will let you know when one is coming up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I request interpretation for a show?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email hello@encorepa.org or call (435) 414-0049 as early as you can. The more notice we have, the better we can arrange it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do interpreted seats sit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We seat guests who want a clear view of the interpreter together in a reserved area. Let us know when you book and we will take care of it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I am an interpreter — can I work with Encore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, please reach out. Email hello@encorepa.org and tell us a little about your experience."
+          }
+        }
       ]
     }
   ]
@@ -133,7 +168,6 @@
 
 <style>
   :root{
-    /* ENCORE BRAND PALETTE */
     --teal:#348193;
     --charcoal:#348193;
     --charcoal-2:#3c8ea1;
@@ -164,7 +198,6 @@
   .nav-links{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500;}
   .nav-links a{color:var(--charcoal);opacity:.82;transition:opacity .2s;}
   .nav-links a:hover{opacity:1;}
-  .nav-links a[aria-current="page"]{opacity:1;font-weight:600;}
   .nav-cta{display:flex;gap:11px;align-items:center;}
   .btn{border:none;cursor:pointer;font-family:inherit;font-weight:600;border-radius:100px;padding:13px 24px;font-size:14.5px;transition:transform .2s,background .2s,color .2s;display:inline-flex;align-items:center;gap:9px;}
   .btn:hover{transform:translateY(-2px);}
@@ -184,76 +217,135 @@
 
   /* HERO */
   .hero{padding:14px 0 0;}
-  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:300px;background:linear-gradient(160deg,#1d4f5a,#15414c 60%,#0d272d);padding:44px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 40px 80px -40px rgba(13,39,45,.5);}
+  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:420px;background:linear-gradient(160deg,#1d4f5a,#15414c 60%,#0d272d);padding:48px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 40px 80px -40px rgba(13,39,45,.5);}
   .hero-card::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   .hero-inner{position:relative;z-index:2;}
   .hero-eyebrow{display:inline-block;color:rgba(233,228,224,.75);font-weight:600;letter-spacing:.04em;font-size:14px;margin-bottom:14px;}
-  .hero h1{font-family:'Cabrio','Familjen Grotesk',sans-serif;color:var(--cream);font-weight:500;font-size:clamp(38px,5.6vw,64px);line-height:1.03;letter-spacing:-.02em;max-width:760px;}
+  .hero h1{font-family:'Cabrio','Familjen Grotesk',sans-serif;color:var(--cream);font-weight:500;font-size:clamp(36px,5.4vw,62px);line-height:1.04;letter-spacing:-.02em;max-width:820px;}
   .hero h1 em{font-style:italic;color:#cfc6b4;}
-  .hero p{color:rgba(233,228,224,.82);max-width:560px;margin:18px 0 0;font-size:16.5px;line-height:1.6;}
+  .hero p{color:rgba(233,228,224,.82);max-width:620px;margin:20px 0 24px;font-size:16.5px;line-height:1.6;}
+  .hero-badges{display:flex;gap:12px;flex-wrap:wrap;}
+  .hbadge{display:inline-flex;align-items:center;gap:10px;background:rgba(233,228,224,.12);border:1px solid rgba(233,228,224,.28);color:var(--cream);padding:11px 18px;border-radius:100px;font-size:14px;font-weight:600;backdrop-filter:blur(6px);}
+  .hbadge .em{font-style:italic;font-family:'Cabrio','Familjen Grotesk',sans-serif;}
 
   /* SECTION SCAFFOLD */
-  section{padding:70px 0;}
+  section{padding:78px 0;}
   .pill{display:inline-flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);color:var(--charcoal);padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:.04em;}
   .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--charcoal);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px;flex-wrap:wrap;}
+  .sec-head h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.02em;color:var(--charcoal);max-width:600px;}
+  .sec-head h2 em{font-style:italic;}
+  .sec-head .lead{max-width:380px;color:var(--muted);font-size:15.5px;line-height:1.6;}
 
-  /* CONTACT GRID */
-  .contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:start;}
+  /* SECTION 1 — DEFINITION */
+  .define{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;}
+  .define .statement{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:400;font-size:clamp(22px,2.5vw,29px);line-height:1.4;color:var(--charcoal);letter-spacing:-.01em;}
+  .define .statement em{font-style:italic;}
+  .callouts{display:flex;flex-direction:column;gap:14px;}
+  .callout{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px 26px;display:flex;gap:16px;align-items:flex-start;}
+  .callout.free{background:linear-gradient(150deg,#1d4f5a,#123139);border-color:transparent;color:var(--cream);}
+  .callout .ic{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:var(--cream);color:var(--charcoal);}
+  .callout.free .ic{background:rgba(233,228,224,.16);color:var(--cream);}
+  .callout h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:21px;font-weight:600;margin-bottom:5px;line-height:1.15;}
+  .callout p{font-size:14.5px;line-height:1.55;color:var(--muted);}
+  .callout.free p{color:rgba(233,228,224,.85);}
 
-  /* INFO COLUMN */
-  .info-head h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,3.4vw,40px);line-height:1.06;letter-spacing:-.02em;color:var(--charcoal);}
-  .info-head h2 em{font-style:italic;}
-  .info-head p{color:var(--muted);font-size:15.5px;line-height:1.6;margin:14px 0 26px;max-width:440px;}
-  .info-list{display:flex;flex-direction:column;gap:12px;}
-  .info-row{display:flex;gap:16px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px 22px;}
-  .info-row .ic{flex:none;width:44px;height:44px;border-radius:50%;background:var(--cream);border:1px solid var(--line);display:grid;place-items:center;font-size:17px;color:var(--charcoal);}
-  .info-row h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--charcoal);margin-bottom:4px;}
-  .info-row p,.info-row address{color:var(--muted);font-size:14.5px;line-height:1.55;font-style:normal;}
-  .info-row a{color:var(--charcoal);font-weight:600;}
-  .info-row a:hover{color:var(--charcoal-2);}
-  .info-social{display:flex;gap:10px;margin-top:4px;}
-  .info-social a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12.5px;font-weight:600;color:var(--charcoal);background:var(--cream-lite);transition:background .2s,color .2s;}
-  .info-social a:hover{background:var(--charcoal);color:var(--cream);}
+  /* VIDEO EMBED (sec 2 + 7) */
+  .video-embed{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/9;background:linear-gradient(155deg,#1d4f5a,#0d272d);display:grid;place-items:center;box-shadow:0 30px 70px -42px rgba(13,39,45,.55);}
+  .video-embed::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;}
+  .video-embed .play{position:relative;z-index:2;width:88px;height:88px;border-radius:50%;background:rgba(246,245,243,.95);color:var(--teal);display:grid;place-items:center;font-size:30px;padding-left:6px;box-shadow:0 16px 40px -16px rgba(0,0,0,.5);}
+  .video-embed .vlabel{position:absolute;z-index:2;left:26px;bottom:24px;color:var(--cream);font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:18px;font-weight:600;text-shadow:0 2px 12px rgba(0,0,0,.4);}
+  .video-note{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic;}
 
-  /* FORM */
-  .form-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:40px;}
-  .form-wrap .form-eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;}
-  .form-wrap h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,32px);color:var(--charcoal);line-height:1.1;margin:8px 0 24px;letter-spacing:-.01em;}
-  .cform .field{margin-bottom:18px;}
-  .cform label{display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--charcoal-soft);margin-bottom:8px;}
-  .cform input,.cform textarea{width:100%;font-family:inherit;font-size:15.5px;color:var(--charcoal);background:var(--cream-lite);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;transition:border-color .2s,box-shadow .2s,background .2s;}
-  .cform textarea{resize:vertical;min-height:140px;line-height:1.55;}
-  .cform input::placeholder,.cform textarea::placeholder{color:#9aa6a8;}
-  .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--charcoal);background:#fff;box-shadow:0 0 0 4px rgba(52,129,147,.12);}
-  .cform .hp{position:absolute;left:-9999px;}
-  .cform button{margin-top:6px;width:100%;justify-content:center;}
-  .cform button[disabled]{opacity:.6;cursor:default;transform:none;}
-  .form-fineprint{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:16px;}
-  .form-error{display:none;margin-top:16px;background:rgba(224,122,95,.1);border:1px solid rgba(224,122,95,.4);color:#a24a35;border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5;}
-  .form-error a{color:#a24a35;font-weight:600;border-bottom:1px solid #a24a35;}
-  .form-success{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:8px 0;}
-  .form-success .check{width:56px;height:56px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:26px;}
-  .form-success h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:600;font-size:28px;color:var(--charcoal);margin:0;}
-  .form-success p{color:var(--muted);font-size:15px;line-height:1.6;}
+  /* SECTION 3 — UPCOMING */
+  .shows{display:flex;flex-direction:column;gap:14px;}
+  .show-row{display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;transition:transform .2s,box-shadow .2s;}
+  .show-row:hover{transform:translateY(-3px);box-shadow:0 22px 50px -34px rgba(13,39,45,.45);}
+  .show-date{text-align:center;background:var(--cream);border-radius:18px;padding:14px 18px;min-width:96px;}
+  .show-date .mo{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--charcoal-soft);font-weight:700;}
+  .show-date .dy{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:34px;font-weight:600;color:var(--charcoal);line-height:1;}
+  .show-date .yr{font-size:12px;color:var(--muted);margin-top:2px;}
+  .show-main h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:24px;font-weight:600;color:var(--charcoal);line-height:1.1;}
+  .show-main .meta{color:var(--muted);font-size:14.5px;margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .show-main .chip{display:inline-flex;align-items:center;gap:6px;background:var(--cream-lite);border:1px solid var(--line);border-radius:100px;padding:4px 12px;font-size:12.5px;font-weight:600;color:var(--charcoal-soft);}
+  .show-row .btn{white-space:nowrap;}
+  .shows-empty{background:var(--paper);border:1px dashed var(--line);border-radius:var(--radius);padding:34px;text-align:center;color:var(--muted);font-size:15px;}
+  .shows-empty a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
 
-  /* MAP */
-  .map-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:380px;background:linear-gradient(155deg,#276a79,#123139);display:flex;align-items:flex-end;padding:28px;}
-  .map-wrap::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
-  .map-wrap .pin{position:relative;z-index:2;background:rgba(253,252,250,.96);color:var(--charcoal);border-radius:18px;padding:20px 22px;max-width:360px;}
-  .map-wrap .pin .nm{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:21px;font-weight:600;}
-  .map-wrap .pin address{font-style:normal;color:var(--muted);font-size:14px;margin-top:4px;line-height:1.4;}
-  .map-wrap .pin .map-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:var(--charcoal);color:var(--cream);padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;}
-  .map-link:hover{background:var(--charcoal-2);}
-  .tenant-note{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.55;max-width:760px;font-style:italic;}
+  /* SECTION 4 — EMAIL LIST */
+  .signup-band{background:var(--charcoal);border-radius:var(--radius-lg);padding:56px 48px;color:var(--cream);position:relative;overflow:hidden;}
+  .signup-band::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
+  .signup-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+  .signup-inner h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,40px);line-height:1.08;letter-spacing:-.02em;}
+  .signup-inner h2 em{font-style:italic;color:#cfc6b4;}
+  .signup-inner .lead{color:rgba(233,228,224,.8);margin-top:14px;font-size:15.5px;line-height:1.6;max-width:420px;}
+  .signup .row{display:flex;gap:12px;flex-wrap:wrap;}
+  .signup .field{flex:1;min-width:170px;}
+  .signup label{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:rgba(233,228,224,.7);margin-bottom:7px;}
+  .signup input{width:100%;font-family:inherit;font-size:15.5px;color:var(--cream);background:rgba(233,228,224,.1);border:1.5px solid rgba(233,228,224,.28);border-radius:14px;padding:13px 15px;transition:border-color .2s,background .2s;}
+  .signup input::placeholder{color:rgba(233,228,224,.5);}
+  .signup input:focus{outline:none;border-color:var(--cream);background:rgba(233,228,224,.16);}
+  .signup .hp{position:absolute;left:-9999px;}
+  .signup button{margin-top:16px;}
+  .signup .fineprint{font-size:12.5px;color:rgba(233,228,224,.6);margin-top:14px;line-height:1.5;}
+  .signup-success{display:none;}
+  .signup-success.show{display:flex;align-items:center;gap:14px;}
+  .signup-success .check{width:48px;height:48px;border-radius:50%;background:var(--cream);color:var(--charcoal);display:grid;place-items:center;font-size:22px;flex:none;}
+  .signup-success p{color:rgba(233,228,224,.9);font-size:15.5px;line-height:1.5;}
+  .signup-error{display:none;margin-top:14px;font-size:13.5px;color:#ffd9cd;}
+  .signup-error a{color:#ffd9cd;border-bottom:1px solid #ffd9cd;font-weight:600;}
 
-  /* HELP ROW */
-  .help{background:var(--charcoal);border-radius:var(--radius-lg);padding:40px 44px;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
-  .help h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,30px);line-height:1.1;letter-spacing:-.01em;max-width:520px;}
-  .help h2 em{font-style:italic;color:#cfc6b4;}
-  .help .help-actions{display:flex;gap:11px;flex-wrap:wrap;}
-  .help .btn-light{background:var(--cream);color:var(--charcoal);}
-  .help .btn-outline{background:transparent;border:1.5px solid rgba(233,228,224,.5);color:var(--cream);}
-  .help .btn-outline:hover{background:var(--cream);color:var(--charcoal);border-color:var(--cream);}
+  /* FAQ */
+  .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:50px;align-items:flex-start;}
+  .faq-side h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,3.4vw,42px);line-height:1.05;letter-spacing:-.02em;color:var(--charcoal);}
+  .faq-side h2 em{font-style:italic;}
+  .faq-side p{color:var(--muted);margin:18px 0 0;font-size:15.5px;line-height:1.6;}
+  .faq-side p a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
+  .faq-list{display:flex;flex-direction:column;gap:10px;}
+  .faq{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+  .faq summary{cursor:pointer;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--charcoal);list-style:none;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:'+';font-size:24px;font-weight:400;color:var(--muted);transition:transform .25s;flex:none;}
+  .faq[open] summary::after{transform:rotate(45deg);}
+  .faq .ans{padding:0 24px 24px;color:var(--charcoal-soft);font-size:15px;line-height:1.65;}
+  .faq .ans a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
+
+  /* SECTION 6 — MISSION + PROGRAM */
+  .mission-feature{background:var(--cream);border-radius:var(--radius-lg);padding:56px 48px;text-align:center;}
+  .mission-feature .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .mission-feature p{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:400;font-size:clamp(23px,2.9vw,34px);line-height:1.3;color:var(--charcoal);margin:16px auto 0;letter-spacing:-.01em;max-width:880px;}
+  .mission-feature p em{font-style:italic;}
+  .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;}
+  .prog{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:40px;}
+  .prog .num{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--accent);letter-spacing:.06em;}
+  .prog h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:25px;font-weight:600;color:var(--charcoal);margin:8px 0 14px;line-height:1.12;}
+  .prog p{color:var(--charcoal-soft);font-size:15px;line-height:1.7;}
+  .prog p+p{margin-top:14px;}
+  .prog .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+  .prog .tag{background:var(--cream-lite);border:1px solid var(--line);border-radius:100px;padding:5px 13px;font-size:12.5px;font-weight:600;color:var(--charcoal-soft);}
+
+  /* SECTION 8 — GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px;}
+  .gal{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#2f7585,#15414c);}
+  .gal::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
+  .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .gal.big{grid-row:1 / span 2;background:linear-gradient(155deg,#1d4f5a,#0d272d);}
+  .gal.g2{background:linear-gradient(150deg,#357c8d,#1c4956);}
+  .gal.g3{background:linear-gradient(150deg,#2a6b7a,#123139);}
+  .gal.g4{background:linear-gradient(150deg,#3c8ea1,#1d4f5a);}
+  .gal.g5{background:linear-gradient(150deg,#2f7585,#15414c);}
+  .gal figcaption{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(246,245,243,.94);color:var(--charcoal);padding:5px 12px;border-radius:100px;font-size:11.5px;font-weight:600;}
+
+  /* CTA */
+  .cta{background:linear-gradient(150deg,#1d4f5a,#123139);border-radius:var(--radius-lg);padding:54px 48px;color:var(--cream);position:relative;overflow:hidden;}
+  .cta::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
+  .cta-inner{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .cta h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1.08;letter-spacing:-.02em;max-width:500px;}
+  .cta h2 em{font-style:italic;color:#cfc6b4;}
+  .cta p{color:rgba(233,228,224,.78);margin-top:12px;font-size:15.5px;max-width:440px;}
+  .cta .btn-outline{background:transparent;border:1.5px solid rgba(233,228,224,.5);color:var(--cream);}
+  .cta .btn-outline:hover{background:var(--cream);color:var(--charcoal);border-color:var(--cream);}
 
   /* FOOTER */
   footer{background:var(--charcoal);color:var(--cream);padding:74px 0 36px;margin-top:60px;}
@@ -278,15 +370,24 @@
   @media(max-width:980px){
     .nav-links,.nav-cta{display:none;}
     .nav-toggle{display:flex !important;}
-    .contact-grid{grid-template-columns:1fr;gap:18px;}
+    .define{grid-template-columns:1fr;gap:30px;}
+    .signup-inner{grid-template-columns:1fr;gap:26px;}
+    .prog-grid{grid-template-columns:1fr;}
+    .faq-grid{grid-template-columns:1fr;gap:28px;}
+    .show-row{grid-template-columns:auto 1fr;gap:18px;}
+    .show-row .btn{grid-column:1 / -1;justify-content:center;}
+    .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+    .gal.big{grid-row:auto;}
     .foot-top{grid-template-columns:1fr 1fr;}
+    .mission-feature,.signup-band{padding:40px 28px;}
   }
   @media(max-width:560px){
     .wrap{padding:0 18px;}
     .foot-top{grid-template-columns:1fr;}
-    .hero-card{padding:28px;min-height:240px;}
-    .form-wrap{padding:28px 22px;}
-    .help{padding:30px 24px;}
+    .hero-card{padding:28px;min-height:380px;}
+    .cta{padding:34px 26px;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .show-date{min-width:80px;}
   }
 
   /* HAMBURGER + MOBILE MENU (site-wide) */
@@ -333,6 +434,15 @@
   .foot-social a svg{width:18px;height:18px;}
   @media(max-width:980px){.foot-top{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.foot-top{grid-template-columns:1fr;}}
+
+  /* ===== ASL page additions ===== */
+  .hero-photo{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;}
+  .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,39,45,.2),rgba(13,39,45,.82));}
+  .intro-split{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;}
+  .intro-split .ph{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:380px;background:linear-gradient(155deg,#2a6b78,#15414c);box-shadow:0 30px 60px -40px rgba(13,39,45,.5);}
+  .intro-split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  @media(max-width:860px){.intro-split{grid-template-columns:1fr;}.intro-split .ph{min-height:260px;}}
 </style>
 </head>
 <body>
@@ -344,7 +454,7 @@
     <div class="nav-links">
       <a href="/about">About</a>
       <a href="/#events">Auditions</a>
-      <a href="/contact" aria-current="page">Contact</a>
+      <a href="/contact">Contact</a>
     </div>
     <div class="nav-cta">
       <a href="/tickets" class="btn btn-dark">Get Tickets →</a>
@@ -368,157 +478,211 @@
   <div class="wrap">
     <ol>
       <li><a href="/">Home</a></li>
-      <li aria-current="page">Contact</li>
+      <li aria-current="page">ASL-Interpreted Performances</li>
     </ol>
   </div>
 </nav>
 
 <main>
 
-  <!-- ========== HERO ========== -->
+  <!-- ===== HERO (photo banner) ===== -->
   <header class="hero">
     <div class="wrap">
       <div class="hero-card reveal">
+        <!-- BANNER PHOTO. Using the ensemble shot for now; swap in a real wide photo
+             from an interpreted performance when available (ideal: 1600x900, interpreter visible):
+             <source type="image/avif" srcset="/img/asl/hero.avif"> / webp / jpg in a <picture>. -->
+        <img class="hero-photo" src="/img/encore-ensemble.jpg"
+             alt="Encore's youth ensemble performing together on the Electric Theater stage"
+             width="1600" height="900">
+        <div class="hero-scrim" aria-hidden="true"></div>
         <div class="hero-inner">
-          <span class="hero-eyebrow">Encore Performing Arts · St. George, Utah</span>
-          <h1>Get in <em>touch</em></h1>
-          <p>Questions about auditions, classes, tickets, or partnering with Encore? Send us a note and we'll get back to you.</p>
+          <span class="hero-eyebrow">Accessibility · Theater for Everyone</span>
+          <h1>ASL-interpreted <em>performances</em></h1>
+          <p>We want every story on our stage to reach every person in the room. On select performances, Encore provides American Sign Language interpretation so our Deaf and hard-of-hearing patrons can share fully in the magic of live theater.</p>
+          <div class="hero-badges">
+            <span class="hbadge"><span class="em">Select</span> performances</span>
+            <span class="hbadge">Deaf &amp; hard-of-hearing welcome</span>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ========== CONTACT GRID ========== -->
-  <section aria-labelledby="contact-h">
+  <!-- ===== SECTION 1 — WHAT IT IS (photo split) ===== -->
+  <section aria-labelledby="define-h">
     <div class="wrap">
-      <div class="contact-grid">
-
-        <!-- INFO -->
-        <div class="info reveal">
-          <div class="info-head">
-            <span class="pill" style="margin-bottom:16px;"><span class="dot"></span>Contact Details</span>
-            <h2 id="contact-h">Reach <em>Encore</em></h2>
-            <p>We're a small nonprofit team and we read every message. The fastest way to reach us is by phone or email.</p>
-          </div>
-          <div class="info-list">
-            <div class="info-row">
-              <div class="ic" aria-hidden="true">◎</div>
+      <div class="sec-head reveal" style="margin-bottom:32px;">
+        <div>
+          <span class="pill" style="margin-bottom:16px;"><span class="dot"></span>What it is</span>
+          <h2 id="define-h">Theater everyone can <em>follow</em></h2>
+        </div>
+      </div>
+      <div class="intro-split reveal">
+        <div>
+          <p class="statement">At an ASL-interpreted performance, one or more qualified interpreters sign the show live, in view of the audience, as it unfolds on stage. The dialogue, the lyrics, and the feeling of the moment all come through — so Deaf and hard-of-hearing patrons experience the <em>same story, at the same time</em>, alongside everyone else.</p>
+          <div class="callouts">
+            <div class="callout">
+              <div class="ic" aria-hidden="true">✋</div>
               <div>
-                <h3>Address</h3>
-                <address>The Historic Electric Theater<br>68 E Tabernacle Street<br>St. George, UT 84770</address>
+                <h3>Live interpretation</h3>
+                <p>Qualified ASL interpreters sign the performance as it happens.</p>
               </div>
             </div>
-            <div class="info-row">
-              <div class="ic" aria-hidden="true">☎</div>
+            <div class="callout">
+              <div class="ic" aria-hidden="true">★</div>
               <div>
-                <h3>Phone</h3>
-                <p><a href="tel:+14354140049">(435) 414-0049</a><br>Mon–Fri, during business hours</p>
-              </div>
-            </div>
-            <div class="info-row">
-              <div class="ic" aria-hidden="true">✉</div>
-              <div>
-                <h3>Email</h3>
-                <p><a href="mailto:hello@encorepa.org">hello@encorepa.org</a><br>We typically reply within 1–2 business days.</p>
-              </div>
-            </div>
-            <div class="info-row">
-              <div class="ic" aria-hidden="true">◐</div>
-              <div>
-                <h3>Venue inquiries</h3>
-                <p>The Electric Theater is a City of St. George facility. For non-Encore events at the venue, call the City at <a href="tel:+14356274515">(435) 627-4515</a>.</p>
-              </div>
-            </div>
-            <div class="info-row">
-              <div class="ic" aria-hidden="true">♦</div>
-              <div>
-                <h3>Follow along</h3>
-                <p style="margin-bottom:10px;">The latest auditions, shows, and behind-the-scenes.</p>
-                <div class="info-social">
-                  <a href="https://www.instagram.com/encorestg" rel="noopener" title="Instagram">IG</a>
-                  <a href="https://www.facebook.com/encorestg" rel="noopener" title="Facebook">FB</a>
-                  <a href="https://www.youtube.com/channel/UCBqCS2LKe-5UHp7osQFA-fg" rel="noopener" title="YouTube">YT</a>
-                </div>
+                <h3>Select dates</h3>
+                <p>We schedule interpreted dates on chosen productions and announce them ahead of time.</p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- FORM -->
-        <div class="form-wrap reveal">
-          <div class="form-eyebrow">Send a message</div>
-          <h2>Drop us a <em style="font-style:italic;">note</em></h2>
-
-          <!-- Netlify Forms: detected at deploy via data-netlify + hidden form-name.
-               Submissions appear in Netlify → Forms. JS does an inline AJAX submit;
-               the no-JS fallback posts normally and Netlify handles it. -->
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact?sent=1" class="cform" id="contactForm">
-            <input type="hidden" name="form-name" value="contact">
-            <p class="hp" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-            </div>
-            <div class="field">
-              <label for="note">Note</label>
-              <textarea id="note" name="note" placeholder="How can we help?" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-dark">Send message →</button>
-            <p class="form-fineprint">We'll only use your email to reply. We don't share your information.</p>
-            <p class="form-error" id="formError">Something went wrong sending your message. Please email us directly at <a href="mailto:hello@encorepa.org">hello@encorepa.org</a>.</p>
-          </form>
-
-          <!-- success state (revealed by JS, or shown on ?sent=1 fallback load) -->
-          <div class="form-success" id="formSuccess" hidden>
-            <div class="check" aria-hidden="true">✓</div>
-            <h2>Message sent</h2>
-            <p>Thanks for reaching out — we've got your note and will reply to your email within 1–2 business days.</p>
-            <a href="/" class="btn btn-ghost">Back to home →</a>
-          </div>
-        </div>
-
+        <figure class="ph">
+          <!-- Swap for a photo from an interpreted performance when available (ideal: interpreter at side of stage). -->
+          <img src="/img/junior/moana.jpg"
+               alt="Young Encore performers on stage during a production at the Electric Theater"
+               loading="lazy">
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ========== MAP ========== -->
-  <section style="padding-top:0;" aria-labelledby="find-h">
+  <!-- ===== SECTION 2 — WHY WE DO THIS ===== -->
+  <section style="padding-top:0;" aria-labelledby="mission-h">
     <div class="wrap">
-      <span class="pill reveal" style="margin-bottom:18px;" id="find-h"><span class="dot"></span>Find Us</span>
-      <figure class="map-wrap reveal" aria-label="Map showing Encore Performing Arts at the Electric Theater, 68 E Tabernacle Street, St. George, Utah">
-        <!--
-          PRODUCTION IMAGE PATTERN:
-          <picture>
-            <source type="image/avif" srcset="/img/contact-map.avif">
-            <source type="image/webp" srcset="/img/contact-map.webp">
-            <img src="/img/contact-map.jpg"
-                 alt="Map showing the Electric Theater at 68 E Tabernacle Street in downtown St. George, Utah"
-                 width="1200" height="500" loading="lazy">
-          </picture>
-        -->
-        <figcaption class="pin">
-          <div class="nm">Encore Performing Arts</div>
-          <address>at the Historic Electric Theater<br>68 E Tabernacle Street, St. George, UT 84770</address>
-          <a href="https://www.google.com/maps/search/?api=1&query=68+E+Tabernacle+St+St.+George+UT" class="map-link" rel="noopener" target="_blank">Open in Google Maps →</a>
-        </figcaption>
-      </figure>
-      <p class="tenant-note reveal">Encore Performing Arts is a tenant that performs, rehearses, and holds classes at the Electric Theater. The venue itself is owned and operated by the City of St. George.</p>
+      <div class="mission-feature reveal">
+        <div class="eyebrow">Why we do this</div>
+        <p id="mission-h">We believe live theater belongs to everyone. Access isn't an add-on at Encore — it's part of how we tell a story well. Offering ASL-interpreted performances is one of the ways we keep our doors, and our stage, open to the whole community. If interpretation would make a performance work for you or your family, we want to hear from you — it helps us decide where to offer it next.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ========== HELP ROW ========== -->
+  <!-- ===== SECTION 3 — INTEREST EMAIL LIST ===== -->
+  <section style="padding-top:0;" id="asl-list" aria-labelledby="signup-h">
+    <div class="wrap">
+      <div class="signup-band reveal">
+        <div class="signup-inner">
+          <div>
+            <h2 id="signup-h">Hear about <em>interpreted</em> dates</h2>
+            <p class="lead">Want to know when we schedule an ASL-interpreted performance? Join the list and we'll let you know which shows are interpreted, with time to plan your visit.</p>
+          </div>
+          <div>
+            <!-- Netlify Forms: detected on deploy via data-netlify + hidden form-name. -->
+            <form name="asl-interest-list" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/asl-interpreted-performances?subscribed=1" class="signup" id="aslForm">
+              <input type="hidden" name="form-name" value="asl-interest-list">
+              <p class="hp" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+              <div class="row">
+                <div class="field">
+                  <label for="a-name">Name</label>
+                  <input id="a-name" name="name" type="text" autocomplete="name" placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="a-email">Email</label>
+                  <input id="a-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-light">Join the list →</button>
+              <p class="fineprint">We'll only email you about ASL-interpreted performances. Unsubscribe anytime.</p>
+              <p class="signup-error" id="signupError">Something went wrong — please email <a href="mailto:hello@encorepa.org">hello@encorepa.org</a> and we'll add you.</p>
+            </form>
+            <div class="signup-success" id="signupSuccess">
+              <div class="check" aria-hidden="true">✓</div>
+              <p>You're on the list. We'll be in touch when the next ASL-interpreted performance is announced.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4 — INTERPRETER RECRUITMENT ===== -->
   <section style="padding-top:0;">
     <div class="wrap">
-      <div class="help reveal">
-        <h2>Looking for tickets or <em>auditions?</em></h2>
-        <div class="help-actions">
-          <a href="/tickets" class="btn btn-light">Get Tickets →</a>
-          <a href="/#events" class="btn btn-outline">See What's On</a>
+      <div class="cta reveal">
+        <div class="cta-inner">
+          <div>
+            <h2>Are you an <em>ASL interpreter?</em></h2>
+            <p>We're always glad to connect with qualified interpreters interested in working with us on interpreted performances. Reach out and introduce yourself.</p>
+          </div>
+          <div style="display:flex;gap:11px;flex-wrap:wrap;">
+            <a href="mailto:hello@encorepa.org?subject=ASL%20interpreting%20with%20Encore" class="btn btn-light">Email hello@encorepa.org →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5 — GALLERY ===== -->
+  <section style="padding-top:0;" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>Gallery</span>
+          <h2 id="gallery-h">Our stage, <em>open to all</em></h2>
+        </div>
+        <p class="lead">A look at our performances and the welcoming space we build together.</p>
+      </div>
+      <!-- [GALLERY] Swap each .gal placeholder for a real image, e.g.:
+           <figure class="gal big"><img src="/img/asl/show-1.jpg" alt="Descriptive alt text" loading="lazy"><figcaption>Caption</figcaption></figure> -->
+      <div class="gallery-grid reveal">
+        <figure class="gal big"><img src="/img/encore-ensemble.jpg" alt="Encore's youth ensemble together on the Electric Theater stage" loading="lazy"><figcaption>On our stage</figcaption></figure>
+        <figure class="gal g2"><img src="/img/junior/alice.jpg" alt="Young performers in an Encore production at the Electric Theater" loading="lazy"><figcaption>In production</figcaption></figure>
+        <figure class="gal g3"><img src="/img/junior/winnie.jpg" alt="Encore cast members performing on stage" loading="lazy"><figcaption>Telling the story</figcaption></figure>
+        <figure class="gal g4"><figcaption>Photo from an interpreted performance — coming soon</figcaption></figure>
+        <figure class="gal g5"><img src="/img/cta-bg.jpg" alt="Encore performers during a show at the Electric Theater" loading="lazy"><figcaption>Curtain call</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6 — FAQ ===== -->
+  <section style="padding-top:0;" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="faq-grid reveal">
+        <div class="faq-side">
+          <span class="pill" style="margin-bottom:18px;"><span class="dot"></span>FAQ</span>
+          <h2 id="faq-h">ASL <em>questions</em></h2>
+          <p>Don't see what you're looking for? Call <a href="tel:+14354140049">(435) 414-0049</a> or <a href="/contact">send a note</a> and we'll help.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq" open>
+            <summary>What is an ASL-interpreted performance?</summary>
+            <div class="ans">It's a regular Encore performance with qualified American Sign Language interpreters signing the show live, in view of the audience, so Deaf and hard-of-hearing patrons can follow the dialogue, lyrics, and story as it happens.</div>
+          </details>
+          <details class="faq">
+            <summary>Is every show interpreted?</summary>
+            <div class="ans">Not every show. We schedule ASL interpretation on select performances and announce those dates ahead of time. Join the email list and we'll let you know when one is coming up.</div>
+          </details>
+          <details class="faq">
+            <summary>How do I request interpretation for a show?</summary>
+            <div class="ans">Email <a href="mailto:hello@encorepa.org">hello@encorepa.org</a> or call <a href="tel:+14354140049">(435) 414-0049</a> as early as you can. The more notice we have, the better we can arrange it.</div>
+          </details>
+          <details class="faq">
+            <summary>Where do interpreted seats sit?</summary>
+            <div class="ans">We seat guests who want a clear view of the interpreter together in a reserved area. Let us know when you book and we'll take care of it.</div>
+          </details>
+          <details class="faq">
+            <summary>I'm an interpreter — can I work with Encore?</summary>
+            <div class="ans">Yes, please reach out. Email <a href="mailto:hello@encorepa.org">hello@encorepa.org</a> and tell us a little about your experience.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="cta-inner">
+          <div>
+            <h2>Questions before you <em>come?</em></h2>
+            <p>We're glad to talk through accommodations and help you plan a comfortable visit.</p>
+          </div>
+          <div style="display:flex;gap:11px;flex-wrap:wrap;">
+            <a href="/contact" class="btn btn-light">Contact Us →</a>
+            <a href="/sensory-friendly-performances" class="btn btn-outline">Sensory-Friendly Shows →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -624,22 +788,20 @@
 </script>
 <script>
 (function(){
-  var f=document.getElementById('contactForm'),
-      ok=document.getElementById('formSuccess'),
-      err=document.getElementById('formError');
-  // Fallback: if Netlify redirected back with ?sent=1 (no-JS path), show success.
-  if(location.search.indexOf('sent=1')>-1 && f && ok){f.hidden=true;ok.hidden=false;}
+  var f=document.getElementById('aslForm'),
+      ok=document.getElementById('signupSuccess'),
+      err=document.getElementById('signupError');
+  if(location.search.indexOf('subscribed=1')>-1 && f && ok){f.style.display='none';ok.classList.add('show');}
   if(!f)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();
     if(err)err.style.display='none';
     var btn=f.querySelector('button[type=submit]');
-    var data=new FormData(f);
-    var body=new URLSearchParams(data).toString();
-    btn.disabled=true;btn.textContent='Sending…';
+    var body=new URLSearchParams(new FormData(f)).toString();
+    btn.disabled=true;btn.textContent='Joining…';
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
-      .then(function(r){if(!r.ok)throw new Error('bad status');f.hidden=true;if(ok)ok.hidden=false;window.scrollTo({top:f.getBoundingClientRect().top+window.scrollY-120,behavior:'smooth'});})
-      .catch(function(){btn.disabled=false;btn.textContent='Send message →';if(err)err.style.display='block';});
+      .then(function(r){if(!r.ok)throw new Error();f.style.display='none';if(ok)ok.classList.add('show');})
+      .catch(function(){btn.disabled=false;btn.textContent='Join the list →';if(err)err.style.display='block';});
   });
 })();
 </script>
