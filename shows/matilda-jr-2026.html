@@ -135,7 +135,7 @@
         { "@type": "Question", "name": "Where is Matilda Jr. being performed?", "acceptedAnswer": { "@type": "Answer", "text": "At the historic Electric Theater, 68 E Tabernacle Street in downtown St. George, Utah. The Electric Theater is owned and operated by the City of St. George; Encore Performing Arts is a tenant performing at the venue." } },
         { "@type": "Question", "name": "When are the performances?", "acceptedAnswer": { "@type": "Answer", "text": "Matilda Jr. runs May 6–9, 2026. Show times will be announced; check the tickets page for the schedule." } },
         { "@type": "Question", "name": "How do I get tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Tickets for Encore productions are available at encorepa.org/tickets. Senior, student, military and veteran discounts are offered on most productions." } },
-        { "@type": "Question", "name": "Is Matilda Jr. appropriate for young children?", "acceptedAnswer": { "@type": "Answer", "text": "Matilda Jr. is a family-friendly musical suitable for all ages." } },
+        { "@type": "Question", "name": "Is Matilda Jr. appropriate for young guests?", "acceptedAnswer": { "@type": "Answer", "text": "Matilda Jr. is a family-friendly musical suitable for all ages." } },
         { "@type": "Question", "name": "Where do I park?", "acceptedAnswer": { "@type": "Answer", "text": "Free public parking is available throughout downtown St. George, including street parking on Tabernacle Street and nearby city lots. Arrive a little early on popular show nights." } },
         { "@type": "Question", "name": "Are sensory-friendly or ASL-interpreted performances available?", "acceptedAnswer": { "@type": "Answer", "text": "Encore offers sensory-friendly performances and select ASL-interpreted shows across its season. Availability varies by production — see our accessibility page or contact us about this show." } }
       ]
@@ -153,7 +153,7 @@
   :root{
     /* Encore global surfaces + universal accent — unchanged across all shows */
     --cream:#e9e4e0;--cream-lite:#f6f5f3;--paper:#fdfcfa;
-    --accent:#e07a5f;--accent-2:#cf6a50;
+    --accent:#358193;--accent-2:#2c6c7d;
     --radius:26px;--radius-lg:34px;
 
     /* ===== PER-SHOW THEME — edit ONLY these four to rebrand the page ===== */
@@ -214,7 +214,7 @@
   .sh-text{background:linear-gradient(160deg,var(--show-bright),var(--show-mid) 58%,var(--show-deep));border-radius:var(--radius-lg);padding:48px;color:var(--cream);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;box-shadow:0 40px 80px -40px rgba(28,2,30,.5);}
   .sh-text::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   .sh-text>*{position:relative;z-index:2;}
-  .sh-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(224,122,95,.92);color:#fff;padding:8px 15px;border-radius:100px;font-size:12.5px;font-weight:700;letter-spacing:.04em;align-self:flex-start;margin-bottom:18px;}
+  .sh-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(53,129,147,.92);color:#fff;padding:8px 15px;border-radius:100px;font-size:12.5px;font-weight:700;letter-spacing:.04em;align-self:flex-start;margin-bottom:18px;}
   .sh-badge .dot{width:7px;height:7px;border-radius:50%;background:#fff;}
   .sh-text .eyebrow{color:rgba(233,228,224,.75);font-weight:600;letter-spacing:.04em;font-size:14px;margin-bottom:8px;}
   .sh-text h1{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(46px,7vw,86px);line-height:.98;letter-spacing:-.045em;}
@@ -336,7 +336,7 @@
   .faq .ans a{color:var(--charcoal);font-weight:600;border-bottom:1px solid var(--charcoal);}
 
   /* CTA */
-  .cta{background:linear-gradient(150deg,#e07a5f,#cf6a50);border-radius:var(--radius-lg);padding:54px 48px;color:#fff;position:relative;overflow:hidden;}
+  .cta{background:linear-gradient(150deg,#358193,#2c6c7d);border-radius:var(--radius-lg);padding:54px 48px;color:#fff;position:relative;overflow:hidden;}
   .cta::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   .cta-inner{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
   .cta h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.05;letter-spacing:-.035em;max-width:520px;}
@@ -520,12 +520,12 @@
       <div class="sec-head reveal" style="margin-bottom:28px;">
         <div>
           <span class="pill" style="margin-bottom:16px;"><span class="dot"></span>About the Show</span>
-          <h2 id="about-h">A revolting children's tale, <em>told with heart</em></h2>
+          <h2 id="about-h">A gloriously revolting tale, <em>told with heart</em></h2>
         </div>
       </div>
       <div class="about-show reveal">
         <p class="big">Matilda Wormwood is a bright, bookish girl with a vivid imagination and a quiet kind of courage — and a family that would rather she just watch television.</p>
-        <p class="more">Sent off to Crunchem Hall and its fearsome, child-loathing headmistress, Matilda finds an unlikely champion in her gentle teacher, Miss Honey, and discovers that standing up for what's right can change everything. Packed with clever songs, big ensemble numbers, and a whole lot of heart, Matilda Jr. is a celebration of brains, bravery, and being just a little bit naughty — a perfect night out for the whole family.</p>
+        <p class="more">Sent off to Crunchem Hall and its fearsome, tyrannical headmistress, Matilda finds an unlikely champion in her gentle teacher, Miss Honey, and discovers that standing up for what's right can change everything. Packed with clever songs, big ensemble numbers, and a whole lot of heart, Matilda Jr. is a celebration of brains, bravery, and being just a little bit naughty — a perfect night out for the whole family.</p>
         <div class="skills">
           <span>Live musical</span><span>Family-friendly</span><span>Performed by Encore's youth cast</span>
         </div>
@@ -616,7 +616,7 @@
             <div class="ans">Tickets for Encore productions are available at <a href="/tickets">encorepa.org/tickets</a>. Senior, student, military and veteran discounts are offered on most productions.</div>
           </details>
           <details class="faq">
-            <summary>Is Matilda Jr. appropriate for young children?</summary>
+            <summary>Is Matilda Jr. appropriate for young guests?</summary>
             <div class="ans">Matilda Jr. is a family-friendly musical suitable for all ages.</div>
           </details>
           <details class="faq">
