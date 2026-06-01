@@ -137,7 +137,7 @@
   img{display:block;max-width:100%;}
 
   /* IMAGE LAYERS — photos sit behind existing gradient overlays */
-  .card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border-radius:var(--radius);}
   .event-card .card-img{z-index:0;}
   .media-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,39,45,.2),rgba(13,39,45,.8));}
   .venue-visual::after,.core-visual::after{z-index:1;}
@@ -257,11 +257,11 @@
   .age .sec-head .lead{color:rgba(233,228,224,.7);}
   .age .pill{background:rgba(233,228,224,.1);border-color:rgba(233,228,224,.2);color:var(--cream);}
   .age-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .age-card{position:relative;border-radius:var(--radius);overflow:hidden;min-height:360px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transition:transform .25s;}
+  .age-card{position:relative;border-radius:var(--radius);overflow:hidden;min-height:360px;padding:40px 30px 30px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transition:transform .25s;}
   .age-card:hover{transform:translateY(-6px);}
   .age-card .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,39,45,.15),rgba(13,39,45,.8));z-index:1;}
   .age-card>*{position:relative;z-index:2;}
-  .age-card .band{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:54px;font-weight:600;line-height:1;}
+  .age-card .band{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:54px;font-weight:600;line-height:1;margin-bottom:14px;}
   .age-card .band span{font-size:18px;opacity:.7;display:block;font-family:'Cabrio','Familjen Grotesk';font-weight:500;margin-top:4px;letter-spacing:.02em;}
   .age-card .name{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:30px;font-weight:600;}
   .age-card .desc{font-size:14px;opacity:.9;margin:8px 0 18px;line-height:1.55;}
@@ -273,7 +273,7 @@
 
   /* TIER 3: SENSORY + ASL */
   .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-  .access-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:42px;display:flex;flex-direction:column;}
+  .access-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:42px;display:flex;flex-direction:column;overflow:hidden;}.access-photo{margin:-42px -42px 30px;aspect-ratio:21/9;overflow:hidden;}.access-photo img{width:100%;height:100%;object-fit:cover;display:block;}
   .access-card .icon{width:56px;height:56px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:grid;place-items:center;font-size:24px;margin-bottom:24px;}
   .access-card h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-size:30px;font-weight:600;color:var(--charcoal);margin-bottom:12px;line-height:1.1;}
   .access-card p{color:var(--muted);font-size:15.5px;line-height:1.65;margin-bottom:24px;flex:1;}
@@ -587,13 +587,13 @@
       <p class="lead">We believe live theater should be open to every audience — so we build experiences that make sure of it.</p>
     </div>
     <div class="access-grid">
-      <div class="access-card reveal">
+      <div class="access-card reveal"><figure class="access-photo"><picture><source type="image/webp" srcset="/img/gallery/aristocats-company.webp"><img src="/img/gallery/aristocats-company.jpg" alt="A warm, full-company moment from an Encore production" loading="lazy" decoding="async"></picture></figure>
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 18.6l-5.88 3.1 1.12-6.55L2.48 9.52l6.58-.96z"/></svg></div>
         <h3>Sensory-Friendly Performances</h3>
         <p>A welcoming production for individuals with sensory needs, including people on the autism spectrum, first-time theatergoers, and young guests. Shows are modified for patron movement, our staff and actors are trained to accommodate needs, and everyone is welcome in a safe, non-judgmental environment.</p>
         <a href="/sensory-friendly-performances" class="lnk">Learn about Sensory-Friendly shows →</a>
       </div>
-      <div class="access-card reveal">
+      <div class="access-card reveal"><figure class="access-photo"><picture><source type="image/webp" srcset="/img/gallery/peter-pan-neverland.webp"><img src="/img/gallery/peter-pan-neverland.jpg" alt="Encore performers on stage during a full-company production" loading="lazy" decoding="async"></picture></figure>
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
         <h3>ASL Interpreted Performances</h3>
         <p>Select performances are interpreted in American Sign Language so our Deaf and hard-of-hearing patrons can experience the full magic of live theater. We're committed to making every story accessible to every audience in our community.</p>
@@ -749,7 +749,7 @@
 <section class="encph-band" aria-label="Where young performers find their spotlight"><img src="/img/gallery/newsies-company.jpg" alt="Encore's cast performing a dance number from Newsies in front of a giant newspaper backdrop"><div class="encph-bandinner"><div class="wrapx"><span>Encore Performing Arts</span><h2>Where young performers find their spotlight</h2><p>Auditions, classes, and full productions for ages 7 to 18 in St. George, Utah.</p></div></div></section>
 
 <!-- [PHOTOS] gallery -->
-<section class="encph" aria-label="Moments from Encore"><div class="wrap"><div class="encph-head"><span class="encph-kicker">On our stage</span><h2>Moments from Encore</h2><p>A look at recent productions across our youth companies.</p></div><div class="encph-grid"><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-storefront.webp"><img src="/img/gallery/music-man-storefront.jpg" alt="Encore's cast performing a street scene from The Music Man in front of period storefronts" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/soloist-spotlight.webp"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young Encore performer singing in the spotlight" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">In the spotlight</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/peter-pan-wendy.webp"><img src="/img/gallery/peter-pan-wendy.jpg" alt="Peter Pan and Wendy on stage in Encore's production of Peter Pan" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Peter and Wendy</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/hadestown-finale.webp"><img src="/img/gallery/hadestown-finale.jpg" alt="The finale of Encore's production of Hadestown" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The finale</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-liberty.webp"><img src="/img/gallery/music-man-liberty.jpg" alt="A patriotic celebration scene from Encore's The Music Man, featuring a Statue of Liberty costume" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">A grand parade</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/young-performer-broom.webp"><img src="/img/gallery/young-performer-broom.jpg" alt="A young Encore performer in costume on stage" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">On stage</figcaption></figure></div></div></section>
+<section class="encph" aria-label="Moments from Encore"><div class="wrap"><div class="encph-head"><span class="encph-kicker">On our stage</span><h2>Moments from Encore</h2><p>A look at recent productions across our youth companies.</p></div><div class="encph-grid"><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-storefront.webp"><img src="/img/gallery/music-man-storefront.jpg" alt="Encore's cast performing a street scene from The Music Man in front of period storefronts" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/soloist-spotlight.webp"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young performer in Encore's production of Hadestown" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Hadestown</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/peter-pan-wendy.webp"><img src="/img/gallery/peter-pan-wendy.jpg" alt="Peter Pan and Wendy on stage in Encore's production of Peter Pan" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Peter Pan</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/beauty-and-the-beast-tavern.webp"><img src="/img/gallery/beauty-and-the-beast-tavern.jpg" alt="Encore performers in a tavern scene from Beauty and the Beast" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Beauty and the Beast</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-liberty.webp"><img src="/img/gallery/music-man-liberty.jpg" alt="A patriotic celebration scene from Encore's The Music Man, featuring a Statue of Liberty costume" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/young-performer-broom.webp"><img src="/img/gallery/young-performer-broom.jpg" alt="A young performer in costume in Encore's production of Les Misérables" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Les Miserables</figcaption></figure></div></div></section>
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -767,7 +767,7 @@
         <h5>Explore</h5>
         <a href="/#events">What's On</a>
         <a href="/#age">Programs by Age</a>
-        <a href="/#access">Accessibility</a>
+        <a href="/#access">Accessibility</a><a href="/sensory-friendly-performances">Sensory-Friendly</a><a href="/asl-interpreted-performances">ASL Interpreted</a>
         <a href="/page-to-stage">Page to Stage</a>
         <a href="/blog">Past Shows</a>
         <a href="/blog">Blog</a>
