@@ -290,6 +290,7 @@
   /* GALLERY */
   .gallery{padding:80px 0;}
   .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px;}
+  .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .gal{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#2c6e7d,#17424c);}
   .gal::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   .gal.big{grid-row:1 / span 2;background:linear-gradient(155deg,#1d4f5a,#0d272d);}
@@ -683,13 +684,11 @@
         <p class="lead">A look at performances, rehearsals, and the building itself.</p>
       </div>
       <div class="gallery-grid reveal">
-        <figure class="gal big">
-          <figcaption>Frozen Jr. cast on stage</figcaption>
-        </figure>
-        <figure class="gal g2"><figcaption>The historic facade</figcaption></figure>
-        <figure class="gal g3"><figcaption>House view from balcony</figcaption></figure>
-        <figure class="gal g4"><figcaption>Classroom rehearsal</figcaption></figure>
-        <figure class="gal g5"><figcaption>Backstage</figcaption></figure>
+        <figure class="gal big"><img src="/img/gallery/beauty-and-the-beast-wardrobe.jpg" alt="Encore performers in Disney's Beauty and the Beast on stage at the Electric Theater" loading="lazy"><figcaption>Beauty and the Beast</figcaption></figure>
+        <figure class="gal g2"><img src="/img/gallery/hadestown-company.jpg" alt="The company of Hadestown performing at the Electric Theater" loading="lazy"><figcaption>Hadestown</figcaption></figure>
+        <figure class="gal g3"><img src="/img/gallery/a-christmas-carol-ensemble.jpg" alt="The ensemble of A Christmas Carol dancing on stage at the Electric Theater" loading="lazy"><figcaption>A Christmas Carol</figcaption></figure>
+        <figure class="gal g4"><img src="/img/gallery/mary-poppins-returns.jpg" alt="Young Encore performers in Mary Poppins Returns at the Electric Theater" loading="lazy"><figcaption>Mary Poppins Returns</figcaption></figure>
+        <figure class="gal g5"><img src="/img/gallery/aristocats-company.jpg" alt="Encore cast members in Aristocats at the Electric Theater" loading="lazy"><figcaption>Aristocats</figcaption></figure>
       </div>
     </div>
   </section>
