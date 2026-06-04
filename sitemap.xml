@@ -31,6 +31,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.encorepa.org/camps</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.encorepa.org/junior</loc>
     <lastmod>2026-05-29</lastmod>
     <priority>0.7</priority>
@@ -123,8 +128,4 @@
   <url><loc>https://www.encorepa.org/blog/kicking-off-chitty-chitty-bang-bang</loc><lastmod>2025-10-08</lastmod><priority>0.5</priority></url>
   <url><loc>https://www.encorepa.org/blog/the-historic-electric-theater-in-st-george-utah</loc><lastmod>2024-06-27</lastmod><priority>0.5</priority></url>
   <url><loc>https://www.encorepa.org/core-community</loc><priority>0.6</priority></url>
-  <url>
-    <loc>https://www.encorepa.org/programs</loc>
-    <priority>0.8</priority>
-  </url>
 </urlset>
