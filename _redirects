@@ -1,3 +1,5 @@
+/little-women        /little-women-2026    301
+/littlewomen         /little-women-2026    301
 # ============================================================
 # Encore Performing Arts — 301 redirect map (Netlify)
 # Format:   from-path   to-path   status
@@ -33,13 +35,10 @@
 # internal pages as each is built). Using 302 (temporary) on purpose.
 # /donate now served by donate.html (local page) — redirect removed on rebuild
 # /contact now served by contact.html (local page) — redirect removed on rebuild
-/core-community                  https://www.encorepa.org/core-community                  302
 # /encore-scholarship-application now served locally — redirect removed on rebuild
 # /sensory-friendly-performances now served locally — redirect removed on rebuild
 /terms-and-conditions            https://www.encorepa.org/terms-and-conditions            302
 /privacy-policy                  https://www.encorepa.org/privacy-policy                  302
-/blog                            https://www.encorepa.org/blog                            302
-/blog/*                          https://www.encorepa.org/blog/:splat                     302
 
 # Internal interims -> closest built page
 /back-to-the-future              /page-to-stage           302
