@@ -530,6 +530,31 @@
   @media (hover:hover) and (prefers-reduced-motion:no-preference){
     .encph-fig:hover img,.gal:hover img,.prog-photo:hover img,.tmember .photo:hover img,.post-card:hover .ph img,.post-feat:hover img,.sh-art:hover img,.access-photo:hover img,.aud-invite-photo:hover img,.intro-split .ph:hover img,.ocard:hover .mc-bg img,.event:hover .mc-bg img,.trip:hover .mc-bg img,.event-card:hover .card-img,.block:hover .card-img,.block-media:hover .card-img{transform:scale(1.05);}
   }
+
+  /* FIVE YEARS / LEGACY */
+  .fyc{padding:90px 0;}
+  .fyc .fyc-kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+  .fyc h2{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.03em;color:#123139;max-width:760px;}
+  .fyc .fyc-stats{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .fyc .fyc-stat{border:1px solid var(--line);border-radius:var(--radius);padding:34px 24px;text-align:center;background:var(--paper);}
+  .fyc .fyc-stat .n{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:800;font-size:clamp(34px,4vw,46px);line-height:1;color:var(--teal);letter-spacing:-.01em;}
+  .fyc .fyc-stat .l{margin-top:12px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .fyc .fyc-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .fyc .fyc-quote{display:flex;flex-direction:column;}
+  .fyc blockquote{font-family:'Familjen Grotesk',sans-serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.5vw,29px);line-height:1.32;color:#123139;}
+  .fyc cite{margin-top:22px;font-style:normal;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .fyc .fyc-more{margin-top:34px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--teal);border-bottom:2px solid currentColor;padding-bottom:2px;}
+  .fyc .fyc-more span,.fyc .fyc-card a span{transition:transform .2s ease;}
+  .fyc .fyc-more:hover span,.fyc .fyc-card a:hover span{transform:translateX(4px);}
+  .fyc .fyc-cards{display:flex;flex-direction:column;gap:18px;}
+  .fyc .fyc-card{border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;background:var(--paper);}
+  .fyc .fyc-card .top{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
+  .fyc .fyc-card .ic{width:24px;height:24px;flex:none;}
+  .fyc .fyc-card h3{font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:20px;color:#123139;line-height:1.15;}
+  .fyc .fyc-card p{color:#3f5358;font-size:15px;line-height:1.6;}
+  .fyc .fyc-card a{margin-top:15px;display:inline-flex;align-items:center;gap:7px;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--teal);border-bottom:2px solid currentColor;padding-bottom:1px;}
+  @media(max-width:900px){.fyc .fyc-stats{grid-template-columns:1fr 1fr;}.fyc .fyc-grid{grid-template-columns:1fr;gap:38px;}}
+  @media(max-width:520px){.fyc .fyc-stats{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -856,6 +881,39 @@
   </div>
 </section>
 
+<!-- TIER 4b-2: FIVE YEARS / LEGACY -->
+<section class="fyc reveal" aria-labelledby="fyc-h">
+  <div class="wrap">
+    <span class="fyc-kicker">Five years, counting</span>
+    <h2 id="fyc-h">Built by Southern Utah, for Southern Utah's Young Artists.</h2>
+    <div class="fyc-stats">
+      <div class="fyc-stat"><div class="n">500+</div><div class="l">Students Trained</div></div>
+      <div class="fyc-stat"><div class="n">50+</div><div class="l">Productions</div></div>
+      <div class="fyc-stat"><div class="n">15k+</div><div class="l">Audience Members</div></div>
+      <div class="fyc-stat"><div class="n">120</div><div class="l">Scholarships Awarded</div></div>
+    </div>
+    <div class="fyc-grid">
+      <div class="fyc-quote">
+        <blockquote>"My daughter walked in barely able to look an adult in the eye. Two seasons later she's leading warm-ups. Encore didn't just teach her to perform &mdash; it taught her she matters."</blockquote>
+        <cite>&mdash; Encore Parent</cite>
+        <a class="fyc-more" href="#moments">See our past productions <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="fyc-cards">
+        <div class="fyc-card">
+          <div class="top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#e07a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><h3>Sensory-Friendly Performances</h3></div>
+          <p>Modified shows that welcome every patron &mdash; sensory needs, first-timers, and young guests.</p>
+          <a href="/sensory-friendly-performances">Learn more <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="fyc-card">
+          <div class="top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#123139" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.7 7 22l5-3 5 3-1.5-8.3"/></svg><h3>Encore Scholarships</h3></div>
+          <p>No Young Artist is turned away for cost. Need-based scholarships, every season.</p>
+          <a href="/encore-scholarship-application">Apply <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TIER 4c: SUPPORT BLOCKS -->
 <section>
   <div class="wrap">
@@ -910,7 +968,7 @@
 <section class="encph-band" aria-label="Where young performers find their spotlight"><img src="/img/gallery/newsies-company.jpg" alt="Encore's cast performing a dance number from Newsies in front of a giant newspaper backdrop"><div class="encph-bandinner"><div class="wrapx"><span>Encore Performing Arts</span><h2>Where young performers find their spotlight</h2><p>Auditions, classes, and full productions for ages 7 to 18 in St. George, Utah.</p></div></div></section>
 
 <!-- [PHOTOS] gallery -->
-<section class="encph" aria-label="Moments from Encore"><div class="wrap"><div class="encph-head"><span class="encph-kicker">On our stage</span><h2>Moments from Encore</h2><p>A look at recent productions across our youth companies.</p></div><div class="encph-grid"><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-storefront.webp"><img src="/img/gallery/music-man-storefront.jpg" alt="Encore's cast performing a street scene from The Music Man in front of period storefronts" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/soloist-spotlight.webp"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young performer in Encore's production of Hadestown" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Hadestown</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/peter-pan-wendy.webp"><img src="/img/gallery/peter-pan-wendy.jpg" alt="Peter Pan and Wendy on stage in Encore's production of Peter Pan" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Peter Pan</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/beauty-and-the-beast-tavern.webp"><img src="/img/gallery/beauty-and-the-beast-tavern.jpg" alt="Encore performers in a tavern scene from Beauty and the Beast" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Beauty and the Beast</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-liberty.webp"><img src="/img/gallery/music-man-liberty.jpg" alt="A patriotic celebration scene from Encore's The Music Man, featuring a Statue of Liberty costume" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/young-performer-broom.webp"><img src="/img/gallery/young-performer-broom.jpg" alt="A young performer in costume in Encore's production of Les Misérables" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Les Miserables</figcaption></figure></div></div></section>
+<section class="encph" id="moments" aria-label="Moments from Encore"><div class="wrap"><div class="encph-head"><span class="encph-kicker">On our stage</span><h2>Moments from Encore</h2><p>A look at recent productions across our youth companies.</p></div><div class="encph-grid"><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-storefront.webp"><img src="/img/gallery/music-man-storefront.jpg" alt="Encore's cast performing a street scene from The Music Man in front of period storefronts" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">The Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/soloist-spotlight.webp"><img src="/img/gallery/soloist-spotlight.jpg" alt="A young performer in Encore's production of Hadestown" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Hadestown</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/peter-pan-wendy.webp"><img src="/img/gallery/peter-pan-wendy.jpg" alt="Peter Pan and Wendy on stage in Encore's production of Peter Pan" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Peter Pan</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/beauty-and-the-beast-tavern.webp"><img src="/img/gallery/beauty-and-the-beast-tavern.jpg" alt="Encore performers in a tavern scene from Beauty and the Beast" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Beauty and the Beast</figcaption></figure><figure class="encph-fig"><picture><source type="image/webp" srcset="/img/gallery/music-man-liberty.webp"><img src="/img/gallery/music-man-liberty.jpg" alt="A patriotic celebration scene from Encore's The Music Man, featuring a Statue of Liberty costume" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Music Man</figcaption></figure><figure class="encph-fig por"><picture><source type="image/webp" srcset="/img/gallery/young-performer-broom.webp"><img src="/img/gallery/young-performer-broom.jpg" alt="A young performer in costume in Encore's production of Les Misérables" loading="lazy" decoding="async"></picture><figcaption class="encph-cap">Les Miserables</figcaption></figure></div></div></section>
 <footer>
   <div class="wrap">
     <div class="foot-top">
