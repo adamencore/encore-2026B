@@ -523,12 +523,12 @@
   .shopprog .sp-foot-link{display:inline-flex;align-items:center;gap:8px;font-family:'Cabrio','Familjen Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--teal);}
   .shopprog .sp-foot-link span{transition:transform .2s ease;}
   .shopprog .sp-foot-link:hover span{transform:translateX(4px);}
-
-  /* IMGHOVER v1 — site-wide image zoom-on-hover (matches Shop Programs photos) */
+  /* IMGHOVER v2 — site-wide image settle-on-hover (big to small, matches Shop Programs photos) */
   .encph-fig,.gal,.prog-photo,.tmember .photo,.post-card .ph,.post-feat,.sh-art,.access-photo,.aud-invite-photo,.intro-split .ph,.ocard .mc-bg,.event .mc-bg,.trip .mc-bg,.event-card,.block,.block-media{overflow:hidden;}
-  .encph-fig img,.gal img,.prog-photo img,.tmember .photo img,.post-card .ph img,.post-feat img,.sh-art img,.access-photo img,.aud-invite-photo img,.intro-split .ph img,.ocard .mc-bg img,.event .mc-bg img,.trip .mc-bg img,.card-img{transition:transform .7s ease;}
+  .encph-fig img,.gal img,.prog-photo img,.tmember .photo img,.post-card .ph img,.post-feat img,.sh-art img,.access-photo img,.aud-invite-photo img,.intro-split .ph img,.ocard .mc-bg img,.event .mc-bg img,.trip .mc-bg img,.card-img{transition:transform 1.1s ease;}
   @media (hover:hover) and (prefers-reduced-motion:no-preference){
-    .encph-fig:hover img,.gal:hover img,.prog-photo:hover img,.tmember .photo:hover img,.post-card:hover .ph img,.post-feat:hover img,.sh-art:hover img,.access-photo:hover img,.aud-invite-photo:hover img,.intro-split .ph:hover img,.ocard:hover .mc-bg img,.event:hover .mc-bg img,.trip:hover .mc-bg img,.event-card:hover .card-img,.block:hover .card-img,.block-media:hover .card-img{transform:scale(1.05);}
+    .encph-fig img,.gal img,.prog-photo img,.tmember .photo img,.post-card .ph img,.post-feat img,.sh-art img,.access-photo img,.aud-invite-photo img,.intro-split .ph img,.ocard .mc-bg img,.event .mc-bg img,.trip .mc-bg img,.card-img{transform:scale(1.05);}
+    .encph-fig:hover img,.gal:hover img,.prog-photo:hover img,.tmember .photo:hover img,.post-card:hover .ph img,.post-feat:hover img,.sh-art:hover img,.access-photo:hover img,.aud-invite-photo:hover img,.intro-split .ph:hover img,.ocard:hover .mc-bg img,.event:hover .mc-bg img,.trip:hover .mc-bg img,.event-card:hover .card-img,.block:hover .card-img,.block-media:hover .card-img{transform:scale(1);}
   }
 
   /* FIVE YEARS / LEGACY */
