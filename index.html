@@ -144,7 +144,8 @@
   .venue-visual .card-img{object-position:center top;}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   /* event/program posters: finished graphics show full-bleed, no scrim, pill only */
-  .event-card.poster{aspect-ratio:4/3;min-height:0;background:var(--cream);}
+  .event-card.poster{aspect-ratio:4/3;min-height:0;background:transparent;padding:0;}
+  .event-card.poster .card-img{position:absolute;inset:0;width:100%;height:100%;border-radius:var(--radius);}
   .event-card.poster .ov{display:none;}
 
   /* NAV — fixed, transparent over hero, solidifies + recolors on scroll */
@@ -532,8 +533,8 @@
   <div class="hero-inner">
     <div class="hero-bottom">
       <span class="hero-eyebrow">Youth Musical Theater · Southern Utah</span>
-      <h1>What's <em>on stage</em> right now at Encore</h1>
-      <p>Current auditions, upcoming performances, and tickets — everything happening this season, all in one place.</p>
+      <h1>We teach life skills through <em>stage skills</em>.</h1>
+      <p>Professional musical theater training for Young Artists — where confidence is rehearsed and every performer finds their stage.</p>
       <div class="hero-actions">
         <a href="/tickets" class="btn btn-light">Buy Tickets →</a>
         <a href="#age" class="btn btn-ghost">Take a Class</a>
