@@ -31,18 +31,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.encorepa.org/camps</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.encorepa.org/junior</loc>
     <lastmod>2026-05-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.encorepa.org/emerging-artists</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.encorepa.org/senior</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
