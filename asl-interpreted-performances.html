@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-
+<!-- ============================================================
+     ASL-INTERPRETED PERFORMANCES — /asl-interpreted-performances
+     Sibling of the sensory page (shared teal chrome + Netlify form).
+     Sections: 1 Hero (photo banner)  2 What it is (photo split)
+       3 Why we do this  4 Interest email list (asl-interest-list)
+       5 Interpreter recruitment (mailto hello@encorepa.org)
+       6 Photo gallery  7 FAQ  8 Contact CTA
+     >>> ADAM, drop in real photos where marked PHOTO / [GALLERY].
+     Email list uses NETLIFY FORMS (name="asl-interest-list").
+     ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,7 +16,7 @@
 
 <!-- ========== CORE META ========== -->
 <title>ASL-Interpreted Performances | Encore Performing Arts, St. George UT</title>
-<meta name="description" content="Encore offers ASL-interpreted performances in St. George, Utah, so Deaf and hard-of-hearing guests can experience the full magic of live youth theater.">
+<meta name="description" content="Encore Performing Arts offers ASL-interpreted performances on select shows in St. George, Utah — live American Sign Language interpretation so Deaf and hard-of-hearing patrons can fully experience live theater.">
 <link rel="canonical" href="https://www.encorepa.org/asl-interpreted-performances">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Encore Performing Arts">
@@ -182,7 +191,7 @@
   img{display:block;max-width:100%;}
 
   /* NAV */
-  nav.site{position:sticky;top:0;z-index:100;background:rgba(246,245,243,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  nav.site{position:sticky;top:var(--annc-h,42px);z-index:100;background:rgba(246,245,243,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;}
   .logo{display:flex;align-items:center;gap:11px;color:var(--charcoal);}
   .brandmark{height:30px;width:auto;display:block;}
@@ -434,9 +443,34 @@
   .intro-split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   @media(max-width:860px){.intro-split{grid-template-columns:1fr;}.intro-split .ph{min-height:260px;}}
+  /* ANNOUNCEMENT BAR */
+  .annc{position:sticky;top:0;z-index:170;background:#348193;color:#fff;height:42px;display:flex;align-items:center;font-family:'Cabrio','Familjen Grotesk',sans-serif;}
+  .annc.hide{display:none;}
+  .annc-in{max-width:1320px;margin:0 auto;width:100%;padding:0 44px;display:flex;align-items:center;justify-content:center;position:relative;}
+  .annc-link{color:#fff;font-size:14px;font-weight:600;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;}
+  .annc-link:hover{text-decoration:underline;text-underline-offset:2px;}
+  .annc-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;opacity:.85;padding:2px 6px;}
+  .annc-x:hover{opacity:1;}
+  @media(max-width:560px){.annc-link{font-size:13px;}.annc-in{padding:0 38px;}}
+  /* IMGHOVER v2 — site-wide image settle-on-hover (big to small, matches Shop Programs photos) */
+  .encph-fig,.gal,.prog-photo,.tmember .photo,.post-card .ph,.post-feat,.sh-art,.access-photo,.aud-invite-photo,.intro-split .ph,.ocard .mc-bg,.event .mc-bg,.trip .mc-bg,.event-card,.block,.block-media{overflow:hidden;}
+  .encph-fig img,.gal img,.prog-photo img,.tmember .photo img,.post-card .ph img,.post-feat img,.sh-art img,.access-photo img,.aud-invite-photo img,.intro-split .ph img,.ocard .mc-bg img,.event .mc-bg img,.trip .mc-bg img,.card-img{transition:transform 1.1s ease;}
+  @media (hover:hover) and (prefers-reduced-motion:no-preference){
+    .encph-fig img,.gal img,.prog-photo img,.tmember .photo img,.post-card .ph img,.post-feat img,.sh-art img,.access-photo img,.aud-invite-photo img,.intro-split .ph img,.ocard .mc-bg img,.event .mc-bg img,.trip .mc-bg img,.card-img{transform:scale(1.05);}
+    .encph-fig:hover img,.gal:hover img,.prog-photo:hover img,.tmember .photo:hover img,.post-card:hover .ph img,.post-feat:hover img,.sh-art:hover img,.access-photo:hover img,.aud-invite-photo:hover img,.intro-split .ph:hover img,.ocard:hover .mc-bg img,.event:hover .mc-bg img,.trip:hover .mc-bg img,.event-card:hover .card-img,.block:hover .card-img,.block-media:hover .card-img{transform:scale(1);}
+  }
 </style>
 </head>
 <body>
+<!-- ANNOUNCEMENT BAR -->
+<div class="annc" id="anncBar" role="region" aria-label="Site announcement">
+  <div class="annc-in">
+    <a class="annc-link" href="/auditions">Now casting &mdash; auditions are open &rarr;</a>
+    <button class="annc-x" type="button" aria-label="Dismiss announcement">&times;</button>
+  </div>
+</div>
+<script>(function(){var b=document.getElementById("anncBar"),K="encoreAnnc_v1";if(!b)return;function off(){b.classList.add("hide");document.documentElement.style.setProperty("--annc-h","0px");}try{if(localStorage.getItem(K)==="1")off();}catch(e){}var x=b.querySelector(".annc-x");if(x)x.addEventListener("click",function(){off();try{localStorage.setItem(K,"1")}catch(e){}});})();</script>
+
 
 <!-- ========== NAV ========== -->
 <nav class="site" aria-label="Primary">
